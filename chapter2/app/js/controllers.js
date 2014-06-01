@@ -257,7 +257,7 @@ angular.module('7minWorkout.controllers', [])
       //});
 
       var workoutComplete = function () {
-          $location.$path('/finish');
+          $location.path('/finish');
       }
 
       var init = function () {
