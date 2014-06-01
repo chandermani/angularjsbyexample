@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('7minWorkout.controllers', [])
-  .controller('WorkoutController', ['$scope', '$interval', function ($scope, $interval) {
+  .controller('WorkoutController', ['$scope', '$interval', '$location', function ($scope, $interval, $location) {
       console.log('WorkoutController created.');
       function WorkoutPlan() {
           this.exercises = [];
@@ -152,7 +152,8 @@ angular.module('7minWorkout.controllers', [])
               duration: 30
           });
           this.restBetweenExercise = 10;
-      }
+      };
+
       function Exercise(args) {
           this.name = args.name;
           this.title = args.title;
@@ -218,10 +219,10 @@ angular.module('7minWorkout.controllers', [])
                   startExercise(nextPlan);
               }
               else {
-                  $scope.workoutComplete = true;
+                  workoutComplete();
               }
           });
-      }
+      };
 
       var getNextExercise = function (currentExercisePlan) {
           var nextExercise = null;
@@ -254,6 +255,10 @@ angular.module('7minWorkout.controllers', [])
       //        }
       //    }
       //});
+
+      var workoutComplete = function () {
+          $location.$path('/finish');
+      }
 
       var init = function () {
           startWorkout();

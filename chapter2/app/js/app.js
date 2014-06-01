@@ -9,5 +9,6 @@ angular.module('7minWorkout', [
 config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/start', { templateUrl: 'partials/start.html'});
     $routeProvider.when('/workout', { templateUrl: 'partials/workout.html', controller: 'WorkoutController' });
+    $routeProvider.when('/finish', { templateUrl: 'partials/finish.html' });
     $routeProvider.otherwise({ redirectTo: '/start' });
 }]);
