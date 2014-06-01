@@ -173,7 +173,7 @@ angular.module('7minWorkout.controllers', [])
                   name: "rest",
                   title: "Rest",
                   description: "Discription about resting :)",
-                  image: "imageUrl",
+                  image: "img/rest.png",
 
               }),
               duration: $scope.workoutPlan.restBetweenExercise

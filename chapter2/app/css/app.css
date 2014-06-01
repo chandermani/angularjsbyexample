@@ -106,6 +106,8 @@ input[type="checkbox"].input-validation-error {
 }
 .workout-display-div .img-responsive{
     margin: 25px auto;
+    width:540px;
+    height:360px;
     cursor:pointer;
 }
 .workout-display-div .time-progess{
