@@ -4,7 +4,7 @@
             <div class="workout-display-div">
                 <h1>{{currentExercise.exercise.title}}</h1>
                 <img class="img-responsive" ng-src="{{currentExercise.exercise.image}}"  />
-                <div class="progress time-progess">
+                <div class="progress time-progress">
                     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="{{currentExercise.duration}}" ng-style="{'width':(100 - (currentExerciseDuration/currentExercise.duration) * 100) + '%'}">
                     </div>
                 </div>
