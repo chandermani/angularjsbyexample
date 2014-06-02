@@ -144,7 +144,7 @@ angular.module('7minWorkout.controllers', [])
                   name: "sidePlank",
                   title: "Side Plank",
                   description: "Side Plank.",
-                  image: "img/sideplank.jpg",
+                  image: "img/sideplank.png",
                   videos: [],
                   variations: [],
 
