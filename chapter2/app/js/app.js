@@ -2,9 +2,9 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('7minWorkout', [
+angular.module('app', [
   'ngRoute',
-  '7minWorkout.controllers'
+  '7minWorkout'
 ]).
 config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/start', { templateUrl: 'partials/start.html'});

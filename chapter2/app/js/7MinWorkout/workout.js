@@ -2,11 +2,13 @@
 
 /* Controllers */
 
-angular.module('7minWorkout.controllers', [])
+angular.module('7minWorkout', [])
   .controller('WorkoutController', ['$scope', '$interval', '$location', function ($scope, $interval, $location) {
       console.log('WorkoutController created.');
       function WorkoutPlan() {
           this.exercises = [];
+          this.name = "7minWorkout";
+          this.title = "7 Minute Workout";
           this.exercises.push({
               exercise: new Exercise({
                   name: "jumpingJacks",
@@ -15,7 +17,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/JumpingJacks.png",
                   videos: [],
                   variations: [],
-                  procedure:""
+                  procedure: ""
               }),
               duration: 30
           });
