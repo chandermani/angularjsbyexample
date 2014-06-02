@@ -15,7 +15,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/JumpingJacks.png",
                   videos: [],
                   variations: [],
-
+                  procedure:""
               }),
               duration: 30
           });
@@ -37,9 +37,9 @@ angular.module('7minWorkout.controllers', [])
                   title: "Push Up",
                   description: "Discription about pushup.",
                   image: "img/pushup.png",
-                  videos: [],
-                  variations: [],
-
+                  videos: ["https://www.youtube.com/watch?v=Eh00_rniF8E", "https://www.youtube.com/watch?v=ZWdBqFLNljc", "https://www.youtube.com/watch?v=UwRLWMcOdwI", "https://www.youtube.com/watch?v=ynPwl6qyUNM", "https://www.youtube.com/watch?v=OicNTT2xzMI"],
+                  variations: ["Planche push-ups", "Knuckle push-ups", "Maltese push-ups", "One arm versions"],
+                  procedure: ""
               }),
               duration: 30
           });
@@ -51,7 +51,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/crunches.png",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });
@@ -63,7 +63,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/stepUpOntoChair.jpeg",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });
@@ -75,7 +75,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/squat.png",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });
@@ -87,7 +87,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/tricepdips.jpg",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });
@@ -99,7 +99,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/plank.png",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });
@@ -111,7 +111,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/highknees.png",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });
@@ -123,7 +123,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/lunges.png",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });
@@ -135,7 +135,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/pushupNRotate.jpg",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });
@@ -147,7 +147,7 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/sideplank.png",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });
