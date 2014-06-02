@@ -166,9 +166,9 @@ angular.module('7minWorkout.controllers', [])
       }
 
       var restExercise;
-
+      var workoutPlan;
       var startWorkout = function () {
-          $scope.workoutPlan = new WorkoutPlan();
+          workoutPlan = new WorkoutPlan();
           restExercise = {
               exercise: new Exercise({
                   name: "rest",
@@ -177,9 +177,9 @@ angular.module('7minWorkout.controllers', [])
                   image: "img/rest.png",
 
               }),
-              duration: $scope.workoutPlan.restBetweenExercise
+              duration: workoutPlan.restBetweenExercise
           };
-          startExercise($scope.workoutPlan.exercises.shift());
+          startExercise(workoutPlan.exercises.shift());
       };
 
       //$scope.$watch('currentExercise', function (newValue, oldValue) {
@@ -227,10 +227,10 @@ angular.module('7minWorkout.controllers', [])
       var getNextExercise = function (currentExercisePlan) {
           var nextExercise = null;
           if (currentExercisePlan === restExercise) {
-              nextExercise = $scope.workoutPlan.exercises.shift();
+              nextExercise = workoutPlan.exercises.shift();
           }
           else {
-              if ($scope.workoutPlan.exercises.length != 0) {
+              if (workoutPlan.exercises.length != 0) {
                   nextExercise = restExercise;
               }
           }
