@@ -5,5 +5,9 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-angular.module('7minWorkout').
-  value('version', '0.1');
+angular.module('7minWorkout')
+    .value("sevenMinuteWorkout", {})
+    .factory("WorkoutService", [function () {
+    }]);
+
+

@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('7minWorkout', [])
+angular.module('7minWorkout')
   .controller('WorkoutController', ['$scope', '$interval', '$location', function ($scope, $interval, $location) {
       console.log('WorkoutController created.');
       function WorkoutPlan() {
@@ -165,6 +165,7 @@ angular.module('7minWorkout', [])
           this.related = {};
           this.related.videos = args.videos;
           this.related.variations = args.variations;
+          this.nameSound = args.Sound;
       }
 
       var restExercise;
