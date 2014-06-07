@@ -4,7 +4,6 @@
 
 angular.module('7minWorkout')
   .controller('WorkoutController', ['$scope', '$interval', '$location', function ($scope, $interval, $location) {
-      console.log('WorkoutController created.');
       function WorkoutPlan(args) {
           this.exercises = [];
           this.name = args.name;
@@ -41,82 +40,14 @@ angular.module('7minWorkout')
           startExercise(workoutPlan.exercises.shift());
       };
 
-      //$scope.$watch('currentExercise', function (newValue, oldValue) {
-      //    if (newValue && newValue != oldValue) {
-      //        $scope.currentExerciseDuration = 0;
-      //        $interval(function () {
-      //            $scope.currentExerciseDuration = $scope.currentExerciseDuration + 1;
-      //        }, 1000, $scope.currentExercise.duration)
-      //        .then(function () {
-      //            var nextExercise = null;
-      //            if ($scope.currentExercise === restExercise) {
-      //                nextExercise = $scope.workoutPlan.exercises.shift();
-      //            }
-      //            else {
-      //                if ($scope.workoutPlan.exercises.length == 0) {
-      //                    $scope.workoutComplete = true;
-      //                }
-      //                else {
-      //                    nextExercise = restExercise;
-      //                }
-      //            }
-      //            $scope.currentExercise = nextExercise;
-      //        });
-      //    }
-      //});
-
+     
       var startExercise = function (exercisePlan) {
           $scope.currentExercise = exercisePlan;
           $scope.currentExerciseDuration = 0;
           $interval(function () {
               $scope.currentExerciseDuration = $scope.currentExerciseDuration + 1;
-          }, 1000, $scope.currentExercise.duration)
-          .then(function () {
-              var nextPlan = getNextExercise(exercisePlan);
-              if (nextPlan) {
-                  startExercise(nextPlan);
-              }
-              else {
-                  workoutComplete();
-              }
-          });
+          }, 1000, $scope.currentExercise.duration);
       };
-
-      var getNextExercise = function (currentExercisePlan) {
-          var nextExercise = null;
-          if (currentExercisePlan === restExercise) {
-              nextExercise = workoutPlan.exercises.shift();
-          }
-          else {
-              if (workoutPlan.exercises.length != 0) {
-                  nextExercise = restExercise;
-              }
-          }
-          return nextExercise;
-      }
-      //$scope.$watch('currentExerciseDuration', function (newValue, oldValue) {
-      //    if (newValue && newValue != oldValue) {
-      //        if (newValue == $scope.currentExercise.duration) {
-      //            var nextExercise = null;
-      //            if ($scope.currentExercise === restExercise) {
-      //                nextExercise = $scope.workoutPlan.exercises.shift();
-      //            }
-      //            else {
-      //                if ($scope.workoutPlan.exercises.length == 0) {
-      //                    $scope.workoutComplete = true;
-      //                }
-      //                else {
-      //                    nextExercise = restExercise;
-      //                }
-      //            }
-      //            $scope.currentExercise = nextExercise;
-      //        }
-      //    }
-      //});
-
-      var workoutComplete = function () {
-          $location.path('/finish');
-      }
 
       var createWorkout = function () {
           var workout = new WorkoutPlan({
