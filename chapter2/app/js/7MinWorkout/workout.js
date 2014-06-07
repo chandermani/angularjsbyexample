@@ -66,7 +66,6 @@ angular.module('7minWorkout')
       //});
 
       var startExercise = function (exercisePlan) {
-          console.log('starting exercise:' + exercisePlan.exercise.name);
           $scope.currentExercise = exercisePlan;
           $scope.currentExerciseDuration = 0;
           $interval(function () {
