@@ -52,7 +52,7 @@ angular.module('7minWorkout')
                   startExercise(next);
               }
               else {
-                  console.log("Workout complete!")
+                  $location.path('/finish');
               }
           });
       };
