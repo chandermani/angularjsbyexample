@@ -107,7 +107,7 @@ angular.module('7minWorkout')
                   image: "img/wallsit.png",
                   videos: [],
                   variations: [],
-
+                  procedure: ""
               }),
               duration: 30
           });

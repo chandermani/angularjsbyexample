@@ -1,5 +1,7 @@
 <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div id="description-panel" class="col-sm-2" ng-include="partials/description-panel.html">
+    </div>
+    <div id="exercise-pane" class="col-sm-8">
         <div class="row workout-content">
             <div class="workout-display-div">
                 <h1>{{currentExercise.exercise.title}}</h1>
@@ -12,4 +14,12 @@
             </div>
         </div>
     </div>
+    <div id="video-panel" class="col-sm-2" ng-include="video-panel.html">
+
+    </div>
+    <script type="text/ng-template" id="video-panel.html">
+        <div>
+            <div ng-repeat="video in currentExercise.exercise.videos"></div>
+        </div>
+    </script>
 </div>
