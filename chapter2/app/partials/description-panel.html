@@ -1,6 +1,16 @@
 <div>
     <div class="panel panel-default">
         <div class="panel-heading">
+            <h3 class="panel-title">Videos</h3>
+        </div>
+        <div class="panel-body">
+            <div ng-repeat="video in currentExercise.exercise.related.videos">
+            <input ng-model="video" />
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
             <h3 class="panel-title">Description</h3>
         </div>
         <div class="panel-body">
