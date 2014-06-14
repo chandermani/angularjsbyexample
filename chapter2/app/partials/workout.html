@@ -1,7 +1,7 @@
 <div class="row">
-    <div id="description-panel" class="col-sm-2" ng-include="partials/description-panel.html">
+    <div id="description-panel" class="col-sm-2" ng-include="'partials/description-panel.html'">
     </div>
-    <div id="exercise-pane" class="col-sm-8">
+    <div id="exercise-pane" class="col-sm-7">
         <div class="row workout-content">
             <div class="workout-display-div">
                 <h1>{{currentExercise.exercise.title}}</h1>
@@ -14,12 +14,19 @@
             </div>
         </div>
     </div>
-    <div id="video-panel" class="col-sm-2" ng-include="video-panel.html">
+    <div id="video-panel" class="col-sm-3" ng-include="'video-panel.html'">
 
     </div>
     <script type="text/ng-template" id="video-panel.html">
-        <div>
-            <div ng-repeat="video in currentExercise.exercise.videos"></div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Videos</h3>
+            </div>
+            <div class="panel-body">
+                <div ng-repeat="video in currentExercise.exercise.related.videos">
+                    <iframe width="330" height="220" src="{{video}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
     </script>
 </div>
