@@ -27,7 +27,6 @@ angular.module('7minWorkout')
           this.image = args.image;
           this.related = {};
           this.related.videos = args.videos;
-          this.related.variations = args.variations;
           this.nameSound = args.Sound;
           this.procedure = args.procedure;
       }
@@ -108,7 +107,6 @@ angular.module('7minWorkout')
                   description: "A jumping jack or star jump, also called side-straddle hop is a physical jumping exercise.",
                   image: "img/JumpingJacks.png",
                   videos: ["//www.youtube.com/embed/dmYwZH_BNd0", "//www.youtube.com/embed/BABOdJ-2Z6o", "//www.youtube.com/embed/c4DAnQ6DtF8"],
-                  variations: [],
                   procedure: "Assume an erect position, with feet together and arms at your side.\
                             Slightly bend your knees, and propel yourself a few inches into the air.\
                             While in air, bring your legs out to the side about shoulder width or slightly wider.\
@@ -124,7 +122,6 @@ angular.module('7minWorkout')
                   description: "Wall Sit.",
                   image: "img/wallsit.png",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
@@ -136,7 +133,6 @@ angular.module('7minWorkout')
                   description: "Discription about pushup.",
                   image: "img/pushup.png",
                   videos: ["https://www.youtube.com/watch?v=Eh00_rniF8E", "https://www.youtube.com/watch?v=ZWdBqFLNljc", "https://www.youtube.com/watch?v=UwRLWMcOdwI", "https://www.youtube.com/watch?v=ynPwl6qyUNM", "https://www.youtube.com/watch?v=OicNTT2xzMI"],
-                  variations: ["Planche push-ups", "Knuckle push-ups", "Maltese push-ups", "One arm versions"],
                   procedure: ""
               }),
               duration: 30
@@ -148,7 +144,6 @@ angular.module('7minWorkout')
                   description: "Abdominal Crunches.",
                   image: "img/crunches.png",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
@@ -160,7 +155,6 @@ angular.module('7minWorkout')
                   description: "Step Up Onto Chair.",
                   image: "img/stepUpOntoChair.jpeg",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
@@ -172,7 +166,6 @@ angular.module('7minWorkout')
                   description: "Squat.",
                   image: "img/squat.png",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
@@ -184,7 +177,6 @@ angular.module('7minWorkout')
                   description: "Tricep Dips On Chair.",
                   image: "img/tricepdips.jpg",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
@@ -196,7 +188,6 @@ angular.module('7minWorkout')
                   description: "Plank.",
                   image: "img/plank.png",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
@@ -208,7 +199,6 @@ angular.module('7minWorkout')
                   description: "High Knees.",
                   image: "img/highknees.png",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
@@ -220,7 +210,6 @@ angular.module('7minWorkout')
                   description: "Lunges.",
                   image: "img/lunges.png",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
@@ -232,7 +221,6 @@ angular.module('7minWorkout')
                   description: "Pushup And Rotate.",
                   image: "img/pushupNRotate.jpg",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
@@ -244,7 +232,6 @@ angular.module('7minWorkout')
                   description: "Side Plank.",
                   image: "img/sideplank.png",
                   videos: [],
-                  variations: [],
                   procedure: ""
               }),
               duration: 30
