@@ -4,6 +4,7 @@
     <div id="exercise-pane" class="col-sm-7">
         <div class="row workout-content">
             <div class="workout-display-div">
+                <h4>Workout Remaining - {{workoutTimeRemaining | secondsToTime}}</h4>
                 <h1>{{currentExercise.exercise.title}}</h1>
                 <img class="img-responsive" src="{{currentExercise.exercise.image}}" />
                 <div class="progress time-progress">
@@ -11,7 +12,6 @@
                     </div>
                 </div>
                 <h1>Time Remaining: {{currentExercise.duration-currentExerciseDuration}}</h1>
-                <label>{{currentExercise.exercise}}</label>
             </div>
         </div>
     </div>
@@ -19,15 +19,7 @@
 
     </div>
     <script type="text/ng-template" id="video-panel.html">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title">Description</h3>
-            </div>
-            <div class="panel-body">
-                <input ng-model="currentExercise.exercise.description">
-            </div>
-        </div>
-        <div class="panel panel-default">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">Videos</h3>
             </div>
