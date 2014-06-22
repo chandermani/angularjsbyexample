@@ -18,7 +18,7 @@ angular.module('7minWorkout')
           this.image = args.image;
           this.related = {};
           this.related.videos = args.videos;
-          this.nameSound = args.Sound;
+          this.nameSound = args.sound;
           this.procedure = args.procedure;
       }
 
