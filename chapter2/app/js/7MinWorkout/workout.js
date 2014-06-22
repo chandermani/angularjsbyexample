@@ -15,11 +15,10 @@ angular.module('7minWorkout')
           this.name = args.name;
           this.title = args.title;
           this.description = args.description;
-          this.instructions = args.instructions;
           this.image = args.image;
           this.related = {};
           this.related.videos = args.videos;
-          this.nameSound = args.Sound;
+          this.nameSound = args.sound;
           this.procedure = args.procedure;
       }
 
