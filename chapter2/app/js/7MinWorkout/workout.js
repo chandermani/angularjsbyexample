@@ -37,7 +37,7 @@ angular.module('7minWorkout')
           workoutPlan = createWorkout();
           $scope.workoutTimeRemaining = workoutPlan.totalWorkoutDuration();
           restExercise = {
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "rest",
                   title: "Relax!",
                   description: "Relax a bit!",
@@ -100,7 +100,7 @@ angular.module('7minWorkout')
           });
 
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "jumpingJacks",
                   title: "Jumping Jacks",
                   description: "A jumping jack or star jump, also called side-straddle hop is a physical jumping exercise.",
@@ -115,7 +115,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "wallSit",
                   title: "Wall Sit",
                   description: "A wall sit, also known as a Roman Chair, is an exercise done to strengthen the quadriceps muscles.",
@@ -127,7 +127,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "pushUp",
                   title: "Push Up",
                   description: "A push-up is a common exercise performed in a prone position by raising and lowering the body using the arms",
@@ -140,7 +140,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "crunches",
                   title: "Abdominal Crunches",
                   description: "The basic crunch is a abdominal exercise in a strength-training program.",
@@ -156,7 +156,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "stepUpOntoChair",
                   title: "Step Up Onto Chair",
                   description: "Step exercises are ideal for building muscle in your lower body.",
@@ -170,7 +170,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "squat",
                   title: "Squat",
                   description: "The squat is a compound, full body exercise that trains primarily the muscles of the thighs, hips, buttocks and quads.",
@@ -185,7 +185,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "tricepdips",
                   title: "Tricep Dips On Chair",
                   description: "A body weight exercise that targets triceps.",
@@ -199,7 +199,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "plank",
                   title: "Plank",
                   description: "The plank (also called a front hold, hover, or abdominal bridge) is an isometric core strength exercise that involves maintaining a difficult position for extended periods of time. ",
@@ -213,7 +213,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "highKnees",
                   title: "High Knees",
                   description: "A form exercise that develops strength and endurance of the hip flexors and quads and stretches the hip extensors.",
@@ -225,7 +225,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "lunges",
                   title: "Lunges",
                   description: "Lunges are a good exercise for strengthening, sculpting and building several muscles/muscle groups, including the quadriceps (or thighs), the gluteus maximus (or buttocks) as well as the hamstrings. ",
@@ -241,7 +241,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "pushupNRotate",
                   title: "Pushup And Rotate",
                   description: "A variation of pushup that requires you to rotate.",
@@ -253,7 +253,7 @@ angular.module('7minWorkout')
               duration: 30
           });
           workout.exercises.push({
-              exercise: new Exercise({
+              details: new Exercise({
                   name: "sidePlank",
                   title: "Side Plank",
                   description: "A variation to Plank done using one hand only",
