@@ -87,6 +87,9 @@ input[type="checkbox"].input-validation-error {
 /*styles for container - end*/
 
 /*Styles for start page - start*/
+.text-center{
+    color:#4eaded;
+}
 #start{
     text-align:center;
     margin-top:25px;
