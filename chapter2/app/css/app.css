@@ -111,4 +111,10 @@ input[type="checkbox"].input-validation-error {
 .workout-app-container{
     padding-top:15px;
 }
+#video-panel .panel{
+    margin-bottom:0px;
+}
+#video-panel .panel .panel-body{
+    overflow:auto;
+}
 /*Styles for workout page - end*/
