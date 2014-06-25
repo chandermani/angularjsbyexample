@@ -11,10 +11,19 @@
     <link rel="stylesheet" href="css/app.css" />
 </head>
 <body ng-app="app" ng-controller="WorkoutController">
-    <div> Current Exercise: {{currentExercise}} </div>
-    <div> Time Left: {{currentExercise.duration-currentExerciseDuration}}</div>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/7minworkout/workout.js"></script>
+    <div class="navbar navbar-default navbar-fixed-top top-navbar">
+        <div class="container app-container">
+            <div class="navbar-header">
+                <h1>7 Minute Workout</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content app-container">
+        <div> Current Exercise: {{currentExercise}} </div>
+        <div> Time Left: {{currentExercise.duration-currentExerciseDuration}}</div>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/7minworkout/workout.js"></script>
+    </div>
 </body>
 </html>
