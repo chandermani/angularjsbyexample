@@ -2,6 +2,9 @@
     <div id="description-panel" class="col-sm-2" ng-include="'partials/description-panel.html'">
     </div>
     <div id="exercise-pane" class="col-sm-7">
+        <audio media-player="ticksAudio" loop autoplay src="content/tick10s.mp3"></audio>
+        <audio media-player="nextUpAudio" src="content/nextup.mp3"></audio>
+        <audio media-player="nextUpExeciseAudio" playlist="exercisesAudio"></audio>
         <div class="row workout-display-div">
             <h4>Workout Remaining - <strong>{{workoutTimeRemaining | secondsToTime}}</strong></h4>
             <h1>{{currentExercise.details.title}}</h1>
@@ -17,7 +20,6 @@
         </div>
     </div>
     <div id="video-panel" class="col-sm-3" ng-include="'video-panel.html'">
-
     </div>
     <script type="text/ng-template" id="video-panel.html">
         <div class="panel panel-info">
