@@ -72,6 +72,12 @@ angular.module('7minWorkout')
 
           $interval(function () {
               ++$scope.currentExerciseDuration;
+              if ($scope.currentExerciseDuration == $scope.currentExercise.duration / 2 && exercisePlan.details.name != 'rest') {
+                  $scope.halfWayAudio.play();
+              }
+              else if ($scope.currentExerciseDuration == $scope.currentExercise.duration - 3) {
+                  $scope.aboutToCompleteAudio.play();
+              }
           }, 1000, $scope.currentExercise.duration)
           .then(function () {
               var next = getNextExercise(exercisePlan);
