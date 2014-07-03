@@ -2,6 +2,11 @@
     <div id="description-panel" class="col-sm-2" ng-include="'partials/description-panel.html'">
     </div>
     <div id="exercise-pane" class="col-sm-7">
+        <div id="pause-overlay" ng-click="pauseResumeWorkout()">
+            <span class="glyphicon glyphicon-pause pause absolute-center"
+                  ng-class="{'glyphicon-pause' : !workoutPaused, 'glyphicon-play' : workoutPaused}"></span>
+        </div>
+
         <span ng-controller="WorkoutAudioController">
             <audio media-player="ticksAudio" loop autoplay src="content/tick10s.mp3"></audio>
             <audio media-player="nextUpAudio" src="content/nextup.mp3"></audio>
