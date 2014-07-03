@@ -300,18 +300,20 @@ angular.module('7minWorkout')
   .controller('WorkoutAudioController', ['$scope', '$interval', '$location', '$timeout', function ($scope, $interval, $location, $timeout) {
       $scope.$watch('currentExercise', function (newValue, oldValue) {
           if (newValue && newValue != oldValue) {
-              if (exercisePlan.details.name == 'rest') {
-                  $scope.nextUpAudio.play();
+              if ($scope.currentExercise.details.name == 'rest') {
+                  $timeout(function () {
+                      $scope.nextUpAudio.play();
+                  }, 2000);
                   $timeout(function () {
                       $scope.nextUpExeciseAudio.play($scope.currentExerciseIndex + 1, true);
-                  }, 1000);
+                  }, 3000);
               }
           }
       });
 
       $scope.$watch('currentExerciseDuration', function (newValue, oldValue) {
           if (newValue) {
-              if (newValue == $scope.currentExercise.duration / 2 && exercisePlan.details.name != 'rest') {
+              if (newValue == $scope.currentExercise.duration / 2 && $scope.currentExercise.details.name != 'rest') {
                   $scope.halfWayAudio.play();
               }
               else if (newValue == $scope.currentExercise.duration - 3) {
