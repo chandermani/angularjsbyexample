@@ -106,6 +106,13 @@ angular.module('7minWorkout')
           });
           return promise;
       }
+
+      $scope.onKeyPressed = function (event) {
+          if (event.which == 80 || event.which == 112) {        // 'p' or 'P' key to toggle pause and resume.
+              $scope.pauseResumeWorkout();
+          }
+      };
+
       //$scope.$watch('currentExerciseDuration', function (nVal) {
       //    if (nVal == $scope.currentExercise.duration) {
       //        var next = getNextExercise($scope.currentExercise);
