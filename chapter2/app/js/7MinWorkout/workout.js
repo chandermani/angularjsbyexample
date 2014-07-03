@@ -31,7 +31,6 @@ angular.module('7minWorkout')
       }
 
       var restExercise;
-      var currentExerciseIndex;
       var startWorkout = function () {
           $scope.workoutPlan = createWorkout();
           $scope.workoutTimeRemaining = $scope.workoutPlan.totalWorkoutDuration();
@@ -52,7 +51,7 @@ angular.module('7minWorkout')
               $scope.workoutTimeRemaining = $scope.workoutTimeRemaining - 1;
           }, 1000, $scope.workoutTimeRemaining);
 
-          currentExerciseIndex = -1;
+          $scope.currentExerciseIndex = -1;
           startExercise($scope.workoutPlan.exercises.shift());
       };
 
@@ -60,24 +59,12 @@ angular.module('7minWorkout')
           $scope.currentExercise = exercisePlan;
           $scope.currentExerciseDuration = 0;
 
-          if (exercisePlan.details.name == 'rest') {
-              $scope.nextUpAudio.play();
-              $timeout(function () {
-                  $scope.nextUpExeciseAudio.play(currentExerciseIndex + 1, true);
-              }, 1000);
-          }
-          else {
-              currentExerciseIndex++;
+          if (exercisePlan.details.name != 'rest') {
+              $scope.currentExerciseIndex++;
           }
 
           $interval(function () {
               ++$scope.currentExerciseDuration;
-              if ($scope.currentExerciseDuration == $scope.currentExercise.duration / 2 && exercisePlan.details.name != 'rest') {
-                  $scope.halfWayAudio.play();
-              }
-              else if ($scope.currentExerciseDuration == $scope.currentExercise.duration - 3) {
-                  $scope.aboutToCompleteAudio.play();
-              }
           }, 1000, $scope.currentExercise.duration)
           .then(function () {
               var next = getNextExercise(exercisePlan);
@@ -307,4 +294,29 @@ angular.module('7minWorkout')
       };
 
       init();
+  }]);
+
+angular.module('7minWorkout')
+  .controller('WorkoutAudioController', ['$scope', '$interval', '$location', '$timeout', function ($scope, $interval, $location, $timeout) {
+      $scope.$watch('currentExercise', function (newValue, oldValue) {
+          if (newValue && newValue != oldValue) {
+              if (exercisePlan.details.name == 'rest') {
+                  $scope.nextUpAudio.play();
+                  $timeout(function () {
+                      $scope.nextUpExeciseAudio.play($scope.currentExerciseIndex + 1, true);
+                  }, 1000);
+              }
+          }
+      });
+
+      $scope.$watch('currentExerciseDuration', function (newValue, oldValue) {
+          if (newValue) {
+              if (newValue == $scope.currentExercise.duration / 2 && exercisePlan.details.name != 'rest') {
+                  $scope.halfWayAudio.play();
+              }
+              else if (newValue == $scope.currentExercise.duration - 3) {
+                  $scope.aboutToCompleteAudio.play();
+              }
+          }
+      });
   }]);
