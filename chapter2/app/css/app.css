@@ -133,6 +133,7 @@ input[type="checkbox"].input-validation-error {
     font-size:120pt;
     width:140px;
     height:140px;
+    color:#4eaded;
 }
 .absolute-center {
   margin: auto;
