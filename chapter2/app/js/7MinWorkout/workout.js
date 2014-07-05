@@ -34,10 +34,7 @@ angular.module('7minWorkout')
       var startWorkout = function () {
           $scope.workoutPlan = createWorkout();
           $scope.workoutTimeRemaining = $scope.workoutPlan.totalWorkoutDuration();
-          $scope.exercisesAudio = [];
-          angular.forEach($scope.workoutPlan.exercises, function (exercise) {
-              $scope.exercisesAudio.push({ src: exercise.details.nameSound, type: "audio/wav" });
-          });
+
           restExercise = {
               details: new Exercise({
                   name: "rest",
@@ -298,6 +295,11 @@ angular.module('7minWorkout')
 
 angular.module('7minWorkout')
   .controller('WorkoutAudioController', ['$scope', '$interval', '$location', '$timeout', function ($scope, $interval, $location, $timeout) {
+      $scope.exercisesAudio = [];
+      angular.forEach($scope.workoutPlan.exercises, function (exercise) {
+          $scope.exercisesAudio.push({ src: exercise.details.nameSound, type: "audio/wav" });
+      });
+
       $scope.$watch('currentExercise', function (newValue, oldValue) {
           if (newValue && newValue != oldValue) {
               if ($scope.currentExercise.details.name == 'rest') {
