@@ -1,13 +1,13 @@
-﻿<div class="panel panel-info">
+﻿<div class="panel panel-info" ng-controller="WorkoutVideosController">
     <div class="panel-heading">
         <h3 class="panel-title">Videos</h3>
     </div>
     <div class="panel-body">
         <div class="row">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search Videos">
+                <input type="text" class="form-control" placeholder="Search Videos" name="search" ng-model="searchTerm">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Go!</button>
+                    <button class="btn btn-default" type="button" ng-click="findVideos()">Go!</button>
                 </span>
             </div>
         </div>
