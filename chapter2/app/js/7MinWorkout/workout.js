@@ -320,9 +320,12 @@ angular.module('7minWorkout')
 angular.module('7minWorkout')
   .controller('WorkoutAudioController', ['$scope', '$interval', '$location', '$timeout', function ($scope, $interval, $location, $timeout) {
       $scope.exercisesAudio = [];
-      angular.forEach($scope.workoutPlan.exercises, function (exercise) {
-          $scope.exercisesAudio.push({ src: exercise.details.nameSound, type: "audio/wav" });
-      });
+
+      var loadExerciseNameAudio = function () {
+          angular.forEach($scope.workoutPlan.exercises, function (exercise) {
+              $scope.exercisesAudio.push({ src: exercise.details.nameSound, type: "audio/wav" });
+          });
+      }
 
       $scope.$watch('currentExercise', function (newValue, oldValue) {
           if (newValue && newValue != oldValue) {
@@ -362,4 +365,11 @@ angular.module('7minWorkout')
               if ($scope.aboutToCompleteAudio.currentTime > 0 && $scope.aboutToCompleteAudio.currentTime < $scope.aboutToCompleteAudio.duration) $scope.aboutToCompleteAudio.play();
           }
       });
+
+      var init = function () {
+          loadExerciseNameAudio();
+      }
+
+      init();
+
   }]);
