@@ -96,7 +96,7 @@ angular.module('7minWorkout')
       var startExerciseTimeTracking = function () {
           var promise = $interval(function () {
               ++$scope.currentExerciseDuration;
-              $scope.workoutTimeRemaining = $scope.workoutTimeRemaining - 1;
+              --$scope.workoutTimeRemaining;
           }, 1000, $scope.currentExercise.duration - $scope.currentExerciseDuration);
 
           promise.then(function () {
