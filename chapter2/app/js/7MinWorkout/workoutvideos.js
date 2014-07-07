@@ -18,7 +18,7 @@ angular.module('7minWorkout')
           });
       };
       $scope.playVideo = function (videoId) {
-          $scope.pauseResumeWorkout();
+          $scope.pauseWorkout();
           var dailog = $modal.open({
               templateUrl: 'youtube-modal',
               controller: VideoPlayerController,
@@ -29,7 +29,7 @@ angular.module('7minWorkout')
               },
               size: 'lg'
           }).result['finally'](function () {
-              $scope.pauseResumeWorkout();
+              $scope.resumeWorkout();
           });
       };
 
