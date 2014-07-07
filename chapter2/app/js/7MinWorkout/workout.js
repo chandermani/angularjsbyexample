@@ -73,17 +73,26 @@ angular.module('7minWorkout')
           }
           return nextExercise;
       };
-      
-      $scope.pauseResumeWorkout = function () {
+
+      $scope.pauseWorkout = function () {
+          $interval.cancel(exerciseIntervalPromise);
+          $scope.workoutPaused = true;
+      };
+
+      $scope.resumeWorkout = function () {
+          exerciseIntervalPromise = startExerciseTimeTracking();
+          $scope.workoutPaused = false;
+      };
+
+      $scope.pauseResumeToggle = function () {
           if ($scope.workoutPaused) {
-              exerciseIntervalPromise = startExerciseTimeTracking();
-              $scope.workoutPaused = false;
+              $scope.resumeWorkout();
           }
           else {
-              $interval.cancel(exerciseIntervalPromise);
-              $scope.workoutPaused = true;
+              $scope.pauseWorkout();
           }
-      };
+      }
+
       var startExerciseTimeTracking = function () {
           var promise = $interval(function () {
               ++$scope.currentExerciseDuration;
@@ -106,7 +115,7 @@ angular.module('7minWorkout')
 
       $scope.onKeyPressed = function (event) {
           if (event.which == 80 || event.which == 112) {        // 'p' or 'P' key to toggle pause and resume.
-              $scope.pauseResumeWorkout();
+              $scope.pauseResumeToggle();
           }
       };
 
