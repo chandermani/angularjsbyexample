@@ -121,13 +121,14 @@ input[type="checkbox"].input-validation-error {
     top:0px;
     width:100%;
     height:100%;
-    opacity:0;
+    opacity:0;      /*Comment this line to try our mouse event based pause and resume. */
     z-index:10; 
  
 }
 
+/*Comment this style to try our mouse event based pause and resume. */
 #pause-overlay:hover {
-    opacity:.8;
+    opacity:.8;     
 }
 #pause-overlay .pause{
     font-size:120pt;
