@@ -1,8 +1,9 @@
 <div class="row workout-app-container" tabindex="1" ng-keypress="onKeyPressed($event)">
     <div id="description-panel" class="col-sm-2" ng-include="'partials/description-panel.html'">
     </div>
-    <div id="exercise-pane" class="col-sm-7">
-        <div id="pause-overlay" ng-click="pauseResumeToggle()">
+
+    <div id="exercise-pane" class="col-sm-7"> <!--ng-mouseenter="showPauseOverlay=true" ng-mouseleave="showPauseOverlay=false"-->
+        <div id="pause-overlay" ng-click="pauseResumeToggle()"><!--ng-show="showPauseOverlay"-->
             <span class="glyphicon glyphicon-pause pause absolute-center"
                   ng-class="{'glyphicon-pause' : !workoutPaused, 'glyphicon-play' : workoutPaused}"></span>
         </div>
