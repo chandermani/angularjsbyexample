@@ -2,7 +2,6 @@
 
 angular.module('7minWorkout')
   .controller('WorkoutVideosController', ['$scope', '$modal', function ($scope, $modal) {
-      $scope.searchResults = [];
       $scope.playVideo = function (videoId) {
           $scope.pauseWorkout();
           var dailog = $modal.open({
