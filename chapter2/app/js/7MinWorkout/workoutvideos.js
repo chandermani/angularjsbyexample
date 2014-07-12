@@ -8,7 +8,7 @@ angular.module('7minWorkout')
               templateUrl: 'youtube-modal',
               controller: VideoPlayerController,
               resolve: {
-                  video: function () {
+                  video: function () {  
                       return '//www.youtube.com/embed/' + videoId;
                   }
               },
@@ -24,6 +24,7 @@ angular.module('7minWorkout')
               $modalInstance.close();
           };
       };
+      VideoPlayerController['$inject'] = ['$scope', '$modalInstance', 'video'];
 
       var init = function () {
       };
