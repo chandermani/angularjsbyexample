@@ -2,11 +2,12 @@
 
 /* Services */
 angular.module('7minWorkout')
-    .factory('workoutHistoryTracker', ['$rootScope', 'appEvents', function ($rootScope, appEvents) {
-        var maxHistoryItems = 20;   //We only track for last 20 exercise
-        var workoutHistory = [];
-        var currentWorkoutLog = null;
-        var service = {};
+    .factory('workoutHistoryTracker', ['$rootScope', 'appEvents', 'localStorageService', function ($rootScope, appEvents, localStorageService) {
+        var maxHistoryItems = 20   //We only track for last 20 exercise
+        , storageKey = "workouthistory"
+        , workoutHistory = localStorageService.get(storageKey) || []
+        , currentWorkoutLog = null
+        , service = {};
 
         function WorkoutLogEntry(args) {
             this.startedOn = args.startedOn;
@@ -22,17 +23,26 @@ angular.module('7minWorkout')
                 workoutHistory.shift();
             }
             workoutHistory.push(currentWorkoutLog);
+            localStorageService.add(storageKey, workoutHistory);
         };
 
         $rootScope.$on(appEvents.workout.exerciseStarted, function (e, args) {
             currentWorkoutLog.lastExercise = args.title;
             ++currentWorkoutLog.exercisesDone;
+            localStorageService.add(storageKey, workoutHistory);
         });
 
-        service.endTracking = function () {
-            currentWorkoutLog.completed = true;
+        $rootScope.$on("$routeChangeSuccess", function (e, args) {
+            if (currentWorkoutLog) {
+                service.endTracking(false);     // End the current tracking if in progress the route changes.
+            }
+        });
+
+        service.endTracking = function (completed) {
+            currentWorkoutLog.completed = completed;
             currentWorkoutLog.endedOn = new Date();
             currentWorkoutLog = null;
+            localStorageService.add(storageKey, workoutHistory);
         };
 
         service.getHistory = function () {

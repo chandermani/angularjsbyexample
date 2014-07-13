@@ -2,7 +2,15 @@
     <h3 class="modal-title">Workout Video</h3>
 </div>
 <div class="modal-body">
-    <div class="table-responsive">
+    <div class="row">
+        <label>Filter Workouts:</label>
+        <div class="btn-group">
+            <label class="btn btn-primary" ng-model="search.completed" btn-radio="''">All</label>
+            <label class="btn btn-primary" ng-model="search.completed" btn-radio="'true'">Completed</label>
+            <label class="btn btn-primary" ng-model="search.completed" btn-radio="'false'">Incomplete</label>
+        </div>
+    </div>
+    <div class="row table-responsive">
         <table class="table">
             <thead>
                 <tr>
@@ -15,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="historyItem in history">
+                <tr ng-repeat="historyItem in history | filter:search | orderBy:'-startedOn'">
                     <td>{{$index+1}}</td>
                     <td>{{historyItem.startedOn | date:'short'}}</td>
                     <td>{{historyItem.endedOn | date:'short'}}</td>

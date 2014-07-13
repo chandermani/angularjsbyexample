@@ -120,9 +120,11 @@ angular.module('7minWorkout')
       };
 
       var workoutComplete = function () {
-          workoutHistoryTracker.endTracking();
+          workoutHistoryTracker.endTracking(true);
           $location.path('/finish');
       }
+
+
       //$scope.$watch('currentExerciseDuration', function (nVal) {
       //    if (nVal == $scope.currentExercise.duration) {
       //        var next = getNextExercise($scope.currentExercise);
