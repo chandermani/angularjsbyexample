@@ -9,16 +9,8 @@ angular.module('7minWorkout')
         , currentWorkoutLog = null
         , service = {};
 
-        function WorkoutLogEntry(args) {
-            this.startedOn = args.startedOn;
-            this.endedOn = args.endedOn;
-            this.lastExercise = args.lastExercise;
-            this.exercisesDone = 0;
-            this.completed = false;
-        };
-
         service.startTracking = function () {
-            currentWorkoutLog = new WorkoutLogEntry({ startedOn: new Date() });
+            currentWorkoutLog = { startedOn: new Date() };
             if (workoutHistory.length >= maxHistoryItems) {     
                 workoutHistory.shift();
             }

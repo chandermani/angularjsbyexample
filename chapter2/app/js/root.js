@@ -18,4 +18,6 @@ angular.module('app')
               $modalInstance.close();
           };
       };
+      WorkoutHistoryController['$inject'] = ['$scope', '$modalInstance', 'workoutHistoryTracker'];
+
   }]);
