@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('7minWorkout')
-  .controller('WorkoutController', ['$scope', '$interval', '$location', '$timeout', function ($scope, $interval, $location, $timeout) {
+  .controller('WorkoutController', ['$scope', '$interval', '$location', '$timeout', 'workoutHistoryTracker', 'appEvents', function ($scope, $interval, $location, $timeout, workoutHistoryTracker, appEvents) {
       function WorkoutPlan(args) {
           this.exercises = [];
           this.name = args.name;
@@ -45,7 +45,7 @@ angular.module('7minWorkout')
               }),
               duration: $scope.workoutPlan.restBetweenExercise
           };
-
+          workoutHistoryTracker.startTracking();
           $scope.currentExerciseIndex = -1;
           startExercise($scope.workoutPlan.exercises.shift());
       };
@@ -56,8 +56,8 @@ angular.module('7minWorkout')
 
           if (exercisePlan.details.name != 'rest') {
               $scope.currentExerciseIndex++;
+              $scope.$emit(appEvents.workout.exerciseStarted, exercisePlan.details);
           }
-
           exerciseIntervalPromise = startExerciseTimeTracking();
       };
 
@@ -105,7 +105,7 @@ angular.module('7minWorkout')
                   startExercise(next);
               }
               else {
-                  $location.path('/finish');
+                  workoutComplete();
               }
           }, function (error) {
               console.log('Inteval promise cancelled. Error reason -' + error);
@@ -119,6 +119,10 @@ angular.module('7minWorkout')
           }
       };
 
+      var workoutComplete = function () {
+          workoutHistoryTracker.endTracking();
+          $location.path('/finish');
+      }
       //$scope.$watch('currentExerciseDuration', function (nVal) {
       //    if (nVal == $scope.currentExercise.duration) {
       //        var next = getNextExercise($scope.currentExercise);
