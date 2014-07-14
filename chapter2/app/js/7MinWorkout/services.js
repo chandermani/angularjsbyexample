@@ -10,7 +10,7 @@ angular.module('7minWorkout')
         , service = {};
 
         service.startTracking = function () {
-            currentWorkoutLog = { startedOn: new Date() };
+            currentWorkoutLog = { startedOn: new Date(), completed: false, exercisesDone: 0 };
             if (workoutHistory.length >= maxHistoryItems) {     
                 workoutHistory.shift();
             }
