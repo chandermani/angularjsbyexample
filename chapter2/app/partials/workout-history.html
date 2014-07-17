@@ -2,12 +2,12 @@
     <h3 class="modal-title">Workout Video</h3>
 </div>
 <div class="modal-body">
-    <div class="row" ng-init="search.completed=''">
-        <label>Filter Workouts:</label>
+    <div class="row">
+        <label>Filter Workouts: </label>
         <div class="btn-group">
-            <label class="btn btn-primary" ng-model="search.completed" btn-radio="''">All</label>
-            <label class="btn btn-primary" ng-model="search.completed" btn-radio="true">Completed</label>
-            <label class="btn btn-primary" ng-model="search.completed" btn-radio="false">Incomplete</label>
+            <label><input type="radio" name="searchFilter" ng-model="search.completed" value="">All </label>
+            <label><input type="radio" name="searchFilter" ng-model="search.completed" value="true">Completed </label>
+            <label><input type="radio" name="searchFilter" ng-model="search.completed" value="false">Incomplete </label>
         </div>
     </div>
     <div class="row table-responsive">

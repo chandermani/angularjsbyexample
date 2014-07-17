@@ -10,7 +10,7 @@ angular.module('7minWorkout')
         , service = {};
 
         service.startTracking = function () {
-            currentWorkoutLog = { startedOn: new Date(), completed: false, exercisesDone: 0 };
+            currentWorkoutLog = { startedOn: new Date().toISOString(), completed: false, exercisesDone: 0 };
             if (workoutHistory.length >= maxHistoryItems) {     
                 workoutHistory.shift();
             }
@@ -32,7 +32,7 @@ angular.module('7minWorkout')
 
         service.endTracking = function (completed) {
             currentWorkoutLog.completed = completed;
-            currentWorkoutLog.endedOn = new Date();
+            currentWorkoutLog.endedOn = new Date().toISOString();
             currentWorkoutLog = null;
             localStorageService.add(storageKey, workoutHistory);
         };
