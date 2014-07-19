@@ -34,7 +34,6 @@ angular.module('7minWorkout')
       var startWorkout = function () {
           $scope.workoutPlan = createWorkout();
           $scope.workoutTimeRemaining = $scope.workoutPlan.totalWorkoutDuration();
-
           restExercise = {
               details: new Exercise({
                   name: "rest",
@@ -49,7 +48,7 @@ angular.module('7minWorkout')
           }, 1000, $scope.workoutTimeRemaining);
 
           $scope.currentExerciseIndex = -1;
-          startExercise($scope.workoutPlan.exercises.shift());
+          startExercise($scope.workoutPlan.exercises[0]);
       };
 
       var startExercise = function (exercisePlan) {
@@ -76,7 +75,7 @@ angular.module('7minWorkout')
       var getNextExercise = function (currentExercisePlan) {
           var nextExercise = null;
           if (currentExercisePlan === restExercise) {
-              nextExercise = $scope.workoutPlan.exercises.shift();
+              nextExercise = $scope.workoutPlan.exercises[$scope.currentExerciseIndex + 1];
           }
           else {
               if ($scope.workoutPlan.exercises.length != 0) {
@@ -297,11 +296,14 @@ angular.module('7minWorkout')
   .controller('WorkoutAudioController', ['$scope', '$timeout', function ($scope, $timeout) {
       $scope.exercisesAudio = [];
 
-      var loadExerciseNameAudio = function () {
-          angular.forEach($scope.workoutPlan.exercises, function (exercise) {
-              $scope.exercisesAudio.push({ src: exercise.details.nameSound, type: "audio/wav" });
-          });
-      }
+      var workoutPlanwatch = $scope.$watch('workoutPlan', function (newValue, oldValue) {
+          if (newValue) {
+              angular.forEach($scope.workoutPlan.exercises, function (exercise) {
+                  $scope.exercisesAudio.push({ src: exercise.details.nameSound, type: "audio/wav" });
+              });
+              workoutPlanwatch();       //unbind the watch.
+          }
+      });
 
       $scope.$watch('currentExercise', function (newValue, oldValue) {
           if (newValue && newValue != oldValue) {
@@ -328,7 +330,6 @@ angular.module('7minWorkout')
       });
 
       var init = function () {
-          loadExerciseNameAudio();
       }
 
       init();
