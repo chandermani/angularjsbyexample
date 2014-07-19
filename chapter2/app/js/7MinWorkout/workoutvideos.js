@@ -7,6 +7,7 @@ angular.module('7minWorkout')
           var dailog = $modal.open({
               templateUrl: 'youtube-modal',
               controller: VideoPlayerController,
+              scope:$scope.$new(true),
               resolve: {
                   video: function () {  
                       return '//www.youtube.com/embed/' + videoId;
