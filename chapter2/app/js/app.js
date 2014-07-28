@@ -1,10 +1,33 @@
 'use strict';
 
-angular.module('app', ['ngRoute', 'ngSanitize', '7minWorkout', 'mediaPlayer', 'ui.bootstrap', 'LocalStorageModule', 'ngAnimate']).
+angular.module('app', ['ngRoute', 'ngSanitize', '7minWorkout','WorkoutBuilder', 'mediaPlayer', 'ui.bootstrap', 'LocalStorageModule', 'ngAnimate']).
 config(function ($routeProvider, $sceDelegateProvider) {
     $routeProvider.when('/start', { templateUrl: 'partials/start.html' });
     $routeProvider.when('/workout', { templateUrl: 'partials/workout.html', controller: 'WorkoutController' });
     $routeProvider.when('/finish', { templateUrl: 'partials/finish.html' });
+
+    $routeProvider.when('/builder/workouts', {
+        templateUrl: 'partials/workoutbuilder/workouts.html',
+        leftNav: 'partials/workoutbuilder/left-nav-main.html',
+        topNav: 'partials/workoutbuilder/top-nav.html'
+    });
+    $routeProvider.when('/builder/exercises', {
+        templateUrl: 'partials/workoutbuilder/exercises.html',
+        leftNav: 'partials/workoutbuilder/left-nav-main.html',
+        topNav: 'partials/workoutbuilder/top-nav.html'
+    });
+    $routeProvider.when('/builder/workout/new', {
+        templateUrl: 'partials/workoutbuilder/workout.html',
+        leftNav: 'partials/workoutbuilder/left-nav-exercises.html'
+    });
+    $routeProvider.when('/builder/workout/:id', {
+        templateUrl: 'partials/workoutbuilder/workout.html',
+        leftNav: 'partials/workoutbuilder/left-nav-exercises.html'
+    });
+    $routeProvider.when('/builder/exercise/new', { templateUrl: 'partials/workoutbuilder/exercise.html' });
+    $routeProvider.when('/builder/exercise/:id', { templateUrl: 'partials/workoutbuilder/exercise.html' });
+
+
     $routeProvider.otherwise({ redirectTo: '/start' });
 
     $sceDelegateProvider.resourceUrlWhitelist([
@@ -15,3 +38,4 @@ config(function ($routeProvider, $sceDelegateProvider) {
 });
 
 angular.module('7minWorkout', []);
+angular.module('WorkoutBuilder', []);

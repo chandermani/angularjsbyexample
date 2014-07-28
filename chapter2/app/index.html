@@ -6,7 +6,7 @@
     <title>7 Minute Workout</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cosmo/bootstrap.min.css" rel="stylesheet" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css" rel="stylesheet" />
     <link href="//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/app.css" />
@@ -22,6 +22,12 @@
                 <li><a ng-click="showWorkoutHistory()" title="Workout History">History</a></li>
             </ul>
         </div>
+    </div>
+    <div id="top-nav" ng-include="currentRoute.topNav">
+
+    </div>
+    <div id="left-nav" ng-include="currentRoute.leftNav">
+
     </div>
     <div class="container body-content app-container">
         <div ng-view></div>
