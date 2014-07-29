@@ -1,1 +1,6 @@
-﻿<h2>workouts</h2>
+﻿<div id="workout-list" ng-controller="WorkoutListController">
+    <h2>Workouts</h2>
+    <div ng-repeat="workout in workouts">
+        <div ng-dblclick="goto(workout)">{{workout.title}}</div>
+    </div>
+</div>

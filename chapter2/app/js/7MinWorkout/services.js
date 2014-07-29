@@ -43,8 +43,3 @@ angular.module('7minWorkout')
 
         return service;
     }]);
-
-angular.module('7minWorkout')
-    .value("appEvents", {
-        workout: { exerciseStarted: "event:workout:exerciseStarted" }
-    });
