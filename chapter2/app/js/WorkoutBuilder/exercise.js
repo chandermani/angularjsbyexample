@@ -18,3 +18,11 @@ angular.module('WorkoutBuilder')
       };
       init();
   }]);
+
+angular.module('WorkoutBuilder')
+  .controller('ExerciseDetailController', ['$scope', 'WorkoutService', '$routeParams', function ($scope, WorkoutService, $routeParams) {
+      var init = function () {
+          $scope.exercise = WorkoutService.getExercise($routeParams.id);
+      };
+      init();
+  }]);

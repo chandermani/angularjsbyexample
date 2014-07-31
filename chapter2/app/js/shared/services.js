@@ -179,6 +179,13 @@ angular.module('app')
 
             return exercises;
         }
+        service.getExercise = function (name) {
+            var result = null;
+            angular.forEach(service.getExercises(), function (exercise) {
+                if (exercise.name === name) result = exercise;
+            });
+            return result;
+        };
         service.getWorkouts = function () {
             var workouts = [];
             var workout = new WorkoutPlan({
@@ -369,6 +376,13 @@ angular.module('app')
             workouts.push(workout);
             return workouts;
         }
+        service.getWorkout = function (name) {
+            var result = null;
+            angular.forEach(service.getWorkouts(), function (workout) {
+                if (workout.name === name) result = workout;
+            });
+            return result;
+        };
         return service;
     }]);
 

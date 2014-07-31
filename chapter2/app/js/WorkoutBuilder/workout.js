@@ -10,3 +10,11 @@ angular.module('WorkoutBuilder')
       };
       init();
   }]);
+
+angular.module('WorkoutBuilder')
+  .controller('WorkoutDetailController', ['$scope', 'WorkoutService', 'selectedWorkout', function ($scope, WorkoutService, selectedWorkout) {
+      var init = function () {
+          $scope.workout = selectedWorkout;
+      };
+      init();
+  }]);

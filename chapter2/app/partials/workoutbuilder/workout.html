@@ -1,1 +1,37 @@
-﻿<h2>Workout</h2>
+﻿<div id="workout-container">
+    <h2>Workout</h2>
+    <form class="row" name="formWorkout">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="workout-name">Name:</label>
+                    <input type="text" name="workoutName" class="form-control" id="workout-name" placeholder="Enter workout name. Must be unique." ng-model="workout.name">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="workout-title">Title:</label>
+                    <input type="text" name="title" class="form-control" id="workout-title" placeholder="What would be the workout title?" ng-model="workout.title">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="workout-rest">Rest Time (in seconds):</label>
+                    <input type="number" name="restBetweenExercise" class="form-control" id="workout-rest" placeholder="Rest period between exercise in seconds." ng-model="workout.restBetweenExercise">
+                </div>
+                </div>
+            <div class="col-sm-6">
+                <label>Description:</label>
+                <textarea name="description" class="form-control" id="workout-description" placeholder="Enter workout description." ng-model="workout.description"></textarea>
+            </div>
+       </div>
+       <div class="row">
+           <div class="form-group">
+               <label>Total Exercises:</label>
+               <p class="form-control-static badge">{{workout.exercises.length}}</p>
+           </div>
+       </div>
+    </form>
+</div>
