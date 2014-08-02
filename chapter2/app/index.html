@@ -13,7 +13,7 @@
 </head>
 <body ng-app="app" ng-controller="RootController">
     <div class="navbar navbar-default navbar-fixed-top top-navbar">
-        <div class="container app-container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <!--<h1>7 Minute Workout</h1>-->
                 <div class="navbar-brand">7 Minute Workout</div>
@@ -23,14 +23,22 @@
             </ul>
         </div>
     </div>
-    <div id="top-nav" ng-include="currentRoute.topNav">
+    <div class="container-fluid">
+        <div id="top-nav-container" class="row">
+            <div id="top-nav" ng-include="currentRoute.topNav">
 
-    </div>
-    <div id="left-nav" ng-include="currentRoute.leftNav">
+            </div>
+        </div>
+        <div id="content-container" class="row">
+            <div class="col-sm-2" ng-if="currentRoute.leftNav">
+                <div id="left-nav" ng-include="currentRoute.leftNav">
 
-    </div>
-    <div class="container body-content app-container">
-        <div ng-view></div>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <div id="page-content" ng-view></div>
+            </div>
+        </div>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>

@@ -12,10 +12,6 @@ body {
     font-family: 'Roboto Slab';
     font-style: normal;
     font-weight: 400;
-}
-
-/* Set padding to keep content from hitting the edges */
-.body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -67,13 +63,9 @@ input[type="checkbox"].input-validation-error {
 /*styles for top nav bar - end*/
 
 /*styles for container - start*/
-.container.app-container{
-    width:100%;
-    max-width:100%;
-}
-.workout-display-div{
-    text-align:center;
-    padding:40px;
+.workout-display-div {
+    text-align: center;
+    padding: 40px;
 }
 .workout-display-div .img-responsive{
     margin: 25px auto;
@@ -179,10 +171,10 @@ div[ng-view].ng-enter {
     left: 100%;     /*initial css for view transition in*/
 }
 div[ng-view].ng-leave {
-    left: 0;        /*initial css for view transition out*/
+    left: 0%;        /*initial css for view transition out*/
 }
 div[ng-view].ng-enter-active {
-    left: 0;        /*final css for view transition in*/
+    left: 0%;        /*final css for view transition in*/
 }
 div[ng-view].ng-leave-active {
     left: -100%;    /*final css for view transition out*/
