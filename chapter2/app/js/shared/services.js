@@ -191,6 +191,7 @@ angular.module('app')
             var workout = new WorkoutPlan({
                 name: "7minWorkout",
                 title: "7 Minute Workout",
+                description: "A high intensity workout that consists of 12 exercises.",
                 restBetweenExercise: 10
             });
 
