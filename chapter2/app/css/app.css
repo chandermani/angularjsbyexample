@@ -197,3 +197,11 @@ div[ng-view].ng-leave-active {
 
 
 /*Animation effects - end*/
+
+/*Workout Builder Styles*/
+#left-nav-exercises button {
+    margin-bottom:4px;
+}
+#left-nav-exercises button .glyphicon {
+    margin-left:6px;
+}

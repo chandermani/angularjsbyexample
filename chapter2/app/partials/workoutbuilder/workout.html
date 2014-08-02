@@ -45,6 +45,6 @@
         <div>{{exercise.details.title}}</div>
         <div title="{{exercise.details.description}}">{{exercise.details.description | limitTo:25}}</div>
         <input type="number" name="duration" ng-model="exercise.duration" required/>
-        <button class="btn btn-primary" ng-click="deleteFromWorkout(exercise)">X</button>
+        <button class="btn btn-warning" ng-click="deleteFromWorkout(exercise)"><span class="glyphicon glyphicon-trash"></span></button>
     </div>
 </script>
