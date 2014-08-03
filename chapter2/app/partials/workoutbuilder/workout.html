@@ -54,5 +54,11 @@
         <div title="{{exercise.details.description}}">{{exercise.details.description | limitTo:25}}</div>
         <input type="number" name="duration" ng-model="exercise.duration" required/>
         <button class="btn btn-warning" ng-click="removeExercise(exercise)"><span class="glyphicon glyphicon-trash"></span></button>
+        <div id="move-icons">
+            <button class="btn btn-sm btn-info" ng-click="moveExerciseTo(exercise,0)"><span class="glyphicon glyphicon-upload"></span></button>
+            <button class="btn btn-sm btn-info" ng-click="moveExerciseTo(exercise,$index-1)"><span class="glyphicon glyphicon-chevron-up"></span></button>
+            <button class="btn btn-sm btn-info" ng-click="moveExerciseTo(exercise,$index+1)"><span class="glyphicon glyphicon-chevron-down"></span></button>
+            <button class="btn btn-sm btn-info" ng-click="moveExerciseTo(exercise,workout.exercises.length-1)"><span class="glyphicon glyphicon-download"></span></button>
+        </div>
     </div>
 </script>

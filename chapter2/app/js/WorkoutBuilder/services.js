@@ -39,6 +39,12 @@ angular.module('WorkoutBuilder')
             return workout;
         };
 
+        service.moveExerciseTo = function (exercise, toIndex) {
+            if (toIndex < 0 || toIndex >= buildingWorkout.exercises) return;
+            var currentIndex = buildingWorkout.exercises.indexOf(exercise);
+            buildingWorkout.exercises.splice(toIndex, 0, buildingWorkout.exercises.splice(currentIndex, 1)[0]);
+        }
+
         return service;
     }]);
 

@@ -16,6 +16,7 @@ angular.module('WorkoutBuilder')
       $scope.removeExercise = function (exercise) {
           WorkoutBuilderService.removeExercise(exercise);
       };
+
       $scope.save = function () {
           if ($scope.formWorkout.$invalid) return;
           $scope.workout = WorkoutBuilderService.save();
@@ -37,6 +38,10 @@ angular.module('WorkoutBuilder')
                   $scope.formWorkout.exerciseCount.$setValidity($scope.formWorkout.exerciseCount.$name, false);
           }
       });
+
+      $scope.moveExerciseTo = function (exercise, location) {
+          WorkoutBuilderService.moveExerciseTo(exercise, location);
+      };
 
       var init = function () {
           $scope.workout = selectedWorkout;
