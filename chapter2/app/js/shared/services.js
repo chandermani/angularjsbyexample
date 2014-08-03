@@ -9,6 +9,7 @@ angular.module('app')
 angular.module('app')
     .factory("WorkoutService", ['WorkoutPlan', 'Exercise', function (WorkoutPlan, Exercise) {
         var service = {};
+        var workouts = [];
         service.getExercises = function () {
             var exercises = [];
             exercises.push(
@@ -187,7 +188,10 @@ angular.module('app')
             return result;
         };
         service.getWorkouts = function () {
-            var workouts = [];
+            if (workouts.length > 0) {
+                return workouts;
+            }
+            // There is only one workout defined by default. 
             var workout = new WorkoutPlan({
                 name: "7minWorkout",
                 title: "7 Minute Workout",
@@ -384,6 +388,28 @@ angular.module('app')
             });
             return result;
         };
+        service.updateWorkout = function (workout) {
+            var workoutIndex;
+            angular.forEach(workouts, function (w, index) {
+                if (w.name === workout.name) {
+                    workoutIndex = index;
+                }
+            });
+            if (workoutIndex >= 0) {
+                workouts[workoutIndex] = workout;
+                return workouts[workoutIndex];
+            }
+            else {
+                return null;
+            }
+
+        };
+        service.addWorkout = function (workout) {
+            if (workout.name) {
+                workouts.push(workout);
+                return workout;
+            }
+        }
         return service;
     }]);
 

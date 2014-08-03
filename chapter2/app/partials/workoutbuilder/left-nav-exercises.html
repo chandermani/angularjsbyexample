@@ -1,6 +1,6 @@
 ﻿<div id="left-nav-exercises" ng-controller="ExercisesNavController">
     <h4>Exercises</h4>
     <div ng-repeat="exercise in exercises" class="row">
-        <button class="btn btn-info">{{exercise.title}}<span class="glyphicon glyphicon-chevron-right"></span></button>
+        <button class="btn btn-info" ng-click="addExercise(exercise)">{{exercise.title}}<span class="glyphicon glyphicon-chevron-right"></span></button>
     </div>
 </div>

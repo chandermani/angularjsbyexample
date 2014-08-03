@@ -25,18 +25,18 @@ config(function ($routeProvider, $sceDelegateProvider) {
         leftNav: 'partials/workoutbuilder/left-nav-exercises.html',
         controller: 'WorkoutDetailController',
         resolve: {
-            selectedWorkout: ['WorkoutPlan', '$route', function (WorkoutPlan) {
-                return new WorkoutPlan({});
+            selectedWorkout: ['WorkoutBuilderService', function (WorkoutBuilderService) {
+                return WorkoutBuilderService.startBuilding();
             }],
         }
-});
+    });
     $routeProvider.when('/builder/workouts/:id', {
         templateUrl: 'partials/workoutbuilder/workout.html',
         leftNav: 'partials/workoutbuilder/left-nav-exercises.html',
         controller: 'WorkoutDetailController',
         resolve: {
-            selectedWorkout: ['WorkoutService','$route', function (WorkoutService, $route) {
-                return WorkoutService.getWorkout($route.current.params.id);
+            selectedWorkout: ['WorkoutBuilderService', '$route', function (WorkoutBuilderService, $route) {
+                return WorkoutBuilderService.startBuilding($route.current.params.id);
             }],
         }
     });
