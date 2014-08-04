@@ -1,5 +1,7 @@
 ﻿<div id="workout-container">
-    <h2>Workout</h2>
+    <div class="row">
+        <h2 class="col-sm-5 col-sm-offset-1">{{workout.title}} {{formWorkout.$dirty?'*':''}}</h2>
+    </div>
     <form class="row" name="formWorkout">
         <div id="exercises-list" class="col-sm-5 col-sm-offset-1">
             <span name="exerciseCount" ng-model="workout.exercises.length"></span>

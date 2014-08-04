@@ -20,6 +20,7 @@ angular.module('WorkoutBuilder')
       $scope.save = function () {
           if ($scope.formWorkout.$invalid) return;
           $scope.workout = WorkoutBuilderService.save();
+          $scope.formWorkout.$setPristine();
       }
 
       $scope.$watch('formWorkout.exerciseCount', function (newValue) {
@@ -32,6 +33,7 @@ angular.module('WorkoutBuilder')
       $scope.$watch('workout.exercises.length', function (newValue, oldValue) {
           if (newValue != oldValue) {
               $scope.formWorkout.exerciseCount.$dirty = true;
+              $scope.formWorkout.$setDirty();
               if (newValue > 0)
                   $scope.formWorkout.exerciseCount.$setValidity($scope.formWorkout.exerciseCount.$name, true);
               else
