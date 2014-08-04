@@ -6,6 +6,9 @@ config(function ($routeProvider, $sceDelegateProvider) {
     $routeProvider.when('/workout', { templateUrl: 'partials/workout.html', controller: 'WorkoutController' });
     $routeProvider.when('/finish', { templateUrl: 'partials/finish.html' });
 
+    $routeProvider.when('/builder', {
+        redirectTo: '/builder/workouts'
+    });
     $routeProvider.when('/builder/workouts', {
         templateUrl: 'partials/workoutbuilder/workouts.html',
         leftNav: 'partials/workoutbuilder/left-nav-main.html',
@@ -16,16 +19,16 @@ config(function ($routeProvider, $sceDelegateProvider) {
         leftNav: 'partials/workoutbuilder/left-nav-main.html',
         topNav: 'partials/workoutbuilder/top-nav.html'
     });
-    $routeProvider.when('/builder/workout/new', {
+    $routeProvider.when('/builder/workouts/new', {
         templateUrl: 'partials/workoutbuilder/workout.html',
         leftNav: 'partials/workoutbuilder/left-nav-exercises.html'
     });
-    $routeProvider.when('/builder/workout/:id', {
+    $routeProvider.when('/builder/workouts/:id', {
         templateUrl: 'partials/workoutbuilder/workout.html',
         leftNav: 'partials/workoutbuilder/left-nav-exercises.html'
     });
-    $routeProvider.when('/builder/exercise/new', { templateUrl: 'partials/workoutbuilder/exercise.html' });
-    $routeProvider.when('/builder/exercise/:id', { templateUrl: 'partials/workoutbuilder/exercise.html' });
+    $routeProvider.when('/builder/exercises/new', { templateUrl: 'partials/workoutbuilder/exercise.html' });
+    $routeProvider.when('/builder/exercises/:id', { templateUrl: 'partials/workoutbuilder/exercise.html' });
 
 
     $routeProvider.otherwise({ redirectTo: '/start' });
