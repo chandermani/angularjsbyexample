@@ -180,13 +180,6 @@ angular.module('app')
 
             return exercises;
         }
-        service.getExercise = function (name) {
-            var result = null;
-            angular.forEach(service.getExercises(), function (exercise) {
-                if (exercise.name === name) result = exercise;
-            });
-            return result;
-        };
         service.getWorkouts = function () {
             if (workouts.length > 0) {
                 return workouts;
