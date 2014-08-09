@@ -191,6 +191,7 @@ angular.module('app')
             if (workouts.length > 0) {
                 return workouts;
             }
+            var exercises = service.getExercises();
             // There is only one workout defined by default. 
             var workout = new WorkoutPlan({
                 name: "7minWorkout",
