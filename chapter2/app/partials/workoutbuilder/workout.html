@@ -1,38 +1,29 @@
 ﻿<div id="workout-container">
     <div class="row">
-        <h2 class="col-sm-5 col-sm-offset-1">{{workout.title}} {{formWorkout.$dirty?'*':''}}</h2>
+        <h2 class="col-sm-5 col-sm-offset-1">{{workout.title}}</h2>
     </div>
     <form class="row" name="formWorkout">
         <div id="exercises-list" class="col-sm-5 col-sm-offset-1">
-            <span name="exerciseCount" ng-model="workout.exercises.length"></span>
-            <div class="alert alert-danger" ng-show="formWorkout.exerciseCount.$dirty && formWorkout.exerciseCount.$error.exerciseCount">
-                The workout should have at least one exercise!
-            </div>
             <div ng-repeat="exercise in workout.exercises" class="exercise-item">
                 <div ng-include="'workout-exercise-tile'"></div>
             </div>
         </div>
         <div id="workout-data" class="col-sm-3">
-            <div class="form-group row" ng-class="{'has-error':formWorkout.workoutName.$error.required}">
+            <div class="form-group row">
                 <label for="workout-name">Name:</label>
                 <input type="text" name="workoutName" class="form-control" id="workout-name" placeholder="Enter workout name. Must be unique." ng-model="workout.name" required>
-                <label ng-show="formWorkout.workoutName.$dirty && formWorkout.workoutName.$error.required" ng-class="{'text-danger': formWorkout.workoutName.$error.required}">Workout name is required and it should be unique.</label>
             </div>
-            <div class="form-group row" ng-class="{'has-error':formWorkout.title.$error.required}">
+            <div class="form-group row">
                 <label for="workout-title">Title:</label>
                 <input type="text" name="title" class="form-control" id="workout-title" placeholder="What would be the workout title?" ng-model="workout.title" required>
-                <label ng-show="formWorkout.title.$dirty && formWorkout.title.$error.required" ng-class="{'text-danger': formWorkout.title.$error.required}">Workout title is required.</label>
             </div>
             <div class="form-group row">
                 <label for="workout-description">Description:</label>
                 <textarea name="description" class="form-control" id="workout-description" placeholder="Enter workout description." ng-model="workout.description"></textarea>
             </div>
-            <div class="form-group row" ng-class="{'has-error':formWorkout.restBetweenExercise.$error.number}">
+            <div class="form-group row">
                 <label for="workout-rest">Rest Time (in seconds):</label>
                 <input type="number" name="restBetweenExercise" class="form-control" id="workout-rest" placeholder="Rest period between exercise in seconds." ng-model="workout.restBetweenExercise" min="0" ng-pattern="/^\d+$/">
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.number" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.number}">Time duration should be numeric.</label>
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.min" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.min}">Only positive integer value allowed.</label>
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.pattern" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.min}">Only positive integer value allowed.</label>
             </div>
             <div class="form-group row">
                 <label>Total Exercises:</label>
