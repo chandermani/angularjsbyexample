@@ -2,7 +2,7 @@
     <div class="row">
         <h2 class="col-sm-5 col-sm-offset-1">{{workout.title}} {{formWorkout.$dirty?'*':''}}</h2>
     </div>
-    <form class="row" name="formWorkout">
+    <form class="row" name="formWorkout" novalidate>
         <div id="exercises-list" class="col-sm-5 col-sm-offset-1">
             <span name="exerciseCount" ng-model="workout.exercises.length"></span>
             <div class="alert alert-danger" ng-show="formWorkout.exerciseCount.$dirty && formWorkout.exerciseCount.$error.exerciseCount">
