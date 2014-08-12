@@ -27,6 +27,9 @@ angular.module('WorkoutBuilder')
           WorkoutBuilderService.moveExerciseTo(exercise, location);
       };
 
+      $scope.deleteWorkout = function () {
+
+      }
       var init = function () {
           $scope.workout = selectedWorkout;
       };
