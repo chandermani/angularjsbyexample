@@ -26,7 +26,7 @@ angular.module('WorkoutBuilder')
       $scope.$watch('formWorkout.exerciseCount', function (newValue) {
           if (newValue) {
               if ($scope.workout.exercises.length === 0)
-                  newValue.$setValidity(newValue.$name, false);
+                  newValue.$setValidity("count", false);
           }
       });
 
@@ -34,10 +34,7 @@ angular.module('WorkoutBuilder')
           if (newValue != oldValue) {
               $scope.formWorkout.exerciseCount.$dirty = true;
               $scope.formWorkout.$setDirty();
-              if (newValue > 0)
-                  $scope.formWorkout.exerciseCount.$setValidity($scope.formWorkout.exerciseCount.$name, true);
-              else
-                  $scope.formWorkout.exerciseCount.$setValidity($scope.formWorkout.exerciseCount.$name, false);
+              $scope.formWorkout.exerciseCount.$setValidity("count", newValue > 0);
           }
       });
 

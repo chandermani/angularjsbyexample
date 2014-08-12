@@ -5,7 +5,7 @@
     <form class="row" name="formWorkout" novalidate>
         <div id="exercises-list" class="col-sm-5 col-sm-offset-1">
             <span name="exerciseCount" ng-model="workout.exercises.length"></span>
-            <div class="alert alert-danger" ng-show="formWorkout.exerciseCount.$dirty && formWorkout.exerciseCount.$error.exerciseCount">
+            <div class="alert alert-danger" ng-show="formWorkout.exerciseCount.$dirty && formWorkout.exerciseCount.$error.count">
                 The workout should have at least one exercise!
             </div>
             <div ng-repeat="exercise in workout.exercises" class="exercise-item">
@@ -32,7 +32,7 @@
                 <input type="number" name="restBetweenExercise" class="form-control" id="workout-rest" placeholder="Rest period between exercise in seconds." ng-model="workout.restBetweenExercise" min="0" ng-pattern="/^\d+$/">
                 <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.number" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.number}">Time duration should be numeric.</label>
                 <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.min" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.min}">Only positive integer value allowed.</label>
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.pattern" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.min}">Only positive integer value allowed.</label>
+                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.pattern" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.pattern}">Only positive integer value allowed.</label>
             </div>
             <div class="form-group row">
                 <label>Total Exercises:</label>
