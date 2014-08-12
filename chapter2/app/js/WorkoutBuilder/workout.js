@@ -23,24 +23,6 @@ angular.module('WorkoutBuilder')
           $scope.formWorkout.$setPristine();
       }
 
-      $scope.$watch('formWorkout.exerciseCount', function (newValue) {
-          if (newValue) {
-              if ($scope.workout.exercises.length === 0)
-                  newValue.$setValidity(newValue.$name, false);
-          }
-      });
-
-      $scope.$watch('workout.exercises.length', function (newValue, oldValue) {
-          if (newValue != oldValue) {
-              $scope.formWorkout.exerciseCount.$dirty = true;
-              $scope.formWorkout.$setDirty();
-              if (newValue > 0)
-                  $scope.formWorkout.exerciseCount.$setValidity($scope.formWorkout.exerciseCount.$name, true);
-              else
-                  $scope.formWorkout.exerciseCount.$setValidity($scope.formWorkout.exerciseCount.$name, false);
-          }
-      });
-
       $scope.moveExerciseTo = function (exercise, location) {
           WorkoutBuilderService.moveExerciseTo(exercise, location);
       };
