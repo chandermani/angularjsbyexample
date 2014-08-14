@@ -253,11 +253,11 @@ div[ng-view].ng-leave-active {
     float:left;
 }
 .exercise.tile div:first-child{
-    width:30px;
+    width:50px;
     font-size: 40px;
 }
 .exercise.tile div:nth-child(2){
-    width:265px;
+    width:245px;
 }
 .exercise.tile div:nth-child(2) input{
     display:block;
