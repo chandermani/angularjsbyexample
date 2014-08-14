@@ -255,17 +255,11 @@ angular.module('app')
             var workoutIndex;
             angular.forEach(workouts, function (w, index) {
                 if (w.name === workout.name) {
-                    workoutIndex = index;
+                    workouts[index] = workout;
+                    return workouts[index];
                 }
             });
-            if (workoutIndex >= 0) {
-                workouts[workoutIndex] = workout;
-                return workouts[workoutIndex];
-            }
-            else {
-                return null;
-            }
-
+            return null;
         };
         service.addWorkout = function (workout) {
             if (workout.name) {
