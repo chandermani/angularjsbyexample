@@ -5,15 +5,12 @@ html{
 }
 
 body {
-    padding-top: 70px;
-    padding-bottom: 20px;
+    padding: 108px 15px 20px 15px;
     min-height: 100%;
     font-size: 13px;
     font-family: 'Roboto Slab';
     font-style: normal;
     font-weight: 400;
-    padding-left: 15px;
-    padding-right: 15px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -54,13 +51,34 @@ input[type="checkbox"].input-validation-error {
     background-color: #4eaded;
     border-color: #4eaded;
 }
-
+.navbar-default .second-top-nav{
+    background-color: #0088dc !important;
+    height:43px;
+}
+    .navbar-default .second-top-nav a {
+        color: white !important;
+    }
 .navbar-default.top-navbar h1 {
     color: white;
     margin-top: 15px;
     margin-bottom: 15px;
 }
 /*styles for top nav bar - end*/
+
+/*styles for left nav bar - start*/
+.left-nav-bar {
+    background-color: #1ba2db;
+    min-height: 100%;
+    position: fixed;
+    margin-top: -14px;
+    margin-left:-15px;
+}
+.left-nav-bar a{
+    color:white;
+    text-align:center;
+    width:100%;
+}
+/*styles for left nav bar - end*/
 
 /*styles for container - start*/
 .workout-display-div {
@@ -219,3 +237,35 @@ div[ng-view].ng-leave-active {
     animation: fadeOut 0.25s;
 }
 /*Workout Builder Styles - end*/
+
+
+/*styles for tile - start*/
+.exercise.tile {
+    padding: 10px;
+    margin-bottom:10px;
+    width:370px;
+    height:240px;
+}
+.exercise.tile:nth-child(n){
+    background-color:#02c69a;
+}
+.exercise.tile div{
+    float:left;
+}
+.exercise.tile div:first-child{
+    width:30px;
+    font-size: 40px;
+}
+.exercise.tile div:nth-child(2){
+    width:265px;
+}
+.exercise.tile div:nth-child(2) input{
+    display:block;
+}
+.exercise.tile div:nth-child(2) div{
+    margin:10px 0px 10px 0px;
+}
+.exercise.tile div:last-child{
+    width:53px;
+}
+/*styles for tile- end*/
