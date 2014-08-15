@@ -252,7 +252,6 @@ angular.module('app')
             return result;
         };
         service.updateWorkout = function (workout) {
-            var workoutIndex;
             angular.forEach(workouts, function (w, index) {
                 if (w.name === workout.name) {
                     workouts[index] = workout;
@@ -266,6 +265,15 @@ angular.module('app')
                 return workout;
             }
         }
+        service.deleteWorkout = function (workoutName) {
+            var workoutIndex;
+            angular.forEach(workouts, function (w, index) {
+                if (w.name === workoutName) {
+                    workoutIndex = index;
+                }
+            });
+            workouts.splice(workoutIndex, 1);
+        };
         return service;
     }]);
 
