@@ -2,7 +2,7 @@
     <div class="row">
         <h2 class="col-sm-8 col-sm-offset-1">{{workout.title}} <span class="pull-right glyphicon glyphicon-trash text-danger" title="Delete Workout" ng-click="deleteWorkout()"></span></h2>
     </div>
-    <form class="row" name="formWorkout">
+    <form class="row" name="formWorkout" novalidate>
         <div id="exercises-list" class="col-sm-5 col-sm-offset-1">
             <div ng-repeat="exercise in workout.exercises" class="exercise-item">
                 <div ng-include="'workout-exercise-tile'"></div>

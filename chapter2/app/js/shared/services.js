@@ -256,10 +256,9 @@ angular.module('app')
             angular.forEach(workouts, function (w, index) {
                 if (w.name === workout.name) {
                     workouts[index] = workout;
-                    return workouts[index];
                 }
             });
-            return null;
+            return workout;
         };
         service.addWorkout = function (workout) {
             if (workout.name) {
