@@ -10,8 +10,16 @@ angular.module('app')
     .factory("WorkoutService", ['WorkoutPlan', 'Exercise', function (WorkoutPlan, Exercise) {
         var service = {};
         var workouts = [];
+        var exercises = [];
         service.getExercises = function () {
-            var exercises = [];
+            return exercises;
+        };
+
+        service.getWorkouts = function () {
+            return workouts;
+        };
+
+        var setupInitialExercises = function () {
             exercises.push(
                 new Exercise({
                     name: "jumpingJacks",
@@ -178,12 +186,9 @@ angular.module('app')
                               Keep your hips square and your neck in line with your spine. Hold the position."
                 }));
 
-            return exercises;
-        }
-        service.getWorkouts = function () {
-            if (workouts.length > 0) {
-                return workouts;
-            }
+        };
+
+        var setupInitialWorkouts = function () {
             var exercises = service.getExercises();
             // There is only one workout defined by default. 
             var workout = new WorkoutPlan({
@@ -242,8 +247,8 @@ angular.module('app')
                 duration: 30
             });
             workouts.push(workout);
-            return workouts;
-        }
+        };
+
         service.getWorkout = function (name) {
             var result = null;
             angular.forEach(service.getWorkouts(), function (workout) {
