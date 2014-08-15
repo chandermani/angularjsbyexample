@@ -23,6 +23,7 @@ config(function ($routeProvider, $sceDelegateProvider) {
     $routeProvider.when('/builder/workouts/new', {
         templateUrl: 'partials/workoutbuilder/workout.html',
         leftNav: 'partials/workoutbuilder/left-nav-exercises.html',
+        topNav: 'partials/workoutbuilder/top-nav.html'
         controller: 'WorkoutDetailController',
         resolve: {
             selectedWorkout: ['WorkoutBuilderService', function (WorkoutBuilderService) {
@@ -34,6 +35,7 @@ config(function ($routeProvider, $sceDelegateProvider) {
         templateUrl: 'partials/workoutbuilder/workout.html',
         leftNav: 'partials/workoutbuilder/left-nav-exercises.html',
         controller: 'WorkoutDetailController',
+        topNav: 'partials/workoutbuilder/top-nav.html'
         resolve: {
             selectedWorkout: ['WorkoutBuilderService', '$route', function (WorkoutBuilderService, $route) {
                 return WorkoutBuilderService.startBuilding($route.current.params.id);
