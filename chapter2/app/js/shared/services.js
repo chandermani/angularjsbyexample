@@ -9,8 +9,17 @@ angular.module('app')
 angular.module('app')
     .factory("WorkoutService", ['WorkoutPlan', 'Exercise', function (WorkoutPlan, Exercise) {
         var service = {};
+        var workouts = [];
+        var exercises = [];
         service.getExercises = function () {
-            var exercises = [];
+            return exercises;
+        };
+
+        service.getWorkouts = function () {
+            return workouts;
+        };
+
+        var setupInitialExercises = function () {
             exercises.push(
                 new Exercise({
                     name: "jumpingJacks",
@@ -177,14 +186,14 @@ angular.module('app')
                               Keep your hips square and your neck in line with your spine. Hold the position."
                 }));
 
-            return exercises;
-        }
-        service.getWorkouts = function () {
-            var workouts = [];
+        };
+
+        var setupInitialWorkouts = function () {
             var exercises = service.getExercises();
             var workout = new WorkoutPlan({
                 name: "7minWorkout",
                 title: "7 Minute Workout",
+                description: "",
                 restBetweenExercise: 10
             });
 
@@ -237,8 +246,14 @@ angular.module('app')
                 duration: 30
             });
             workouts.push(workout);
-            return workouts;
-        }
+        };
+
+        var init = function () {
+            setupInitialExercises();
+            setupInitialWorkouts();
+        };
+
+        init();
         return service;
     }]);
 
