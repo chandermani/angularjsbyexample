@@ -279,6 +279,14 @@ angular.module('app')
             });
             workouts.splice(workoutIndex, 1);
         };
+
+        var init = function () {
+            setupInitialExercises();
+            setupInitialWorkouts();
+        };
+
+        init();
+
         return service;
     }]);
 
