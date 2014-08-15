@@ -22,11 +22,13 @@ config(function ($routeProvider, $sceDelegateProvider) {
     });
     $routeProvider.when('/builder/workouts/new', {
         templateUrl: 'partials/workoutbuilder/workout.html',
-        leftNav: 'partials/workoutbuilder/left-nav-exercises.html'
+        leftNav: 'partials/workoutbuilder/left-nav-exercises.html',
+        topNav: 'partials/workoutbuilder/top-nav.html'
     });
     $routeProvider.when('/builder/workouts/:id', {
         templateUrl: 'partials/workoutbuilder/workout.html',
-        leftNav: 'partials/workoutbuilder/left-nav-exercises.html'
+        leftNav: 'partials/workoutbuilder/left-nav-exercises.html',
+        topNav: 'partials/workoutbuilder/top-nav.html'
     });
     $routeProvider.when('/builder/exercises/new', { templateUrl: 'partials/workoutbuilder/exercise.html' });
     $routeProvider.when('/builder/exercises/:id', { templateUrl: 'partials/workoutbuilder/exercise.html' });
