@@ -12,7 +12,7 @@ angular.module('WorkoutBuilder')
   }]);
 
 angular.module('WorkoutBuilder')
-  .controller('WorkoutDetailController', ['$scope', 'WorkoutBuilderService', 'selectedWorkout', function ($scope, WorkoutBuilderService, selectedWorkout) {
+  .controller('WorkoutDetailController', ['$scope', 'WorkoutBuilderService', 'selectedWorkout', '$location', function ($scope, WorkoutBuilderService, selectedWorkout, $location) {
       $scope.removeExercise = function (exercise) {
           WorkoutBuilderService.removeExercise(exercise);
       };
@@ -43,9 +43,9 @@ angular.module('WorkoutBuilder')
       };
 
       $scope.deleteWorkout = function () {
-
+          WorkoutBuilderService.delete();
+          $location.path('/builder/workouts/');
       };
-
       var init = function () {
           $scope.workout = selectedWorkout;
       };

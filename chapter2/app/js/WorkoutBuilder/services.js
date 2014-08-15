@@ -45,6 +45,10 @@ angular.module('WorkoutBuilder')
             buildingWorkout.exercises.splice(toIndex, 0, buildingWorkout.exercises.splice(currentIndex, 1)[0]);
         }
 
+        service.delete = function () {
+            WorkoutService.deleteWorkout(buildingWorkout.name);
+        }
+
         return service;
     }]);
 
