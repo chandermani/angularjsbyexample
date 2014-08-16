@@ -1,1 +1,77 @@
-﻿<h2>Exercise</h2>
+﻿<div id="exercise-container">
+    <div class="row">
+        <h2 class="col-sm-8 col-sm-offset-1">
+            {{exercise.title||'Exercise Title'}} {{formExercise.$dirty?'*':''}}
+            <span class="pull-right glyphicon glyphicon-trash text-danger" title="Delete exercise" ng-confirm="deleteExercise()" ng-confirm-message="Are you sure you want to delete this exercise ?"></span>
+        </h2>
+    </div>
+    <form class="row" name="formExercise" novalidate>
+        <div id="exercise-data" class="col-sm-5 col-sm-offset-1">
+            <div class="form-group row" ng-class="{'has-error':formExercise.exerciseName.$error.required}">
+                <label for="exercise-name">Name:</label>
+                <input type="text" name="exerciseName" class="form-control" id="exercise-name" placeholder="Enter exercise name. Must be unique." ng-model="exercise.name" required>
+                <label ng-show="hasError(formExercise.exerciseName,formExercise.exerciseName.$error.required)" ng-class="{'text-danger': formExercise.exerciseName.$error.required}">exercise name is required and it should be unique.</label>
+            </div>
+            <div class="form-group row" ng-class="{'has-error':formExercise.title.$error.required}">
+                <label for="exercise-title">Title:</label>
+                <input type="text" name="title" class="form-control" id="exercise-title" placeholder="What would be the exercise title?" ng-model="exercise.title" required>
+                <label ng-show="hasError(formExercise.title,formExercise.title.$error.required)" ng-class="{'text-danger': formExercise.title.$error.required}">exercise title is required.</label>
+            </div>
+            <div class="form-group row">
+                <label for="exercise-description">Description:</label>
+                <textarea name="description" class="form-control" id="exercise-description" placeholder="Enter exercise description." ng-model="exercise.description"></textarea>
+            </div>
+            <div class="form-group row">
+                <label for="exercise-steps">Description:</label>
+                <textarea name="steps" class="form-control" id="exercise-steps" placeholder="Enter exercise steps." ng-model="exercise.procedure"></textarea>
+            </div>
+            <div class="form-group row">
+                <label for="exercise-image">Description:</label>
+                <input type="url" name="image" class="form-control" id="exercise-image" placeholder="Enter exercise image url." ng-model="exercise.image">
+                <img id="img-preview" ng-src="{{exercise.image ? exercise.image : '/img/running.png'}}" style="width:150px;height:150px" />
+            </div>
+            <div class="form-group row">
+                <label for="exercise-videos">Videos:</label>
+                <div ng-repeat="video in exercise.videos">
+                    <ng-form name="videoForm">
+                        <input type="url" name="relatedVideo" ng-model="exercise.videos[$index]" placeholder="Add a related youtube video url." required/>
+                        <button ng-click="deleteVideo(video)" title="Delete this video." class="btn btn-primary">
+                            <span class="glyphicon glyphicon-trash text-danger"></span>
+                        </button>
+                        <label ng-show="hasError(videoForm.relatedVideo,videoForm.relatedVideo.$error.required)" ng-class="{'text-danger': videoForm.relatedVideo.$error.required}">Video url is required.</label>
+                    </ng-form>
+                </div>
+                <button ng-click="addVideo()" class="btn btn-primary">Add Video</button>
+            </div>
+            <div class="row">
+                <button class="btn btn-default pull-right btn-block" ng-click="save()">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/ng-template" id="exercise-exercise-tile">
+    <div class="exercise tile">
+        <div><span>{{$index+1}}</span></div>
+        <div>
+            <img ng-src="{{exercise.details.image ? exercise.details.image : '/img/running.png'}}" style="width:75px;height:75px" />
+            <div>{{exercise.details.title}}</div>
+            <div title="{{exercise.details.description}}">{{exercise.details.description | limitTo:25}}</div>
+            <ng-form name="formDuration">
+                <input type="number" name="duration" ng-model="exercise.duration" class="form-control" placeholder="Exercise duration in seconds." min="1" ng-pattern="/^\d+$/" required />
+                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.required)" ng-class="{'text-danger': formDuration.duration.$error.required}">Time duration is required.</label>
+                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.number)" ng-class="{'text-danger': formDuration.duration.$error.number}">Time duration should be numeric.</label>
+                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.min)" ng-class="{'text-danger': formDuration.duration.$error.min}">Time duration should be more than zero.</label>
+                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.pattern)" ng-class="{'text-danger': formDuration.duration.$error.pattern}">Only positive integer value allowed.</label>
+            </ng-form>
+        </div>
+        <div>
+            <button class="btn btn-danger" ng-click="removeExercise(exercise)"><span class="glyphicon glyphicon-trash"></span></button>
+            <div id="move-icons">
+                <button class="btn btn-info" ng-click="moveExerciseTo(exercise,0)"><span class="glyphicon glyphicon-upload"></span></button>
+                <button class="btn btn-info" ng-click="moveExerciseTo(exercise,$index-1)"><span class="glyphicon glyphicon-chevron-up"></span></button>
+                <button class="btn btn-info" ng-click="moveExerciseTo(exercise,$index+1)"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                <button class="btn btn-info" ng-click="moveExerciseTo(exercise,exercise.exercises.length-1)"><span class="glyphicon glyphicon-download"></span></button>
+            </div>
+        </div>
+    </div>
+</script>

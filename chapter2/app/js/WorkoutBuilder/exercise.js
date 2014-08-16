@@ -24,6 +24,7 @@ angular.module('WorkoutBuilder')
 
 angular.module('WorkoutBuilder')
   .controller('ExerciseDetailController', ['$scope', 'WorkoutService', '$routeParams', function ($scope, WorkoutService, $routeParams) {
+
       var init = function () {
       };
       init();

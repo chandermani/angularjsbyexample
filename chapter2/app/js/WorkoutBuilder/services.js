@@ -52,3 +52,33 @@ angular.module('WorkoutBuilder')
         return service;
     }]);
 
+angular.module('WorkoutBuilder')
+    .factory("ExerciseBuilderService", ['ExerciseService', 'Exercise', function (ExerciseService, Exercise) {
+        var service = {};
+        var buildingExercise;
+        var newExercise;
+        service.startBuilding = function (name) {
+            //We are going to edit an existing exercise
+            if (name) {
+                buildingExercise = ExerciseService.getExercise(name);
+            }
+            else {
+                buildingExercise = new Exercise({});
+                newExercise = true;
+            }
+            return buildingExercise;
+        };
+
+        service.save = function () {
+            var exercise = newExercise ? ExerciseService.addExercise(buildingExercise)
+                                : ExerciseService.updateExercise(buildingExercise);
+            newExercise = false;
+            return workout;
+        };
+
+        service.delete = function () {
+            ExerciseService.deleteExercise(buildingExercise.name);
+        }
+
+        return service;
+    }]);
