@@ -18,12 +18,12 @@
             <div class="form-group row" ng-class="{'has-error':formWorkout.workoutName.$error.required}">
                 <label for="workout-name">Name:</label>
                 <input type="text" name="workoutName" class="form-control" id="workout-name" placeholder="Enter workout name. Must be unique." ng-model="workout.name" required>
-                <label ng-show="formWorkout.workoutName.$dirty && formWorkout.workoutName.$error.required" ng-class="{'text-danger': formWorkout.workoutName.$error.required}">Workout name is required and it should be unique.</label>
+                <label ng-show="hasError(formWorkout.workoutName,formWorkout.workoutName.$error.required)" ng-class="{'text-danger': formWorkout.workoutName.$error.required}">Workout name is required and it should be unique.</label>
             </div>
             <div class="form-group row" ng-class="{'has-error':formWorkout.title.$error.required}">
                 <label for="workout-title">Title:</label>
                 <input type="text" name="title" class="form-control" id="workout-title" placeholder="What would be the workout title?" ng-model="workout.title" required>
-                <label ng-show="formWorkout.title.$dirty && formWorkout.title.$error.required" ng-class="{'text-danger': formWorkout.title.$error.required}">Workout title is required.</label>
+                <label ng-show="hasError(formWorkout.title,formWorkout.title.$error.required)" ng-class="{'text-danger': formWorkout.title.$error.required}">Workout title is required.</label>
             </div>
             <div class="form-group row">
                 <label for="workout-description">Description:</label>
@@ -31,10 +31,11 @@
             </div>
             <div class="form-group row" ng-class="{'has-error':formWorkout.restBetweenExercise.$error.number}">
                 <label for="workout-rest">Rest Time (in seconds):</label>
-                <input type="number" name="restBetweenExercise" class="form-control" id="workout-rest" placeholder="Rest period between exercise in seconds." ng-model="workout.restBetweenExercise" min="0" ng-pattern="/^\d+$/">
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.number" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.number}">Time duration should be numeric.</label>
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.min" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.min}">Only positive integer value allowed.</label>
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.pattern" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.pattern}">Only positive integer value allowed.</label>
+                <input type="number" name="restBetweenExercise" class="form-control" id="workout-rest" placeholder="Rest period between exercise in seconds." ng-model="workout.restBetweenExercise" min="1" ng-pattern="/^\d+$/" required>
+                <label ng-show="hasError(formWorkout.restBetweenExercise,formWorkout.restBetweenExercise.$error.required)" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.required}">Time duration is required.</label>
+                <label ng-show="hasError(formWorkout.restBetweenExercise,formWorkout.restBetweenExercise.$error.number)" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.number}">Time duration should be numeric.</label>
+                <label ng-show="hasError(formWorkout.restBetweenExercise,formWorkout.restBetweenExercise.$error.min)" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.min}">Only positive integer value allowed.</label>
+                <label ng-show="hasError(formWorkout.restBetweenExercise,formWorkout.restBetweenExercise.$error.pattern)" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.pattern}">Only positive integer value allowed.</label>
             </div>
             <div class="form-group row">
                 <label>Total Exercises:</label>
@@ -59,10 +60,10 @@
             <div title="{{exercise.details.description}}">{{exercise.details.description | limitTo:25}}</div>
             <ng-form name="formDuration">
                 <input type="number" name="duration" ng-model="exercise.duration" class="form-control" placeholder="Exercise duration in seconds." min="1" ng-pattern="/^\d+$/" required />
-                <label ng-show="formDuration.duration.$dirty && formDuration.duration.$error.required" ng-class="{'text-danger': formDuration.duration.$error.required}">Time duration is required.</label>
-                <label ng-show="formDuration.duration.$dirty && formDuration.duration.$error.number" ng-class="{'text-danger': formDuration.duration.$error.number}">Time duration should be numeric.</label>
-                <label ng-show="formDuration.duration.$dirty && formDuration.duration.$error.min" ng-class="{'text-danger': formDuration.duration.$error.min}">Time duration should be more than zero.</label>
-                <label ng-show="formDuration.duration.$dirty && formDuration.duration.$error.pattern" ng-class="{'text-danger': formDuration.duration.$error.pattern}">Only positive integer value allowed.</label>
+                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.required)" ng-class="{'text-danger': formDuration.duration.$error.required}">Time duration is required.</label>
+                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.number)" ng-class="{'text-danger': formDuration.duration.$error.number}">Time duration should be numeric.</label>
+                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.min)" ng-class="{'text-danger': formDuration.duration.$error.min}">Time duration should be more than zero.</label>
+                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.pattern)" ng-class="{'text-danger': formDuration.duration.$error.pattern}">Only positive integer value allowed.</label>
             </ng-form>
         </div>
         <div>

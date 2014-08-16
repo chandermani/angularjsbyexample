@@ -18,6 +18,7 @@ angular.module('WorkoutBuilder')
       };
 
       $scope.save = function () {
+          $scope.submitted = true;      // Will force validations
           if ($scope.formWorkout.$invalid) return;
           $scope.workout = WorkoutBuilderService.save();
           $scope.formWorkout.$setPristine();
@@ -50,6 +51,9 @@ angular.module('WorkoutBuilder')
       //        restWatch(); //De-register the watch.
       //    }
       //});
+      $scope.hasError = function (modelController, error) {
+          return (modelController.$dirty || $scope.submitted) && error;
+      }
 
       $scope.moveExerciseTo = function (exercise, location) {
           WorkoutBuilderService.moveExerciseTo(exercise, location);
