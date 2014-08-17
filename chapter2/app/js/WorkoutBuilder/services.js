@@ -53,14 +53,14 @@ angular.module('WorkoutBuilder')
     }]);
 
 angular.module('WorkoutBuilder')
-    .factory("ExerciseBuilderService", ['ExerciseService', 'Exercise', function (ExerciseService, Exercise) {
+    .factory("ExerciseBuilderService", ['WorkoutService', 'Exercise', function (WorkoutService, Exercise) {
         var service = {};
         var buildingExercise;
         var newExercise;
         service.startBuilding = function (name) {
             //We are going to edit an existing exercise
             if (name) {
-                buildingExercise = ExerciseService.getExercise(name);
+                buildingExercise = WorkoutService.getExercise(name);
             }
             else {
                 buildingExercise = new Exercise({});
@@ -70,14 +70,23 @@ angular.module('WorkoutBuilder')
         };
 
         service.save = function () {
-            var exercise = newExercise ? ExerciseService.addExercise(buildingExercise)
-                                : ExerciseService.updateExercise(buildingExercise);
+            var exercise = newExercise ? WorkoutService.addExercise(buildingExercise)
+                                : WorkoutService.updateExercise(buildingExercise);
             newExercise = false;
             return workout;
         };
 
         service.delete = function () {
-            ExerciseService.deleteExercise(buildingExercise.name);
+            WorkoutService.deleteExercise(buildingExercise.name);
+        };
+
+        service.addVideo = function () {
+            buildingExercise.related.videos.push("");
+        };
+
+        service.deteteVideo = function (video) {
+            var index = buildingExercise.related.videos.indexOf(video);
+            if (index >= 0) buildingExercise.related.videos.splice(index, 1);
         }
 
         return service;

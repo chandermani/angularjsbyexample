@@ -6,11 +6,12 @@
         </h2>
     </div>
     <form class="row" name="formExercise" novalidate>
-        <div id="exercise-data" class="col-sm-5 col-sm-offset-1">
+        <div id="exercise-data" class="col-sm-5">
             <div class="form-group row" ng-class="{'has-error':formExercise.exerciseName.$error.required}">
                 <label for="exercise-name">Name:</label>
-                <input type="text" name="exerciseName" class="form-control" id="exercise-name" placeholder="Enter exercise name. Must be unique." ng-model="exercise.name" required>
+                <input type="text" name="exerciseName" class="form-control" id="exercise-name" placeholder="Enter exercise name. Must be unique." ng-model="exercise.name" ng-pattern="/^[A-Za-z0-9 ]{1,15}$/" required>
                 <label ng-show="hasError(formExercise.exerciseName,formExercise.exerciseName.$error.required)" ng-class="{'text-danger': formExercise.exerciseName.$error.required}">exercise name is required and it should be unique.</label>
+                <label ng-show="hasError(formExercise.exerciseName,formExercise.exerciseName.$error.pattern)" ng-class="{'text-danger': formExercise.exerciseName.$error.pattern}">Only alpha numberic values are allowed in workout name with max length 15.</label>
             </div>
             <div class="form-group row" ng-class="{'has-error':formExercise.title.$error.required}">
                 <label for="exercise-title">Title:</label>
@@ -22,19 +23,21 @@
                 <textarea name="description" class="form-control" id="exercise-description" placeholder="Enter exercise description." ng-model="exercise.description"></textarea>
             </div>
             <div class="form-group row">
-                <label for="exercise-steps">Description:</label>
+                <label for="exercise-steps">Exercise Steps:</label>
                 <textarea name="steps" class="form-control" id="exercise-steps" placeholder="Enter exercise steps." ng-model="exercise.procedure"></textarea>
             </div>
+        </div>
+        <div id="exercise-video" class="col-sm-5">
             <div class="form-group row">
-                <label for="exercise-image">Description:</label>
+                <img id="img-preview" ng-src="{{exercise.image ? exercise.image : '/img/running.png'}}" style="width:250px;height:250px" /><br />
+                <label for="exercise-image">Exercise Image (Will be scaled to: 540 X 360 px):</label>
                 <input type="url" name="image" class="form-control" id="exercise-image" placeholder="Enter exercise image url." ng-model="exercise.image">
-                <img id="img-preview" ng-src="{{exercise.image ? exercise.image : '/img/running.png'}}" style="width:150px;height:150px" />
             </div>
             <div class="form-group row">
                 <label for="exercise-videos">Videos:</label>
                 <div ng-repeat="video in exercise.videos">
                     <ng-form name="videoForm">
-                        <input type="url" name="relatedVideo" ng-model="exercise.videos[$index]" placeholder="Add a related youtube video url." required/>
+                        <input type="url" name="relatedVideo" ng-model="exercise.videos[$index]" placeholder="Add a related youtube video url." required />
                         <button ng-click="deleteVideo(video)" title="Delete this video." class="btn btn-primary">
                             <span class="glyphicon glyphicon-trash text-danger"></span>
                         </button>
@@ -44,7 +47,10 @@
                 <button ng-click="addVideo()" class="btn btn-primary">Add Video</button>
             </div>
             <div class="row">
-                <button class="btn btn-default pull-right btn-block" ng-click="save()">Save</button>
+                <div>
+                    <button class="btn btn-default pull-right" ng-click="save()">Save</button>
+                    <button class="btn btn-primary pull-right" ng-click="reset()">Reset</button>
+                </div>
             </div>
         </div>
     </form>
