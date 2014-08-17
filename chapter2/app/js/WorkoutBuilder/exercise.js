@@ -52,8 +52,8 @@ angular.module('WorkoutBuilder')
           ExerciseBuilderService.addVideo();
       };
 
-      $scope.addVideo = function () {
-          ExerciseBuilderService.deleteVideo();
+      $scope.deleteVideo = function (index) {
+          ExerciseBuilderService.deleteVideo(index);
       };
 
       var init = function () {

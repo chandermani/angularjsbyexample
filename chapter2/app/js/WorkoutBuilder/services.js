@@ -84,8 +84,7 @@ angular.module('WorkoutBuilder')
             buildingExercise.related.videos.push("");
         };
 
-        service.deteteVideo = function (video) {
-            var index = buildingExercise.related.videos.indexOf(video);
+        service.deleteVideo = function (index) {
             if (index >= 0) buildingExercise.related.videos.splice(index, 1);
         }
 
