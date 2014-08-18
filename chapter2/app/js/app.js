@@ -13,13 +13,15 @@ config(function ($routeProvider, $sceDelegateProvider) {
     $routeProvider.when('/builder/workouts', {
         templateUrl: 'partials/workoutbuilder/workouts.html',
         leftNav: 'partials/workoutbuilder/left-nav-main.html',
-        topNav: 'partials/workoutbuilder/top-nav.html'
+        topNav: 'partials/workoutbuilder/top-nav.html',
+        controller: 'WorkoutListController'
     });
     $routeProvider.when('/builder/exercises', {
         templateUrl: 'partials/workoutbuilder/exercises.html',
         leftNav: 'partials/workoutbuilder/left-nav-main.html',
-        topNav: 'partials/workoutbuilder/top-nav.html'
-    });
+        topNav: 'partials/workoutbuilder/top-nav.html',
+        controller:'ExerciseListController'
+});
     $routeProvider.when('/builder/workouts/new', {
         templateUrl: 'partials/workoutbuilder/workout.html',
         leftNav: 'partials/workoutbuilder/left-nav-exercises.html',
