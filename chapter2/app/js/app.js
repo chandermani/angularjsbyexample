@@ -19,15 +19,17 @@ config(function ($routeProvider, $sceDelegateProvider) {
         templateUrl: 'partials/workoutbuilder/exercises.html',
         leftNav: 'partials/workoutbuilder/left-nav-main.html',
         topNav: 'partials/workoutbuilder/top-nav.html',
-        controller:'ExerciseListController'
-});
+        controller: 'ExerciseListController'
+    });
     $routeProvider.when('/builder/workouts/new', {
         templateUrl: 'partials/workoutbuilder/workout.html',
-        leftNav: 'partials/workoutbuilder/left-nav-exercises.html'
+        leftNav: 'partials/workoutbuilder/left-nav-exercises.html',
+        topNav: 'partials/workoutbuilder/top-nav.html',
     });
     $routeProvider.when('/builder/workouts/:id', {
         templateUrl: 'partials/workoutbuilder/workout.html',
-        leftNav: 'partials/workoutbuilder/left-nav-exercises.html'
+        leftNav: 'partials/workoutbuilder/left-nav-exercises.html',
+        topNav: 'partials/workoutbuilder/top-nav.html',
     });
     $routeProvider.when('/builder/exercises/new', { templateUrl: 'partials/workoutbuilder/exercise.html' });
     $routeProvider.when('/builder/exercises/:id', { templateUrl: 'partials/workoutbuilder/exercise.html' });
