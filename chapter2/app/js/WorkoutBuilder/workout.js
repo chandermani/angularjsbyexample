@@ -66,6 +66,10 @@ angular.module('WorkoutBuilder')
           WorkoutBuilderService.moveExerciseTo(exercise, location);
       };
 
+      $scope.canDeleteWorkout = function () {
+          return WorkoutBuilderService.canDeleteWorkout();
+      }
+
       $scope.deleteWorkout = function () {
           WorkoutBuilderService.delete();
           $location.path('/builder/workouts/');
