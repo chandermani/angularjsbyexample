@@ -268,4 +268,26 @@ div[ng-view].ng-leave-active {
 .exercise.tile div:last-child{
     width:53px;
 }
+
+.workout.tile {
+    width: 300px;
+    height: 80px;
+    background: #5bc0de;
+    color: white;
+    padding:10px;
+    margin-bottom:10px;
+}
+.workout.tile:hover{
+    background:#1D89CF;
+}
+
+.workout .title{
+    font-size: 20pt;
+    text-align: center;
+}
+.workout .stats{
+    font-size: 12pt;
+    padding:0 10px 0 10px;
+}
+
 /*styles for tile- end*/
