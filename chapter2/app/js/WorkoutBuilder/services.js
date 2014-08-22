@@ -16,6 +16,7 @@ angular.module('WorkoutBuilder')
             //We are going to edit an existing workout
             if (name) {
                 buildingWorkout = WorkoutService.getWorkout(name);
+                newWorkout = false;
             }
             else {
                 buildingWorkout = new WorkoutPlan({});
@@ -45,7 +46,12 @@ angular.module('WorkoutBuilder')
             buildingWorkout.exercises.splice(toIndex, 0, buildingWorkout.exercises.splice(currentIndex, 1)[0]);
         }
 
+        service.canDeleteWorkout = function () {
+            return !newWorkout;
+        }
+
         service.delete = function () {
+            if (newWorkout) return; // A new workout cannot be deleted.
             WorkoutService.deleteWorkout(buildingWorkout.name);
         }
 
