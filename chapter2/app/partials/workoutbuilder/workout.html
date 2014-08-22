@@ -47,7 +47,7 @@
                 <p class="form-control-static badge">{{workout.totalWorkoutDuration()|secondsToTime}}</p>
             </div>
             <div class="row">
-                <button class="btn btn-default pull-right btn-block" ng-click="save()">Save</button>
+                <button class="btn pull-right btn-block" ng-class="{'btn-default':formWorkout.$valid,'btn-warning':!formWorkout.$valid}" ng-click="save()">Save</button>
             </div>
         </div>
     </form>
