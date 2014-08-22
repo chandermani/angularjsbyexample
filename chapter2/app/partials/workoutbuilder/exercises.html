@@ -1,6 +1,6 @@
 ﻿<div id="exercise-list">
     <h2>Exercises</h2>
-    <div ng-repeat="exercise in exercises|orderBy:'title'">
-        <div ng-dblclick="goto(exercise)">{{exercise.title}}</div>
+    <div ng-repeat="exercise in exercises|orderBy:'title'" class="exercise-tile" ng-dblclick="goto(exercise)">
+        <div class="title">{{exercise.title}}</div>
     </div>
 </div>

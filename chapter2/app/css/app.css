@@ -290,4 +290,17 @@ div[ng-view].ng-leave-active {
     padding:0 10px 0 10px;
 }
 
+.exercise-tile {
+    width: 300px;
+    height: 50px;
+    background: #5bc0de;
+    color: white;
+    padding:5px;
+    margin-bottom:10px;
+    font-size: 18pt;
+    text-align: center;
+}
+.exercise-tile:hover {
+    background:#1D89CF;
+}
 /*styles for tile- end*/
