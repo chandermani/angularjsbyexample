@@ -1,7 +1,7 @@
 ﻿<div id="workout-container">
     <div class="row">
         <h2 class="col-sm-8 col-sm-offset-1">{{workout.title||'Workout Title'}} {{formWorkout.$dirty?'*':''}}
-            <span class="pull-right glyphicon glyphicon-trash text-danger" title="Delete Workout" ng-confirm="deleteWorkout()" ng-confirm-message="Are you sure you want to delete this workout ?"></span>
+            <span ng-show="canDeleteWorkout()" class="pull-right glyphicon glyphicon-trash text-danger" title="Delete Workout" ng-confirm="deleteWorkout()" ng-confirm-message="Are you sure you want to delete this workout ?"></span>
         </h2>
     </div>
     <form class="row" name="formWorkout" novalidate>
