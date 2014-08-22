@@ -49,7 +49,7 @@
             </div>
             <div class="row">
                 <div>
-                    <button class="btn btn-default pull-right" ng-click="save()">Save</button>
+                    <button class="btn pull-right btn-block" ng-class="{'btn-default':formWorkout.$valid,'btn-warning':!formWorkout.$valid}" ng-click="save()">Save</button>
                     <button class="btn btn-primary pull-right" ng-click="reset()">Reset</button>
                 </div>
             </div>
