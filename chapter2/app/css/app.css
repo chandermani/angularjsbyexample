@@ -241,32 +241,39 @@ div[ng-view].ng-leave-active {
 
 /*styles for tile - start*/
 .exercise.tile {
-    padding: 10px;
+    width:320px;
+    height:226px;
+    color:white;
     margin-bottom:10px;
-    width:370px;
-    height:240px;
+    background:#61b9ff;
+
 }
-.exercise.tile:nth-child(n){
-    background-color:#02c69a;
+
+.exercise.tile .title {
+    width:inherit;
+    background:#9d4a9c;
+    font-size:14pt;
+    padding:5px;
 }
-.exercise.tile div{
+.exercise.tile .index{
+    width:40px;
     float:left;
+    font-size:20pt;
+    text-align:center;
+    padding-top:10px;
 }
-.exercise.tile div:first-child{
-    width:50px;
-    font-size: 40px;
-}
-.exercise.tile div:nth-child(2){
-    width:245px;
-}
-.exercise.tile div:nth-child(2) input{
-    display:block;
-}
-.exercise.tile div:nth-child(2) div{
-    margin:10px 0px 10px 0px;
-}
-.exercise.tile div:last-child{
+.exercise.tile .order{
     width:53px;
+    float:right;
+}
+.exercise.tile .main {
+    width:225px;
+    float:left;
+    padding:4px;
+}
+.exercise.tile img{
+    width:100%;
+    height:120px;
 }
 
 .workout.tile {

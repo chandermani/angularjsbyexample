@@ -58,27 +58,30 @@
 </div>
 <script type="text/ng-template" id="workout-exercise-tile">
     <div class="exercise tile">
-        <div><span>{{$index+1}}</span></div>
-        <div>
-            <img ng-src="{{exercise.details.image ? exercise.details.image : '/img/running.png'}}" style="width:75px;height:75px" />
-            <div>{{exercise.details.title}}</div>
-            <div title="{{exercise.details.description}}">{{exercise.details.description | limitTo:25}}</div>
-            <ng-form name="formDuration">
-                <input type="number" name="duration" ng-model="exercise.duration" class="form-control" placeholder="Exercise duration in seconds." min="1" ng-pattern="/^\d+$/" required />
-                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.required)" ng-class="{'text-danger': formDuration.duration.$error.required}">Time duration is required.</label>
-                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.number)" ng-class="{'text-danger': formDuration.duration.$error.number}">Time duration should be numeric.</label>
-                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.min)" ng-class="{'text-danger': formDuration.duration.$error.min}">Time duration should be more than zero.</label>
-                <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.pattern)" ng-class="{'text-danger': formDuration.duration.$error.pattern}">Only positive integer value allowed.</label>
-            </ng-form>
+        <div class="title">
+            {{exercise.details.title}}
+            <div class="pull-right" ng-click="removeExercise(exercise)"><span class="glyphicon glyphicon-trash"></span></div>
         </div>
-        <div>
-            <button class="btn btn-danger" ng-click="removeExercise(exercise)"><span class="glyphicon glyphicon-trash"></span></button>
-            <div id="move-icons">
-                <button class="btn btn-info" ng-click="moveExerciseTo(exercise,0)"><span class="glyphicon glyphicon-upload"></span></button>
-                <button class="btn btn-info" ng-click="moveExerciseTo(exercise,$index-1)"><span class="glyphicon glyphicon-chevron-up"></span></button>
-                <button class="btn btn-info" ng-click="moveExerciseTo(exercise,$index+1)"><span class="glyphicon glyphicon-chevron-down"></span></button>
-                <button class="btn btn-info" ng-click="moveExerciseTo(exercise,workout.exercises.length-1)"><span class="glyphicon glyphicon-download"></span></button>
+        <div class="index"><span>{{$index+1}}</span></div>
+        <div class="main">
+            <div class="image">
+                <img ng-src="{{exercise.details.image ? exercise.details.image : '/img/running.png'}}" />
             </div>
+            <div class="details">
+                <ng-form name="formDuration">
+                    <input type="number" name="duration" ng-model="exercise.duration" class="form-control" placeholder="Exercise duration in seconds." min="1" ng-pattern="/^\d+$/" required />
+                    <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.required)" ng-class="{'text-danger': formDuration.duration.$error.required}">Time duration is required.</label>
+                    <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.number)" ng-class="{'text-danger': formDuration.duration.$error.number}">Time duration should be numeric.</label>
+                    <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.min)" ng-class="{'text-danger': formDuration.duration.$error.min}">Time duration should be more than zero.</label>
+                    <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.pattern)" ng-class="{'text-danger': formDuration.duration.$error.pattern}">Only positive integer value allowed.</label>
+                </ng-form>
+            </div>
+        </div>
+        <div class="order">
+            <button class="btn btn-info" ng-click="moveExerciseTo(exercise,0)"><span class="glyphicon glyphicon-upload"></span></button>
+            <button class="btn btn-info" ng-click="moveExerciseTo(exercise,$index-1)"><span class="glyphicon glyphicon-chevron-up"></span></button>
+            <button class="btn btn-info" ng-click="moveExerciseTo(exercise,$index+1)"><span class="glyphicon glyphicon-chevron-down"></span></button>
+            <button class="btn btn-info" ng-click="moveExerciseTo(exercise,workout.exercises.length-1)"><span class="glyphicon glyphicon-download"></span></button>
         </div>
     </div>
 </script>
