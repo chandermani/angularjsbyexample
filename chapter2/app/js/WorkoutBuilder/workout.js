@@ -50,7 +50,6 @@ angular.module('WorkoutBuilder')
       }
       var init = function () {
           $scope.workout = selectedWorkout;
-          $scope.workout.restBetweenExercise = 25.53;
       };
       init();
   }]);
