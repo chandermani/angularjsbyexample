@@ -33,26 +33,10 @@ angular.module('WorkoutBuilder')
             buildingWorkout.exercises.push({ details: exercise, duration: 30 });
         };
 
-        service.save = function () {
-            var workout = newWorkout ? WorkoutService.addWorkout(buildingWorkout)
-                                : WorkoutService.updateWorkout(buildingWorkout);
-            newWorkout = false;
-            return workout;
-        };
-
         service.moveExerciseTo = function (exercise, toIndex) {
             if (toIndex < 0 || toIndex >= buildingWorkout.exercises) return;
             var currentIndex = buildingWorkout.exercises.indexOf(exercise);
             buildingWorkout.exercises.splice(toIndex, 0, buildingWorkout.exercises.splice(currentIndex, 1)[0]);
-        }
-
-        service.canDeleteWorkout = function () {
-            return !newWorkout;
-        }
-
-        service.delete = function () {
-            if (newWorkout) return; // A new workout cannot be deleted.
-            WorkoutService.deleteWorkout(buildingWorkout.name);
         }
 
         return service;

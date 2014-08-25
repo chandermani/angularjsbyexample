@@ -17,12 +17,6 @@ angular.module('WorkoutBuilder')
           WorkoutBuilderService.removeExercise(exercise);
       };
 
-      $scope.save = function () {
-          if ($scope.formWorkout.$invalid) return;
-          $scope.workout = WorkoutBuilderService.save();
-          $scope.formWorkout.$setPristine();
-      }
-
       var restWatch = $scope.$watch('formWorkout.restBetweenExercise', function (newValue) {
           // Conversion logic courtesy http://stackoverflow.com/questions/596467/how-do-i-convert-a-number-to-an-integer-in-javascript
           if (newValue) {
@@ -40,14 +34,6 @@ angular.module('WorkoutBuilder')
           WorkoutBuilderService.moveExerciseTo(exercise, location);
       };
 
-      $scope.canDeleteWorkout = function () {
-          return WorkoutBuilderService.canDeleteWorkout();
-      }
-
-      $scope.deleteWorkout = function () {
-          WorkoutBuilderService.delete();
-          $location.path('/builder/workouts/');
-      }
       var init = function () {
           $scope.workout = selectedWorkout;
       };
