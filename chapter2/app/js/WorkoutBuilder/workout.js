@@ -17,12 +17,6 @@ angular.module('WorkoutBuilder')
           WorkoutBuilderService.removeExercise(exercise);
       };
 
-      $scope.save = function () {
-          if ($scope.formWorkout.$invalid) return;
-          $scope.workout = WorkoutBuilderService.save();
-          $scope.formWorkout.$setPristine();
-      }
-
       $scope.$watch('formWorkout.exerciseCount', function (newValue) {
           if (newValue) {
               if ($scope.workout.exercises.length === 0)
@@ -55,14 +49,6 @@ angular.module('WorkoutBuilder')
           WorkoutBuilderService.moveExerciseTo(exercise, location);
       };
 
-      $scope.canDeleteWorkout = function () {
-          return WorkoutBuilderService.canDeleteWorkout();
-      }
-
-      $scope.deleteWorkout = function () {
-          WorkoutBuilderService.delete();
-          $location.path('/builder/workouts/');
-      };
       var init = function () {
           $scope.workout = selectedWorkout;
       };
