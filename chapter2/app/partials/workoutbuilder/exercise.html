@@ -2,7 +2,7 @@
     <div class="row">
         <h2 class="col-sm-8">
             {{exercise.title||'Exercise Title'}} {{formExercise.$dirty?'*':''}}
-            <span class="pull-right glyphicon glyphicon-trash text-danger" title="Delete exercise" ng-confirm="deleteExercise()" ng-confirm-message="Are you sure you want to delete this exercise ?"></span>
+            <span ng-show="canDeleteExercise()"  class="pull-right glyphicon glyphicon-trash text-danger" title="Delete exercise" ng-confirm="deleteExercise()" ng-confirm-message="Are you sure you want to delete this exercise ?"></span>
         </h2>
     </div>
     <form class="row" name="formExercise" novalidate>
@@ -50,7 +50,9 @@
             </div>
             <div class="row">
                 <div>
-                    <button class="btn btn-default pull-right" ng-click="save()">Save</button>
+                    <button class="btn pull-right" ng-class="{'btn-default':formExercise.$valid,'btn-warning':!formExercise.$valid}" ng-click="save()"
+                            popover="{{formExercise.$invalid ? 'The form has errors.' : null}}" popover-trigger="mouseenter">Save
+                    </button>
                     <button class="btn btn-primary pull-right" ng-click="reset()">Reset</button>
                 </div>
             </div>

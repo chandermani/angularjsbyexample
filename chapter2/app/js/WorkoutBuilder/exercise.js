@@ -23,7 +23,7 @@ angular.module('WorkoutBuilder')
   }]);
 
 angular.module('WorkoutBuilder')
-  .controller('ExerciseDetailController', ['$scope', 'WorkoutService', '$routeParams', 'ExerciseBuilderService', function ($scope, WorkoutService, $routeParams, ExerciseBuilderService) {
+  .controller('ExerciseDetailController', ['$scope', 'WorkoutService', '$routeParams', 'ExerciseBuilderService', '$location', function ($scope, WorkoutService, $routeParams, ExerciseBuilderService, $location) {
 
       $scope.save = function () {
           $scope.submitted = true;      // Will force validations
@@ -43,6 +43,10 @@ angular.module('WorkoutBuilder')
           $scope.submitted = false;      // Will force validations
       };
 
+      $scope.canDeleteExercise = function () {
+          return ExerciseBuilderService.canDeleteExercise();
+      }
+
       $scope.deleteExercise = function () {
           ExerciseBuilderService.delete();
           $location.path('/builder/exercises/');
@@ -60,5 +64,6 @@ angular.module('WorkoutBuilder')
           // We do not use the resolve property on the route to load exercise as we do it with workout.
           $scope.exercise = ExerciseBuilderService.startBuilding($routeParams.id);
       };
+
       init();
   }]);

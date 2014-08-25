@@ -79,7 +79,7 @@ angular.module('WorkoutBuilder')
             var exercise = newExercise ? WorkoutService.addExercise(buildingExercise)
                                 : WorkoutService.updateExercise(buildingExercise);
             newExercise = false;
-            return workout;
+            return exercise;
         };
 
         service.delete = function () {
@@ -89,6 +89,10 @@ angular.module('WorkoutBuilder')
         service.addVideo = function () {
             buildingExercise.related.videos.push("");
         };
+
+        service.canDeleteExercise = function () {
+            return !newExercise;
+        }
 
         service.deleteVideo = function (index) {
             if (index >= 0) buildingExercise.related.videos.splice(index, 1);
