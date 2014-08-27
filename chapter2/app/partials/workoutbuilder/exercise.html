@@ -38,12 +38,12 @@
                 <div ng-repeat="video in exercise.related.videos track by $index">
                     <ng-form name="videoForm">
                         <div class="form-group form-inline" ng-class="{'has-error':videoForm.relatedVideo.$invalid}">
-                            <input type="url" name="relatedVideo" class="form-control" ng-model="exercise.videos[$index]" placeholder="Add a related youtube video url." required />
+                            <input name="relatedVideo" class="form-control" ng-model="exercise.related.videos[$index]" placeholder="Add a related youtube video identified." required />
                             <button ng-click="deleteVideo($index)" title="Delete this video." class="btn btn-primary">
                                 <span class="glyphicon glyphicon-trash text-danger"></span>
                             </button>
                         </div>
-                        <label ng-show="hasError(videoForm.relatedVideo,videoForm.relatedVideo.$error.required)" ng-class="{'text-danger': videoForm.relatedVideo.$error.required}">Video url is required.</label>
+                        <label ng-show="hasError(videoForm.relatedVideo,videoForm.relatedVideo.$error.required)" ng-class="{'text-danger': videoForm.relatedVideo.$error.required}">Video identifier is required.</label>
                     </ng-form>
                 </div>
                 <button ng-click="addVideo()" class="btn btn-primary">Add Video</button>
