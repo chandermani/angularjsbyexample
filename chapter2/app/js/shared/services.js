@@ -19,17 +19,25 @@ angular.module('app')
             collectionsUrl = apiUrl + dbName + "/collections";
         }
 
-        this.$get = ['WorkoutPlan', 'Exercise', '$http', function (WorkoutPlan, Exercise, $http) {
+        this.$get = ['WorkoutPlan', 'Exercise', '$http', '$q', function (WorkoutPlan, Exercise, $http, $q) {
             var service = {};
             var workouts = [];
             var exercises = [];
 
             service.getExercises = function () {
-                return $http.get(collectionsUrl +"/exercises", { params: { apiKey: apiKey } });
+                return $http.get(collectionsUrl + "/exercises", { params: { apiKey: apiKey } })
+                    .then(function (response) {
+                        return response.data.map(function (exercise) {
+                            return new Exercise(exercise);
+                        })
+                    });
             };
 
             service.getExercise = function (name) {
-                return $http.get(collectionsUrl + "/exercises/" + name, { params: { apiKey: apiKey } });
+                return $http.get(collectionsUrl + "/exercises/" + name, { params: { apiKey: apiKey } })
+                    .then(function (response) {
+                        return new Exercise(response.data);
+                    });
             };
 
             service.updateExercise = function (exercise) {
@@ -60,14 +68,20 @@ angular.module('app')
 
 
             service.getWorkouts = function () {
-                return $http.get(collectionsUrl + '/' + "workouts", { params: { apiKey: apiKey } });
+                return $http.get(collectionsUrl + "/workouts", { params: { apiKey: apiKey } });
             };
+
             service.getWorkout = function (name) {
-                var result = null;
-                angular.forEach(service.getWorkouts(), function (workout) {
-                    if (workout.name === name) result = angular.copy(workout);
-                });
-                return result;
+                return $q.all([service.getExercises(), $http.get(collectionsUrl + "/workouts/" + name, { params: { apiKey: apiKey } })])
+                    .then(function (response) {
+                        var allExercises = response[0];
+                        var workout = new WorkoutPlan(response[1].data);
+                        
+                        angular.forEach(response[1].data.exercises, function (exercise, index) {
+                            workout.exercises.push({ details: allExercises.filter(function (e) { return e.name === exercise.name; })[0], duration: exercise.duration });
+                        });
+                        return workout;
+                    });
             };
 
             service.updateWorkout = function (workout) {

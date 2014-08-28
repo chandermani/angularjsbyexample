@@ -8,21 +8,26 @@ angular.module('app')
     });
 
 angular.module('WorkoutBuilder')
-    .factory("WorkoutBuilderService", ['WorkoutService', 'WorkoutPlan', 'Exercise', function (WorkoutService, WorkoutPlan, Exercise) {
+    .factory("WorkoutBuilderService", ['WorkoutService', 'WorkoutPlan', 'Exercise', '$q', function (WorkoutService, WorkoutPlan, Exercise, $q) {
         var service = {};
         var buildingWorkout;
         var newWorkout;
         service.startBuilding = function (name) {
+            var defer = $q.defer();
             //We are going to edit an existing workout
             if (name) {
-                buildingWorkout = WorkoutService.getWorkout(name);
-                newWorkout = false;
+                WorkoutService.getWorkout(name).then(function (workout) {
+                    buildingWorkout = workout;
+                    newWorkout = false;
+                    defer.resolve(buildingWorkout);
+                });
             }
             else {
                 buildingWorkout = new WorkoutPlan({});
+                defer.resolve(buildingWorkout);
                 newWorkout = true;
             }
-            return buildingWorkout;
+            return defer.promise;
         };
 
         service.removeExercise = function (exercise) {
@@ -64,10 +69,10 @@ angular.module('WorkoutBuilder')
         var buildingExercise;
         var newExercise;
         service.startBuilding = function (name) {
-            //We are going to edit an existing exercise
             var defer = $q.defer();
+            //We are going to edit an existing exercise
             if (name) {
-                WorkoutService.getExercise(name).success(function (exercise) {
+                WorkoutService.getExercise(name).then(function (exercise) {
                     buildingExercise = exercise;
                     defer.resolve(buildingExercise);
                 });

@@ -6,7 +6,7 @@ angular.module('WorkoutBuilder')
           WorkoutBuilderService.addExercise(exercise);
       }
       var init = function () {
-          WorkoutService.getExercises().success(function (exercises) {
+          WorkoutService.getExercises().then(function (exercises) {
               $scope.exercises = exercises;
           });
       };
