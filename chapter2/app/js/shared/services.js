@@ -85,18 +85,29 @@ angular.module('app')
             };
 
             service.updateWorkout = function (workout) {
-                angular.forEach(workouts, function (w, index) {
-                    if (w.name === workout.name) {
-                        workouts[index] = workout;
-                    }
-                });
-                return workout;
+                return service.getWorkout(workout.name)
+                    .then(function (original) {
+                        if (original) {
+                            var workoutToSave = angular.copy(workout);
+                            workoutToSave.exercises = workoutToSave.exercises.map(function (exercise) { return { name: exercise.details.name, duration: exercise.duration } });
+                            workoutToSave.name = original.name;     //Name change is not allowed once saved. As it maps to _id
+                            return $http.put(collectionsUrl + "/workouts/" + original.name, workoutToSave, { params: { apiKey: apiKey } });
+                        }
+                    })
+                    .then(function (response) {
+                        return workout;
+                    });
             };
 
             service.addWorkout = function (workout) {
                 if (workout.name) {
-                    workouts.push(workout);
-                    return workout;
+                    var workoutToSave = angular.copy(workout);
+                    workoutToSave.exercises = workoutToSave.exercises.map(function (exercise) { return { name: exercise.details.name, duration: exercise.duration } });
+                    workoutToSave._id = workoutToSave.name;
+                    return $http.post(collectionsUrl + "/workouts", workoutToSave, { params: { apiKey: apiKey } })
+                                .then(function (response) {
+                                    return workout
+                                });
                 }
             }
 
