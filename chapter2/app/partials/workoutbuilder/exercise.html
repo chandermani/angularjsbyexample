@@ -26,12 +26,16 @@
                 <label for="exercise-steps">Exercise Steps:</label>
                 <textarea name="steps" class="form-control" id="exercise-steps" placeholder="Enter exercise steps." ng-model="exercise.procedure"></textarea>
             </div>
+            <div class="form-group row">
+                <label for="name-audio">Exercise Audio:</label>
+                <input type="text" name="audio" class="form-control" id="name-audio" placeholder="Enter location\url where audio clue for the exercise is stored." ng-model="exercise.nameSound" />
+            </div>
         </div>
         <div id="exercise-video" class="col-sm-3">
             <div class="form-group row">
                 <img id="img-preview" ng-src="{{exercise.image ? exercise.image : '/img/running.png'}}" style="width:250px;height:250px" /><br />
                 <label for="exercise-image">Exercise Image (Will be scaled to: 540 X 360 px):</label>
-                <input type="url" name="image" class="form-control" id="exercise-image" placeholder="Enter exercise image url." ng-model="exercise.image">
+                <input type="text" name="image" class="form-control" id="exercise-image" placeholder="Enter exercise image url." ng-model="exercise.image">
             </div>
             <div class="row">
                 <label for="exercise-videos">Videos:</label>
