@@ -67,6 +67,7 @@ angular.module('WorkoutBuilder')
             //We are going to edit an existing exercise
             if (name) {
                 buildingExercise = WorkoutService.getExercise(name);
+                newExercise = false;
             }
             else {
                 buildingExercise = new Exercise({});
