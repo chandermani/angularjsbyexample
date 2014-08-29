@@ -19,64 +19,23 @@ angular.module('app')
             collectionsUrl = apiUrl + dbName + "/collections";
         }
 
-        this.$get = ['WorkoutPlan', 'Exercise', '$http', '$q', function (WorkoutPlan, Exercise, $http, $q) {
+        this.$get = ['WorkoutPlan', 'Exercise', '$http', '$q', '$resource', function (WorkoutPlan, Exercise, $http, $q, $resource) {
             var service = {};
             var workouts = [];
             var exercises = [];
 
-            service.getExercises = function () {
-                return $http.get(collectionsUrl + "/exercises", { params: { apiKey: apiKey } })
-                    .then(function (response) {
-                        return response.data.map(function (exercise) {
-                            return new Exercise(exercise);
-                        })
-                    });
-            };
-
-            service.getExercise = function (name) {
-                return $http.get(collectionsUrl + "/exercises/" + name, { params: { apiKey: apiKey } })
-                    .then(function (response) {
-                        return new Exercise(response.data);
-                    });
-            };
-
-            service.updateExercise = function (exercise) {
-                angular.forEach(exercises, function (e, index) {
-                    if (e.name === exercise.name) {
-                        exercises[index] = exercise;
-                    }
-                });
-                return exercise;
-            };
-
-            service.addExercise = function (exercise) {
-                if (exercise.name) {
-                    exercises.push(exercise);
-                    return exercise;
-                }
-            }
-
-            service.deleteExercise = function (exerciseName) {
-                var exerciseIndex;
-                angular.forEach(exercises, function (e, index) {
-                    if (e.name === exerciseName) {
-                        exerciseIndex = index;
-                    }
-                });
-                if (exerciseIndex >= 0) exercises.splice(exerciseIndex, 1);
-            };
-
+            service.Exercises = $resource(collectionsUrl + "/exercises/:id", { apiKey: apiKey}, { update: { method: 'PUT' } });
 
             service.getWorkouts = function () {
                 return $http.get(collectionsUrl + "/workouts", { params: { apiKey: apiKey } });
             };
 
             service.getWorkout = function (name) {
-                return $q.all([service.getExercises(), $http.get(collectionsUrl + "/workouts/" + name, { params: { apiKey: apiKey } })])
+                return $q.all([service.Exercises.query().$promise, $http.get(collectionsUrl + "/workouts/" + name, { params: { apiKey: apiKey } })])
                     .then(function (response) {
                         var allExercises = response[0];
                         var workout = new WorkoutPlan(response[1].data);
-                        
+
                         angular.forEach(response[1].data.exercises, function (exercise, index) {
                             workout.exercises.push({ details: allExercises.filter(function (e) { return e.name === exercise.name; })[0], duration: exercise.duration });
                         });

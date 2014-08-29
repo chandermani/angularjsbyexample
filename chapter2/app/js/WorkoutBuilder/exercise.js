@@ -6,9 +6,7 @@ angular.module('WorkoutBuilder')
           WorkoutBuilderService.addExercise(exercise);
       }
       var init = function () {
-          WorkoutService.getExercises().then(function (exercises) {
-              $scope.exercises = exercises;
-          });
+          $scope.exercises = WorkoutService.Exercises.query();
       };
       init();
   }]);
@@ -19,9 +17,7 @@ angular.module('WorkoutBuilder')
           $location.path('/builder/exercises/' + exercise.name);
       }
       var init = function () {
-          WorkoutService.getExercises().then(function (exercises) {
-              $scope.exercises = exercises;
-          });
+          $scope.exercises = WorkoutService.Exercises.query();
       };
       init();
   }]);
@@ -32,9 +28,10 @@ angular.module('WorkoutBuilder')
       $scope.save = function () {
           $scope.submitted = true;      // Will force validations
           if ($scope.formExercise.$invalid) return;
-          $scope.exercise = ExerciseBuilderService.save();
-          $scope.formExercise.$setPristine();
-          $scope.submitted = false;
+          ExerciseBuilderService.save().then(function (data) {
+              $scope.formExercise.$setPristine();
+              $scope.submitted = false;
+          });
       };
 
       $scope.hasError = function (modelController, error) {
@@ -52,8 +49,9 @@ angular.module('WorkoutBuilder')
       }
 
       $scope.deleteExercise = function () {
-          ExerciseBuilderService.delete();
-          $location.path('/builder/exercises/');
+          ExerciseBuilderService.delete().then(function (data) {
+              $location.path('/builder/exercises/');
+          });
       };
 
       $scope.addVideo = function () {
@@ -66,9 +64,7 @@ angular.module('WorkoutBuilder')
 
       var init = function () {
           // We do not use the resolve property on the route to load exercise as we do it with workout.
-          ExerciseBuilderService.startBuilding($routeParams.id).then(function (exercise) {
-              $scope.exercise = exercise;
-          });
+          $scope.exercise = ExerciseBuilderService.startBuilding($routeParams.id);
       };
 
       init();

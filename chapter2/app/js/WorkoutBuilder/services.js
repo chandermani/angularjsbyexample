@@ -71,31 +71,30 @@ angular.module('WorkoutBuilder')
         var buildingExercise;
         var newExercise;
         service.startBuilding = function (name) {
-            var defer = $q.defer();
             //We are going to edit an existing exercise
             if (name) {
-                WorkoutService.getExercise(name).then(function (exercise) {
-                    buildingExercise = exercise;
-                    defer.resolve(buildingExercise);
-                });
+                buildingExercise = WorkoutService.Exercises.get({ id: name });
+                newExercise = false;
             }
             else {
                 buildingExercise = new Exercise({});
-                defer.resolve(buildingExercise);
                 newExercise = true;
             }
-            return defer.promise;
+            return buildingExercise;
         };
 
         service.save = function () {
-            var exercise = newExercise ? WorkoutService.addExercise(buildingExercise)
-                                : WorkoutService.updateExercise(buildingExercise);
-            newExercise = false;
-            return exercise;
+            if (!buildingExercise._id) buildingExercise._id = buildingExercise.name;
+            var promise = newExercise ? WorkoutService.Exercises.save({}, buildingExercise).$promise
+                                : buildingExercise.$update({ id: buildingExercise.name });
+            return promise.then(function (data) {
+                newExercise = false;
+                return buildingExercise;
+            });
         };
 
         service.delete = function () {
-            WorkoutService.deleteExercise(buildingExercise.name);
+            return buildingExercise.$delete({ id: buildingExercise.name });
         };
 
         service.addVideo = function () {
