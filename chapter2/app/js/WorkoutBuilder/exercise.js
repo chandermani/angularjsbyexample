@@ -19,7 +19,7 @@ angular.module('WorkoutBuilder')
           $location.path('/builder/exercises/' + exercise.name);
       }
       var init = function () {
-          WorkoutService.getExercises().success(function (exercises) {
+          WorkoutService.getExercises().then(function (exercises) {
               $scope.exercises = exercises;
           });
       };
