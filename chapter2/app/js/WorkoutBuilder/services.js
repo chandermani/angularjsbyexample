@@ -76,6 +76,7 @@ angular.module('WorkoutBuilder')
             if (name) {
                 WorkoutService.getExercise(name).then(function (exercise) {
                     buildingExercise = exercise;
+                    newExercise = false;
                     defer.resolve(buildingExercise);
                 });
             }
