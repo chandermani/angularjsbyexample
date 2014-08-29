@@ -17,7 +17,7 @@
         <div id="workout-data" class="col-sm-3">
             <div class="form-group row" ng-class="{'has-error':formWorkout.workoutName.$invalid}">
                 <label for="workout-name">Name:</label>
-                <input type="text" name="workoutName" class="form-control" id="workout-name" placeholder="Enter workout name. Must be unique." ng-model="workout.name" ng-pattern="/^[A-Za-z0-9 ]{1,15}$/" required>
+                <input type="text" name="workoutName" class="form-control" id="workout-name" placeholder="Enter workout name. Must be unique." ng-model="workout.name" ng-pattern="/^[A-Za-z0-9]{1,15}$/" required>
                 <label ng-show="formWorkout.workoutName.$dirty && formWorkout.workoutName.$error.required" ng-class="{'text-danger': formWorkout.workoutName.$error.required}">Workout name is required and it should be unique.</label>
                 <label ng-show="formWorkout.workoutName.$dirty && formWorkout.workoutName.$error.pattern" ng-class="{'text-danger': formWorkout.workoutName.$error.pattern}">Only alpha numberic values are allowed in workout name with max length 15.</label>
             </div>
