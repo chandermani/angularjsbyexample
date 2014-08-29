@@ -59,7 +59,7 @@ angular.module('WorkoutBuilder')
 
         service.delete = function () {
             if (newWorkout) return; // A new workout cannot be deleted.
-            WorkoutService.deleteWorkout(buildingWorkout.name);
+            return WorkoutService.deleteWorkout(buildingWorkout.name);
         }
 
         return service;

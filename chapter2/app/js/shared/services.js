@@ -112,13 +112,7 @@ angular.module('app')
             }
 
             service.deleteWorkout = function (workoutName) {
-                var workoutIndex;
-                angular.forEach(workouts, function (w, index) {
-                    if (w.name === workoutName) {
-                        workoutIndex = index;
-                    }
-                });
-                workouts.splice(workoutIndex, 1);
+                return $http.delete(collectionsUrl + "/workouts/" + workoutName, { params: { apiKey: apiKey } });
             };
 
             return service;

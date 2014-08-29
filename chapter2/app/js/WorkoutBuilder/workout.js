@@ -75,8 +75,9 @@ angular.module('WorkoutBuilder')
       }
 
       $scope.deleteWorkout = function () {
-          WorkoutBuilderService.delete();
-          $location.path('/builder/workouts/');
+          WorkoutBuilderService.delete().then(function (data) {
+              $location.path('/builder/workouts/');
+          });
       };
       var init = function () {
           $scope.workout = selectedWorkout;
