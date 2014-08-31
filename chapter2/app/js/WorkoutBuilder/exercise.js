@@ -19,8 +19,8 @@ angular.module('WorkoutBuilder')
           $location.path('/builder/exercises/' + exercise.name);
       }
       var init = function () {
-          WorkoutService.getExercises().then(function (exercises) {
-              $scope.exercises = exercises;
+          WorkoutService.getExercises().then(function (data) {
+              $scope.exercises = data;
           });
       };
       init();
