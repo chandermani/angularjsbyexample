@@ -27,7 +27,12 @@ angular.module('app')
             service.Exercises = $resource(collectionsUrl + "/exercises/:id", { apiKey: apiKey}, { update: { method: 'PUT' } });
 
             service.getWorkouts = function () {
-                return $http.get(collectionsUrl + "/workouts", { params: { apiKey: apiKey } });
+                return $http.get(collectionsUrl + "/workouts", { params: { apiKey: apiKey } })
+                        .then(function (response) {
+                            return response.data.map(function (workout) {
+                                return new WorkoutPlan(workout);
+                            });
+                        });
             };
 
             service.getWorkout = function (name) {
