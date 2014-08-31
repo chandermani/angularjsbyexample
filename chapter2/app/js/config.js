@@ -1,7 +1,11 @@
 angular.module('app').
-config(function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider) {
+config(function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider, $httpProvider, ApiKeyAppenderInterceptorProvider) {
 
-    WorkoutServiceProvider.configure("angularjsbyexample", "E16WgslFduXHiMAdAg6qcG1KKYx7WNWg");
+    ApiKeyAppenderInterceptorProvider.setApiKey("E16WgslFduXHiMAdAg6qcG1KKYx7WNWg");
+
+    $httpProvider.interceptors.push('ApiKeyAppenderInterceptor');
+
+    WorkoutServiceProvider.configure("angularjsbyexample");
 
     $routeProvider.when('/start', { templateUrl: 'partials/start.html' });
     $routeProvider.when('/workout', { templateUrl: 'partials/workout.html', controller: 'WorkoutController' });
