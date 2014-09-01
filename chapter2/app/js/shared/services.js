@@ -35,8 +35,8 @@ angular.module('app')
                         var allExercises = response[0];
                         var workout = new WorkoutPlan(response[1].data);
 
-                        angular.forEach(response[1].data.exercises, function (exercise, index) {
-                            workout.exercises.push({ details: allExercises.filter(function (e) { return e.name === exercise.name; })[0], duration: exercise.duration });
+                        angular.forEach(response[1].data.exercises, function (exercise) {
+                            exercise.details = allExercises.filter(function (e) { return e.name === exercise.name; })[0];
                         });
                         return workout;
                     });
