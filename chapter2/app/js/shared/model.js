@@ -9,7 +9,7 @@ angular.module('app')
             this.description = args.description;
             this.image = args.image;
             this.related = {};
-            this.related.videos = args.videos || [];
+            this.related.videos = (args.related && args.related.videos) ? args.related.videos : [];
             this.nameSound = args.nameSound;
             this.procedure = args.procedure;
         }
