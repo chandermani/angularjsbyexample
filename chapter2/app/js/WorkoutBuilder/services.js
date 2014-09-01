@@ -13,21 +13,19 @@ angular.module('WorkoutBuilder')
         var buildingWorkout;
         var newWorkout;
         service.startBuilding = function (name) {
-            var defer = $q.defer();
             //We are going to edit an existing workout
             if (name) {
-                WorkoutService.getWorkout(name).then(function (workout) {
+                return WorkoutService.getWorkout(name).then(function (workout) {
                     buildingWorkout = workout;
                     newWorkout = false;
-                    defer.resolve(buildingWorkout);
+                    return buildingWorkout;
                 });
             }
             else {
                 buildingWorkout = new WorkoutPlan({});
-                defer.resolve(buildingWorkout);
                 newWorkout = true;
+                return $q.when(buildingWorkout);
             }
-            return defer.promise;
         };
 
         service.removeExercise = function (exercise) {
