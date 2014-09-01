@@ -19,7 +19,7 @@ angular.module('app')
 angular.module('app')
     .factory('WorkoutPlan', function () {
         function WorkoutPlan(args) {
-            this.exercises = [];
+            this.exercises = args.exercises || [];
             this.name = args.name;
             this.title = args.title;
             this.description = args.description;
