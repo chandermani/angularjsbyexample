@@ -48,7 +48,6 @@ angular.module('app')
                         if (original) {
                             var workoutToSave = angular.copy(workout);
                             workoutToSave.exercises = workoutToSave.exercises.map(function (exercise) { return { name: exercise.details.name, duration: exercise.duration } });
-                            workoutToSave.name = original.name;     //Name change is not allowed once saved. As it maps to _id
                             return $http.put(collectionsUrl + "/workouts/" + original.name, workoutToSave);
                         }
                     })
