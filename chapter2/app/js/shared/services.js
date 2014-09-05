@@ -44,6 +44,9 @@ angular.module('app')
                             exercise.details = allExercises.filter(function (e) { return e.name === exercise.name; })[0];
                         });
                         return workout;
+                    },
+                    function (error) {
+                        throw error;
                     });
             };
 

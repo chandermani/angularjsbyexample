@@ -65,6 +65,10 @@ angular.module('WorkoutBuilder')
       var init = function () {
           // We do not use the resolve property on the route to load exercise as we do it with workout.
           $scope.exercise = ExerciseBuilderService.startBuilding($routeParams.id);
+          $scope.exercise.$promise.then(null, function (error) {
+              // If exercise not found we redirect back to exercise list page.
+              $location.path('/builder/exercises/');
+          })
       };
 
       init();

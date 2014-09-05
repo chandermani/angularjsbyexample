@@ -19,6 +19,9 @@ angular.module('WorkoutBuilder')
                     buildingWorkout = workout;
                     newWorkout = false;
                     return buildingWorkout;
+                },
+                function (error) {
+                    throw error;
                 });
             }
             else {
