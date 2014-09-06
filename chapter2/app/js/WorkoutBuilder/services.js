@@ -71,8 +71,9 @@ angular.module('WorkoutBuilder')
         service.startBuilding = function (name) {
             //We are going to edit an existing exercise
             if (name) {
-                buildingExercise = WorkoutService.Exercises.get({ id: name });
-                newExercise = false;
+                buildingExercise = WorkoutService.Exercises.get({ id: name }).$promise.then(function () {;
+                    newExercise = false;
+                });
             }
             else {
                 buildingExercise = new Exercise({});
