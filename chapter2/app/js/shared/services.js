@@ -23,7 +23,7 @@ angular.module('app')
             var workouts = [];
             var exercises = [];
 
-            service.Exercises = $resource(collectionsUrl + "/exercises/:id", { update: { method: 'PUT' } });
+            service.Exercises = $resource(collectionsUrl + "/exercises/:id", {}, { update: { method: 'PUT' } });
 
             service.getWorkouts = function () {
                 return $http.get(collectionsUrl + "/workouts", { params: { apiKey: apiKey } })
@@ -99,7 +99,8 @@ angular.module('app')
             return {
                 'request': function (config) {
                     if (apiKey && config && config.url.toLowerCase().indexOf("https://api.mongolab.com") >= 0) {
-                        config.params = { apiKey: apiKey };
+                        config.params = config.params || {};
+                        config.params.apiKey = apiKey;
                     }
                     return config || $q.when(config);
                 }
