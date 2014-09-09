@@ -41,7 +41,11 @@ config(function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider) {
         topNav: 'partials/workoutbuilder/top-nav.html',
         resolve: {
             selectedWorkout: ['WorkoutBuilderService', '$route', '$location', function (WorkoutBuilderService, $route, $location) {
-                return WorkoutBuilderService.startBuilding($route.current.params.id);
+                var workout = WorkoutBuilderService.startBuilding($route.current.params.id);
+                if (!workout) {
+                    $location.path('/builder/workouts');    //If the workout not found redirect to workout list
+                }
+                return workout;
             }],
         }
     });
