@@ -23,14 +23,5 @@ angular.module('app')
 
       $scope.$on('$routeChangeSuccess', function (e, current,previous) {
           $scope.currentRoute = current;
-          $scope.routeHasError = false;
       });
-
-      $scope.$on('$routeChangeError', function (e, current, previous) {
-          $scope.routeHasError = true;
-          $scope.routeError = current.routeErrorMessage;
-
-      });
-      
-
   }]);
