@@ -7,9 +7,9 @@ config(function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider, $
 
     WorkoutServiceProvider.configure("angularjsbyexample");
 
-    $routeProvider.when('/start', { templateUrl: 'partials/start.html' });
-    $routeProvider.when('/workout', { templateUrl: 'partials/workout.html', controller: 'WorkoutController' });
-    $routeProvider.when('/finish', { templateUrl: 'partials/finish.html' });
+    $routeProvider.when('/start', { templateUrl: 'partials/workout/start.html' });
+    $routeProvider.when('/workout', { templateUrl: 'partials/workout/workout.html', controller: 'WorkoutController' });
+    $routeProvider.when('/finish', { templateUrl: 'partials/workout/finish.html' });
 
     $routeProvider.when('/builder', {
         redirectTo: '/builder/workouts'

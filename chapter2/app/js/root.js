@@ -4,7 +4,7 @@ angular.module('app')
   .controller('RootController', ['$scope', '$modal', function ($scope, $modal) {
       $scope.showWorkoutHistory = function () {
           var dailog = $modal.open({
-              templateUrl: 'partials/workout-history.html',
+              templateUrl: 'partials/workout/workout-history.html',
               controller: WorkoutHistoryController,
               size: 'lg'
           });
