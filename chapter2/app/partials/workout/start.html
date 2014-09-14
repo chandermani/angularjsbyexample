@@ -1,5 +1,4 @@
 <div class="row">
-    <div class="col-sm-3"></div>
     <div class="col-sm-6">
         <h1 class="text-center">Ready for a Workout?</h1>
         <br />
@@ -7,10 +6,24 @@
         <br />
         <div id="start" class="row">
             <a href="#/workout/7minWorkout">
-                <span>Start</span>
+                <span>Select Workout</span>
                 <span class="glyphicon glyphicon-play"></span>
             </a>
         </div>
     </div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-4" ng-controller="WorkoutListController">
+        <h2>Workouts</h2>
+        <div class="form-group">
+            <input type="text" ng-model="workoutSearch" class="form-control" name="search" placeholder="Search for workout" />
+        </div>
+        <a ng-repeat="workout in workouts|filter:{'name':workoutSearch}|orderBy:'title'" href="#/workout/{{workout.name}}">
+            <div class="workout tile">
+                <div class="title">{{workout.title}}</div>
+                <div class="stats">
+                    <span class="duration" title="Duration"><span class="glyphicon glyphicon-time"></span> - {{workout.totalWorkoutDuration()|secondsToTime}}</span>
+                    <span class="length pull-right" title="Exercise Count"><span class="glyphicon glyphicon-th-list"></span> - {{workout.exercises.length}}</span>
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
