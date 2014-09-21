@@ -1,10 +1,6 @@
 ﻿<div id="workout-list" class="row">
     <h2>Workouts</h2>
     <div ng-repeat="workout in workouts|orderBy:'title'" class="workout tile" ng-dblclick="goto(workout)">
-        <div class="title">{{workout.title}}</div>
-        <div class="stats">
-            <span class="duration" title="Duration"><span class="glyphicon glyphicon-time"></span> - {{workout.totalWorkoutDuration()|secondsToTime}}</span>
-            <span class="length pull-right" title="Exercise Count"><span class="glyphicon glyphicon-th-list"></span> - {{workout.exercises.length}}</span>
-        </div>
+        <workout-tile></workout-tile=>
     </div>
 </div>
