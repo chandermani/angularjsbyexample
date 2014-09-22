@@ -18,6 +18,7 @@ angular.module('app').directive('ngConfirm', [function () {
 angular.module('app').directive('remoteValidator', ['$parse', function ($parse) {
     return {
         restrict: 'A',
+        priority: 5,
         require: ['ngModel', '?^remoteValidatorClues'],
         link: function (scope, elm, attr, ctrls) {
             var expfn = $parse(attr["remoteValidatorFunction"]);
