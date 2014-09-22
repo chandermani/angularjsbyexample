@@ -61,11 +61,12 @@ angular.module('app').directive('updateOnBlur', function () {
     };
 });
 
-angular.module('app').directive('remoteValidatorClues', ['$compile', function ($compile) {
+angular.module('app').directive('remoteValidatorClues', ['$compile', '$animate', function ($compile, $animate) {
     return {
         scope: true,
         link: function (scope, element, attr) {
-            var e = $compile('<div><label ng-if="busy" class="text-info">checking...</label></div>')(scope);
+            var e = $compile('<div><label ng-if="busy" class="text-info three-quarters">checking...</label></div>')(scope);
+            $animate.enabled(false, e)
             element.append(e);
         },
         controller: ['$scope', function ($scope) {
