@@ -65,10 +65,10 @@ angular.module('app').directive('updateOnBlur', function () {
 angular.module('app').directive('remoteValidatorClues', ['$compile', '$animate', function ($compile, $animate) {
     return {
         scope: true,
+        transclude: true,
+        template: '<div><div ng-transclude=""></div><label ng-show="busy" class="text-info three-quarters">checking...</label></div>',
         link: function (scope, element, attr) {
-            var e = $compile('<div><label ng-if="busy" class="text-info three-quarters">checking...</label></div>')(scope);
-            $animate.enabled(false, e)
-            element.append(e);
+            $animate.enabled(false, element)
         },
         controller: ['$scope', function ($scope) {
             this.showClue = function () { $scope.busy = true; }
