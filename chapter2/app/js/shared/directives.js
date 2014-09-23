@@ -77,3 +77,32 @@ angular.module('app').directive('remoteValidatorClues', ['$compile', '$animate',
 
     }
 }]);
+
+angular.module('app').directive('ajaxButton', ['$compile', '$animate', function ($compile, $animate) {
+    return {
+        transclude: true,
+        restrict:'E',
+        scope: {
+            onClick: '&',
+            submitting:'@'
+        },
+        template: '<span><span class="glyphicon glyphicon-refresh spin" ng-show="submitting"></span><span ng-transclude=""></span></span>',
+        link: function (scope, element, attr) {
+            if (attr.onClick) {
+                element.on('click', function (event) {
+                    scope.$apply(function () { 
+                        var result = scope.onClick();
+                        if (attr.submitting) return;    //submitting attribute if there takes priority
+                        if (result.finally) {
+                            scope.submitting = true;
+                            result.finally(function () { scope.submitting = false });
+                        }
+                    });
+                });
+            }
+        },
+        controller: ['$scope', function ($scope) {
+        }]
+
+    }
+}]);

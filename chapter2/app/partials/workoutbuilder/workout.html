@@ -50,8 +50,9 @@
             </div>
             <div class="row">
                 <div>
-                    <button class="btn pull-right" ng-class="{'btn-default':formWorkout.$valid,'btn-warning':!formWorkout.$valid}" ng-click="save()" 
-                        popover="{{formWorkout.$invalid ? 'The form has errors.' : null}}" popover-trigger="mouseenter">Save</button>
+                    <ajax-button class="btn pull-right has-spinner active" ng-class="{'btn-default':formWorkout.$valid,'btn-warning':!formWorkout.$valid}" on-click="save()">
+                        <span popover="{{formWorkout.$invalid ? 'The form has errors.' : null}}" popover-trigger="mouseenter">Save</span>
+                    </ajax-button>
                     <button class="btn btn-primary pull-right" ng-click="reset()">Reset</button>
                 </div>
             </div>
