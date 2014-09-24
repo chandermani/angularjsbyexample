@@ -106,3 +106,33 @@ angular.module('app').directive('ajaxButton', ['$compile', '$animate', function 
 
     }
 }]);
+angular.module('app').directive('owlCarousel', ['$compile', '$timeout', function ($compile, $timeout) {
+    var owl = null;
+    return {
+        templateUrl: '',
+        scope: {
+            options: '=',
+            source: '=',
+        },
+        link: function (scope, element, attr) {
+            scope.$watch("source", function (newValue) {
+                if (newValue) {
+                    $timeout(function () {
+                        var defaultOptions = { singleItem: true, pagination: false };
+                        if (scope.options) angular.extend(defaultOptions, scope.options);
+                        owl = element.owlCarousel(defaultOptions);
+                    }, 0);
+                }
+            });
+        },
+        controller: ['$scope', '$attrs', function ($scope, $attrs) {
+            if ($attrs.owlCarousel) $scope.$parent[$attrs.owlCarousel] = this;
+            this.next = function () {
+                owl.trigger('owl.next');
+            };
+            this.previous = function () {
+                owl.trigger('owl.prev');
+            };
+        }]
+    };
+}]);
