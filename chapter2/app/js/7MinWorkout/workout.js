@@ -72,7 +72,7 @@ angular.module('7minWorkout')
               nextExercise = $scope.workoutPlan.exercises.shift();
           }
           else {
-              if ($scope.currentExerciseIndex == $scope.workoutPlan.exercises - 1) {
+              if ($scope.workoutPlan.exercises.length != 0) {
                   nextExercise = restExercise;
               }
           }
