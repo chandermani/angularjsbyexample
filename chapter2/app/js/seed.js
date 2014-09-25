@@ -8,7 +8,7 @@
    6. Click the button "Send". 
    7. Check for sucess response
 */
-[{ "_id": "7minWorkout", "exercises": [{ "name": "jumpingJacks", "duration": 30 }, { "name": "wallSit", "duration": 30 }, { "name": "pushUp", "duration": 30 }, { "name": "crunches", "duration": 30 }, { "name": "stepUpOntoChair", "duration": 30 }, { "name": "squat", "duration": 30 }, { "name": "tricepdips", "duration": 30 }, { "name": "plank", "duration": 30 }, { "name": "highKnees", "duration": 30 }, { "name": "lunges", "duration": 30 }, { "name": "pushupNRotate", "duration": 30 }, { "name": "sidePlank", "duration": 30 }], "name": "7minWorkout", "title": "7 Minute Workout", "description": "A high intensity workout that consists of 12 exercises.", "restBetweenExercise": 10 }]
+[{ "_id": "7minworkout", "exercises": [{ "name": "jumpingJacks", "duration": 30 }, { "name": "wallSit", "duration": 30 }, { "name": "pushUp", "duration": 30 }, { "name": "crunches", "duration": 30 }, { "name": "stepUpOntoChair", "duration": 30 }, { "name": "squat", "duration": 30 }, { "name": "tricepdips", "duration": 30 }, { "name": "plank", "duration": 30 }, { "name": "highKnees", "duration": 30 }, { "name": "lunges", "duration": 30 }, { "name": "pushupNRotate", "duration": 30 }, { "name": "sidePlank", "duration": 30 }], "name": "7minworkout", "title": "7 Minute Workout", "description": "A high intensity workout that consists of 12 exercises.", "restBetweenExercise": 10 }]
 
 /* Workout list
    To import workout list use a tool that can make POST request. The below instruction are using POSTMAN addin for chrome browser.
