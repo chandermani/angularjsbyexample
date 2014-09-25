@@ -79,13 +79,6 @@ angular.module('WorkoutBuilder')
               $location.path('/builder/workouts/');
           });
       };
-      $scope.uniqueUserName = function (value) {
-          if (!value) return $q.when(true);
-          return WorkoutService
-                    .getWorkout(value.toLowerCase())
-                    .then(function (data) { return false; },
-                          function (error) { return true; });
-      };
 
       var init = function () {
           $scope.workout = selectedWorkout;
