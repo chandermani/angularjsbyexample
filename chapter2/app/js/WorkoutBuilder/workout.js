@@ -14,7 +14,7 @@ angular.module('WorkoutBuilder')
   }]);
 
 angular.module('WorkoutBuilder')
-  .controller('WorkoutDetailController', ['$scope', 'WorkoutBuilderService', 'selectedWorkout', '$location', '$routeParams', function ($scope, WorkoutBuilderService, selectedWorkout, $location, $routeParams) {
+  .controller('WorkoutDetailController', ['$scope', 'WorkoutBuilderService', 'selectedWorkout', '$location', '$routeParams', 'WorkoutService', '$q', function ($scope, WorkoutBuilderService, selectedWorkout, $location, $routeParams, WorkoutService, $q) {
       $scope.removeExercise = function (exercise) {
           WorkoutBuilderService.removeExercise(exercise);
       };
@@ -79,6 +79,14 @@ angular.module('WorkoutBuilder')
               $location.path('/builder/workouts/');
           });
       };
+      $scope.uniqueUserName = function (value) {
+          if (!value) return $q.when(true);
+          return WorkoutService
+                    .getWorkout(value.toLowerCase())
+                    .then(function (data) { return false; },
+                          function (error) { return true; });
+      };
+
       var init = function () {
           $scope.workout = selectedWorkout;
       };
