@@ -66,7 +66,7 @@ angular.module('app').directive('remoteValidatorClues', ['$compile', '$animate',
     return {
         scope: true,
         transclude: true,
-        template: '<div><div ng-transclude=""></div><label ng-show="busy" class="text-info three-quarters">checking...</label></div>',
+        template: '<div><div ng-transclude=""></div><label ng-show="busy" class="text-info glyphicon glyphicon-refresh spin"></label></div>',
         link: function (scope, element, attr) {
             $animate.enabled(false, element)
         },
