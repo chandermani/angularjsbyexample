@@ -14,3 +14,24 @@ angular.module('app').directive('ngConfirm', [function () {
         }
     }
 }]);
+
+angular.module('app').directive('remoteValidator', ['$parse', function ($parse) {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attr, ngModelCtrl) {
+            var expfn = $parse(attr["remoteValidatorFunction"]);
+            var validatorName = attr["remoteValidator"];
+            ngModelCtrl.$parsers.push(function (value) {
+                var result = expfn(scope, { 'value': value });
+                if (result.then) {
+                    result.then(function (data) { //For promise type result object
+                        ngModelCtrl.$setValidity(validatorName, data);
+                    }, function (error) {
+                        ngModelCtrl.$setValidity(validatorName, false);
+                    });
+                }
+                return value;
+            });
+        }
+    }
+}]);
