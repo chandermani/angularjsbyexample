@@ -36,7 +36,7 @@ angular.module('app').directive('remoteValidator', ['$parse', function ($parse) 
                     }, function (error) {
                         console.log('hiding spinner');
                         if (clueCtrl) clueCtrl.hideClue();
-                        modelCtrl.$setValidity(validatorName, false);
+                        modelCtrl.$setValidity(validatorName, true);
                     });
                 }
                 return value;
