@@ -27,7 +27,7 @@ angular.module('app').directive('remoteValidator', ['$parse', function ($parse) 
                     result.then(function (data) { //For promise type result object
                         ngModelCtrl.$setValidity(validatorName, data);
                     }, function (error) {
-                        ngModelCtrl.$setValidity(validatorName, false);
+                        ngModelCtrl.$setValidity(validatorName, true);
                     });
                 }
                 return value;
