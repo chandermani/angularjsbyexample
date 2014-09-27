@@ -19,23 +19,22 @@ angular.module('app').directive('remoteValidator', ['$parse', function ($parse) 
     return {
         restrict: 'A',
         priority: 5,
-        require: ['ngModel', '?^remoteValidatorClues'],
+        require: ['ngModel', '?^busyIndicator'],
         link: function (scope, elm, attr, ctrls) {
             var expfn = $parse(attr["remoteValidatorFunction"]);
             var validatorName = attr["remoteValidator"];
             var modelCtrl = ctrls[0];
-            var clueCtrl = ctrls[1];
+            var busyIndicator = ctrls[1];
             modelCtrl.$parsers.push(function (value) {
                 var result = expfn(scope, { 'value': value });
                 if (result.then) {
-                    if (clueCtrl) clueCtrl.showClue();
+                    if (busyIndicator) busyIndicator.show();
                     result.then(function (data) { //For promise type result object
-                        console.log('hiding spinner');
-                        if (clueCtrl) clueCtrl.hideClue();
+                        if (busyIndicator) busyIndicator.hide();
                         modelCtrl.$setValidity(validatorName, data);
                     }, function (error) {
                         console.log('hiding spinner');
-                        if (clueCtrl) clueCtrl.hideClue();
+                        if (busyIndicator) busyIndicator.hide();
                         modelCtrl.$setValidity(validatorName, true);
                     });
                 }
@@ -62,7 +61,7 @@ angular.module('app').directive('updateOnBlur', function () {
     };
 });
 
-angular.module('app').directive('remoteValidatorClues', ['$compile', '$animate', function ($compile, $animate) {
+angular.module('app').directive('busyIndicator', ['$compile', '$animate', function ($compile, $animate) {
     return {
         scope: true,
         transclude: true,
@@ -71,8 +70,8 @@ angular.module('app').directive('remoteValidatorClues', ['$compile', '$animate',
             $animate.enabled(false, element)
         },
         controller: ['$scope', function ($scope) {
-            this.showClue = function () { $scope.busy = true; }
-            this.hideClue = function () { $scope.busy = false; }
+            this.show = function () { $scope.busy = true; }
+            this.hide = function () { $scope.busy = false; }
         }]
 
     }
