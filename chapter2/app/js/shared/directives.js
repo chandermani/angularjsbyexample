@@ -60,14 +60,11 @@ angular.module('app').directive('updateOnBlur', function () {
     };
 });
 
-angular.module('app').directive('busyIndicator', ['$compile', '$animate', function ($compile, $animate) {
+angular.module('app').directive('busyIndicator', [function () {
     return {
         scope: true,
         transclude: true,
         template: '<div><div ng-transclude=""></div><label ng-show="busy" class="text-info glyphicon glyphicon-refresh spin"></label></div>',
-        link: function (scope, element, attr) {
-            $animate.enabled(false, element)
-        },
         controller: ['$scope', function ($scope) {
             this.show = function () { $scope.busy = true; }
             this.hide = function () { $scope.busy = false; }
