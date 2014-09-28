@@ -33,7 +33,6 @@ angular.module('app').directive('remoteValidator', ['$parse', function ($parse) 
                         if (busyIndicator) busyIndicator.hide();
                         modelCtrl.$setValidity(validatorName, data);
                     }, function (error) {
-                        console.log('hiding spinner');
                         if (busyIndicator) busyIndicator.hide();
                         modelCtrl.$setValidity(validatorName, true);
                     });
@@ -66,9 +65,6 @@ angular.module('app').directive('busyIndicator', ['$compile', '$animate', functi
         scope: true,
         transclude: true,
         template: '<div><div ng-transclude=""></div><label ng-show="busy" class="text-info glyphicon glyphicon-refresh spin"></label></div>',
-        link: function (scope, element, attr) {
-            $animate.enabled(false, element)
-        },
         controller: ['$scope', function ($scope) {
             this.show = function () { $scope.busy = true; }
             this.hide = function () { $scope.busy = false; }
