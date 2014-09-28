@@ -76,28 +76,31 @@ angular.module('app').directive('busyIndicator', ['$compile', '$animate', functi
 angular.module('app').directive('ajaxButton', ['$compile', '$animate', function ($compile, $animate) {
     return {
         transclude: true,
-        restrict:'E',
+        restrict: 'E',
         scope: {
             onClick: '&',
-            submitting:'@'
+            submitting: '@'
         },
-        template: '<span><span class="glyphicon glyphicon-refresh spin" ng-show="submitting"></span><span ng-transclude=""></span></span>',
+        replace: true,
+        template: '<button ng-disabled="busy"><span class="glyphicon glyphicon-refresh spin" ng-show="busy"></span><span ng-transclude=""></span></button>',
         link: function (scope, element, attr) {
+            if (attr.submitting) {
+                attr.$observer(attr.submitting, function (value) {
+                    scope.busy = value;
+                });
+            }
             if (attr.onClick) {
                 element.on('click', function (event) {
-                    scope.$apply(function () { 
+                    scope.$apply(function () {
                         var result = scope.onClick();
-                        if (attr.submitting) return;    //submitting attribute if there takes priority
+                        if (attr.submitting) return;    //submitting attribute if there takes priority.
                         if (result.finally) {
-                            scope.submitting = true;
-                            result.finally(function () { scope.submitting = false });
+                            scope.busy = true;
+                            result.finally(function () { scope.busy = false });
                         }
                     });
                 });
             }
-        },
-        controller: ['$scope', function ($scope) {
-        }]
-
+        }
     }
 }]);
