@@ -84,16 +84,16 @@ angular.module('app').directive('ajaxButton', ['$compile', '$animate', function 
         replace: true,
         template: '<button ng-disabled="busy"><span class="glyphicon glyphicon-refresh spin" ng-show="busy"></span><span ng-transclude=""></span></button>',
         link: function (scope, element, attr) {
-            if (attr.submitting) {
-                attr.$observer(attr.submitting, function (value) {
-                    scope.busy = value;
+            if (attr.submitting !== undefined && attr.submitting != null) {
+                attr.$observe("submitting", function (value) {
+                    if (value) scope.busy = JSON.parse(value);
                 });
             }
             if (attr.onClick) {
                 element.on('click', function (event) {
                     scope.$apply(function () {
                         var result = scope.onClick();
-                        if (attr.submitting) return;    //submitting attribute if there takes priority.
+                        if (attr.submitting !== undefined && attr.submitting != null) return;    //submitting attribute if there takes priority.
                         if (result.finally) {
                             scope.busy = true;
                             result.finally(function () { scope.busy = false });
