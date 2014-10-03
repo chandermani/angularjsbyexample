@@ -1,3 +1,4 @@
+/// <reference path="../7MinWorkout/workout.js" />
 'use strict';
 
 /* directives */
@@ -107,17 +108,16 @@ angular.module('app').directive('ajaxButton', ['$compile', '$animate', function 
 angular.module('app').directive('owlCarousel', ['$compile', '$timeout', function ($compile, $timeout) {
     var owl = null;
     return {
-        templateUrl: '',
         scope: {
             options: '=',
             source: '=',
         },
         link: function (scope, element, attr) {
+            var defaultOptions = { singleItem: true, pagination: false };
+            if (scope.options) angular.extend(defaultOptions, scope.options);
             scope.$watch("source", function (newValue) {
                 if (newValue) {
                     $timeout(function () {
-                        var defaultOptions = { singleItem: true, pagination: false };
-                        if (scope.options) angular.extend(defaultOptions, scope.options);
                         owl = element.owlCarousel(defaultOptions);
                     }, 0);
                 }
