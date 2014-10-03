@@ -66,7 +66,7 @@ angular.module('7minWorkout')
               nextExercise = $scope.workoutPlan.exercises[$scope.currentExerciseIndex + 1];
           }
           else {
-              if ($scope.currentExerciseIndex == $scope.workoutPlan.exercises - 1) {
+              if ($scope.currentExerciseIndex < $scope.workoutPlan.exercises.length - 1) {
                   nextExercise = restExercise;
               }
           }
