@@ -61,11 +61,29 @@ angular.module('app').directive('updateOnBlur', function () {
     };
 });
 
-angular.module('app').directive('busyIndicator', ['$compile', '$animate', function ($compile, $animate) {
+angular.module('app').directive('busyIndicator', ['$compile', function ($compile) {
     return {
         scope: true,
         transclude: true,
         template: '<div><div ng-transclude=""></div><label ng-show="busy" class="text-info glyphicon glyphicon-refresh spin"></label></div>',
+        //compile: function (element, attr) {
+        //    // Injecting dynamic html at compile phase.
+        //    // To use it comment transclude:true and template:<div>..  properties
+        //    // No need to compile the DOM.
+        //    // Just append it to element, and Angular will compile and later link it.
+        //    var busyHtml = '<div><label ng-show="busy" class="text-info glyphicon glyphicon-refresh spin"></label></div>';
+        //    element.append(busyHtml);
+        //    return function (scope, element, attr) { }  //link function
+        //},
+        //link: function (scope, element, attr) {
+        //    // Inject dynamic html at link phase.
+        //    // To use it comment transclude:true and template:<div>..</div>  properties
+        //    // Then inject the dependency $compile on the directive
+        //    // Need to compile the DOM that before adding.
+        //    // Just append it to element, and Angular will compile it.
+        //    var linkfn = $compile('<div><label ng-show="busy" class="text-info glyphicon glyphicon-refresh spin"></label></div>');
+        //    element.append(linkfn(scope));
+        //},
         controller: ['$scope', function ($scope) {
             this.show = function () { $scope.busy = true; }
             this.hide = function () { $scope.busy = false; }
