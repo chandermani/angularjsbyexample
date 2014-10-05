@@ -106,6 +106,10 @@ angular.module('7minWorkout')
           }
       };
 
+      $scope.imageUpdated = function (imageIndex) {
+          console.log($scope.exerciseImages[imageIndex]);
+      };
+
       var workoutComplete = function () {
           workoutHistoryTracker.endTracking(true);
           $location.path('/finish');

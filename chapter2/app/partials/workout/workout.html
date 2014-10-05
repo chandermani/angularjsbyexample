@@ -19,7 +19,7 @@
         <div class="row workout-display-div">
             <h4>Workout Remaining - <strong>{{workoutTimeRemaining | secondsToTime}}</strong></h4>
             <h1>{{currentExercise.details.title}}</h1>
-            <div owl-carousel="carousel" options="carouselOptions" source="exerciseImages">
+            <div owl-carousel="carousel" options="carouselOptions" source="exerciseImages" on-update="imageUpdated(currentItemIndex)">
                 <img class="img-responsive" ng-src="{{image}}" ng-repeat="image in exerciseImages track by $index" />
             </div>
             <div class="progress time-progress">
