@@ -1,0 +1,21 @@
+{
+  "name": "angular-seed",
+  "description": "AngularJS book sample source code.",
+  "version": "0.0.0",
+  "homepage": "https://github.com/chandermani/angularjsbyexample",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.15",
+	"angular-resource": "1.2.15",
+	"angular-sanitize": "1.2.15",
+	"angular-animate": "1.2.15",
+	"angular-bootstrap":"0.10.0",
+	"angular-local-storage":"0.1.1",
+	"owl-carousel": "1.3.2",
+    "angular-mocks": "1.2.15",
+	"angular-media-player":"0.5.8",
+	"jquery":"1.11.1"
+  }
+}

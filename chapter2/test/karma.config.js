@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '../',
 
 
     // frameworks to use
@@ -15,12 +15,27 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../app/js/**/*.js',
+		'app/bower_components/angular/angular.js',
+		'app/bower_components/angular-route/angular-route.js',
+		'app/bower_components/angular-resource/angular-resource.js',
+		'app/bower_components/angular-sanitize/angular-sanitize.js',
+		'app/bower_components/angular-animate/angular-animate.js',
+		'app/bower_components/angular-mocks/angular-mocks.js',
+		'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+		'app/bower_components/angular-media-player/dist/angular-media-player.js',
+		'app/bower_components/angular-local-storage/dist/angular-local-storage.js',
+		'app/js/app.js',
+		'app/js/root.js',
+		'app/js/7MinWorkout/*.js',
+		'app/js/shared/*.js',
+		'app/js/WorkoutBuilder/*.js',
+		'app/js/config.js',
     ],
 
 
     // list of files to exclude
     exclude: [
+		'app/js/vendor/*.*'
     ],
 
 
@@ -55,7 +70,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
