@@ -223,5 +223,21 @@ describe("Controllers", function () {
             $interval.flush(1000);
             expect($scope.currentExerciseDuration).toBe(3);
         }));
+
+        it("should toggle workout state on invoking pauseResumeToggle", function () {
+            expect($scope.workoutPaused).toBeFalsy();
+            $scope.pauseResumeToggle();
+            expect($scope.workoutPaused).toBe(true);
+            $scope.pauseResumeToggle();
+            expect($scope.workoutPaused).toBeFalsy();
+        });
+
+        it("should toggle pause resume on keycodes for 'p' and 'P'", function () {
+            expect($scope.workoutPaused).toBeFalsy();
+            $scope.onKeyPressed({ which: 80 });
+            expect($scope.workoutPaused).toBe(true);
+            $scope.onKeyPressed({ which: 112 });
+            expect($scope.workoutPaused).toBeFalsy();
+        });
     });
 });
