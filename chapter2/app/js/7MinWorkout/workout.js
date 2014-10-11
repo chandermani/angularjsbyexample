@@ -66,6 +66,7 @@ angular.module('7minWorkout')
       };
 
       $scope.resumeWorkout = function () {
+          if (!$scope.workoutPaused) return;
           exerciseIntervalPromise = startExerciseTimeTracking();
           $scope.workoutPaused = false;
       };
