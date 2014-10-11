@@ -61,7 +61,7 @@ describe("Controllers", function () {
         it("should start the workout", inject(function (WorkoutService) {
             expect($scope.workoutPlan).toEqual(WorkoutService.sampleWorkout);
             expect($scope.workoutTimeRemaining).toEqual(WorkoutService.totalWorkoutDuration);
-            expect($scope.workoutPaused).toBeFalsy(false);
+            expect($scope.workoutPaused).toBeFalsy();
         }));
 
         it("should start the first exercise", inject(function (WorkoutService, appEvents) {
@@ -152,13 +152,13 @@ describe("Controllers", function () {
         }));
 
         it("should pause workout on invoking pauseWorkout", function () {
-            expect($scope.workoutPaused).toBeFalsy(false);
+            expect($scope.workoutPaused).toBeFalsy();
             $scope.pauseWorkout();
             expect($scope.workoutPaused).toBe(true);
         });
 
         it("should not update workoutTimeRemaining for paused workout on interval lapse", inject(function (WorkoutService, $interval) {
-            expect($scope.workoutPaused).toBeFalsy(false);
+            expect($scope.workoutPaused).toBeFalsy();
 
             $interval.flush(1000);
             expect($scope.workoutTimeRemaining).toBe(WorkoutService.totalWorkoutDuration - 1);
@@ -171,7 +171,7 @@ describe("Controllers", function () {
         }));
 
         it("should not update currentExerciseDuration for paused workout  on interval lapse", inject(function (WorkoutService, $interval) {
-            expect($scope.workoutPaused).toBeFalsy(false);
+            expect($scope.workoutPaused).toBeFalsy();
 
             $interval.flush(1000);
             expect($scope.currentExerciseDuration).toBe(1);
@@ -184,7 +184,7 @@ describe("Controllers", function () {
         }));
 
         it("should not throw error if paused multiple times", function () {
-            expect($scope.workoutPaused).toBeFalsy(false);
+            expect($scope.workoutPaused).toBeFalsy();
             $scope.pauseWorkout();
             expect($scope.workoutPaused).toBe(true);
             $scope.pauseWorkout();
@@ -194,7 +194,7 @@ describe("Controllers", function () {
         });
 
         it("should resume workout on invoking resumeWorkout", inject(function ($interval) {
-            expect($scope.workoutPaused).toBeFalsy(false);
+            expect($scope.workoutPaused).toBeFalsy();
             $scope.pauseWorkout();
             expect($scope.workoutPaused).toBe(true);
             $scope.resumeWorkout();
@@ -205,7 +205,7 @@ describe("Controllers", function () {
         }));
 
         it("should not throw error on multiple resumeWorkout invocations", inject(function ($interval) {
-            expect($scope.workoutPaused).toBeFalsy(false);
+            expect($scope.workoutPaused).toBeFalsy();
             $scope.pauseWorkout();
             expect($scope.workoutPaused).toBe(true);
             $scope.resumeWorkout();
