@@ -5,28 +5,32 @@ describe("Controllers", function () {
     beforeEach(module('7minWorkout'));
     beforeEach(module('WorkoutBuilder'));
 
+    beforeEach(function () {
+        module(function ($provide) {
+            $provide.factory("WorkoutService", function ($q, WorkoutPlan, Exercise) {
+                var mock = {};
+                mock.sampleWorkout = new WorkoutPlan({
+                    name: "testworkout",
+                    title: "Test Workout",
+                    description: "This is a test workout",
+                    restBetweenExercise: "40",
+                    exercises: [{ details: new Exercise({ name: "exercise1", title: "Exercise 1", description: "Exercise 1 description", image: "/image1/path",nameSound:"audio1/path" }), duration: 50 },
+                                { details: new Exercise({ name: "exercise2", title: "Exercise 2", description: "Exercise 2 description", image: "/image2/path", nameSound: "audio2/path" }), duration: 30 },
+                                { details: new Exercise({ name: "exercise3", title: "Exercise 3", description: "Exercise 3 description", image: "/image3/path", nameSound: "audio3/path" }), duration: 20 }, ]
+                });
+                mock.getWorkout = function (name) {
+                    return $q.when(mock.sampleWorkout);
+                }
+                mock.totalWorkoutDuration = 180;
+                return mock;
+            });
+        });
+    });
     describe("WorkoutController", function () {
         var ctrl, $scope, sampleWorkout;
 
         beforeEach(function () {
             module(function ($provide) {
-                $provide.factory("WorkoutService", function ($q, WorkoutPlan, Exercise) {
-                    var mock = {};
-                    mock.sampleWorkout = new WorkoutPlan({
-                        name: "testworkout",
-                        title: "Test Workout",
-                        description: "This is a test workout",
-                        restBetweenExercise: "40",
-                        exercises: [{ details: new Exercise({ name: "exercise1", title: "Exercise 1", description: "Exercise 1 description", image: "/image1/path" }), duration: 50 },
-                                    { details: new Exercise({ name: "exercise2", title: "Exercise 2", description: "Exercise 2 description", image: "/image2/path" }), duration: 30 },
-                                    { details: new Exercise({ name: "exercise3", title: "Exercise 3", description: "Exercise 3 description", image: "/image3/path" }), duration: 20 }, ]
-                    });
-                    mock.getWorkout = function (name) {
-                        return $q.when(mock.sampleWorkout);
-                    }
-                    mock.totalWorkoutDuration = 180;
-                    return mock;
-                });
                 $provide.value("workoutHistoryTracker", { startTracking: function () { }, endTracking: function () { } });
             });
         });
@@ -238,6 +242,126 @@ describe("Controllers", function () {
             expect($scope.workoutPaused).toBe(true);
             $scope.onKeyPressed({ which: 112 });
             expect($scope.workoutPaused).toBeFalsy();
+        });
+    });
+
+    describe("WorkoutAudioController", function () {
+        function AudioController() {
+            this.pause = function () { }
+            this.play = function () { }
+            this.currentTime = 0;
+            this.duration = 0;
+        };
+
+        var ctrl, $scope;
+
+        beforeEach(inject(function ($rootScope, $controller, $interval, $location, $timeout, workoutHistoryTracker, WorkoutService, appEvents, Exercise, WorkoutService) {
+            $scope = $rootScope.$new();
+
+            // Mocking audio controller
+            $scope.ticksAudio = new AudioController();
+            $scope.nextUpAudio = new AudioController();
+            $scope.nextUpExeciseAudio = new AudioController();
+            $scope.halfWayAudio = new AudioController();
+            $scope.aboutToCompleteAudio = new AudioController();
+
+
+            ctrl = $controller('WorkoutAudioController', {
+                $scope: $scope,
+                $interval: $interval,
+                $location: $location,
+                $timeout: $timeout,
+            });
+
+            $scope.$digest();
+        }));
+
+        it("should load the WorkoutAudioController", function () {
+            expect(ctrl).toBeDefined();
+        });
+
+        it("should load the audio files when workout loaded", inject(function (WorkoutService) {
+            $scope.workoutPlan = WorkoutService.sampleWorkout;
+            $scope.$digest();
+            expect($scope.exercisesAudio.length).toBe(3);
+        }));
+
+        it("should play half way audio when halfway duration reached", inject(function (WorkoutService) {
+            spyOn($scope.halfWayAudio, "play");
+            $scope.currentExercise = WorkoutService.sampleWorkout.exercises[0];
+            $scope.currentExerciseDuration = 2;
+            $scope.$digest();
+
+            expect($scope.halfWayAudio.play).not.toHaveBeenCalled();
+
+            $scope.currentExerciseDuration = WorkoutService.sampleWorkout.exercises[0].duration / 2;
+            $scope.$digest();
+
+            expect($scope.halfWayAudio.play).toHaveBeenCalled();
+        }));
+
+        it("should play about to complete when exercise about to complete", inject(function (WorkoutService) {
+            spyOn($scope.aboutToCompleteAudio, "play");
+
+            $scope.currentExercise = WorkoutService.sampleWorkout.exercises[0];
+
+            $scope.currentExerciseDuration = 2;
+            $scope.$digest();
+            expect($scope.aboutToCompleteAudio.play).not.toHaveBeenCalled();
+
+            $scope.currentExerciseDuration = WorkoutService.sampleWorkout.exercises[0].duration / 2;
+            $scope.$digest();
+            expect($scope.aboutToCompleteAudio.play).not.toHaveBeenCalled();
+
+            $scope.currentExerciseDuration = WorkoutService.sampleWorkout.exercises[0].duration - 3;
+            $scope.$digest();
+            expect($scope.aboutToCompleteAudio.play).toHaveBeenCalled();
+
+        }));
+
+        it("should play next up audio at the end of rest exercise", inject(function (WorkoutService, $timeout) {
+            spyOn($scope.nextUpAudio, "play");
+            spyOn($scope.nextUpExeciseAudio, "play");
+
+            $scope.currentExercise = { details: { name: 'rest' } };
+            $scope.$digest();
+
+            expect($scope.nextUpAudio.play).not.toHaveBeenCalled();
+            expect($scope.nextUpExeciseAudio.play).not.toHaveBeenCalled();
+
+            $timeout.flush(2000);
+            expect($scope.nextUpAudio.play).toHaveBeenCalled();
+            expect($scope.nextUpExeciseAudio.play).not.toHaveBeenCalled();
+
+            $timeout.flush(1000);
+            expect($scope.nextUpExeciseAudio.play).toHaveBeenCalled();
+        }));
+
+        it("should pause all audios when workout paused", function () {
+            spyOn($scope.ticksAudio, "pause");
+            spyOn($scope.nextUpAudio, "pause");
+            spyOn($scope.nextUpExeciseAudio, "pause");
+            spyOn($scope.halfWayAudio, "pause");
+            spyOn($scope.aboutToCompleteAudio, "pause");
+
+            $scope.workoutPaused = true;
+            $scope.$digest();
+
+            expect($scope.ticksAudio.pause).toHaveBeenCalled();
+            expect($scope.nextUpAudio.pause).toHaveBeenCalled();
+            expect($scope.nextUpExeciseAudio.pause).toHaveBeenCalled();
+            expect($scope.halfWayAudio.pause).toHaveBeenCalled();
+            expect($scope.aboutToCompleteAudio.pause).toHaveBeenCalled();
+
+        });
+
+        it("should resume ticking audio when workout resumes", function () {
+            spyOn($scope.ticksAudio, "play");
+
+            $scope.workoutPaused = false;
+            $scope.$digest();
+
+            expect($scope.ticksAudio.play).toHaveBeenCalled();
         });
     });
 });
