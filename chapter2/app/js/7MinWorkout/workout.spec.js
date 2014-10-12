@@ -27,7 +27,7 @@ describe("Controllers", function () {
         });
     });
     describe("WorkoutController", function () {
-        var ctrl, $scope, sampleWorkout;
+        var ctrl, $scope;
 
         beforeEach(function () {
             module(function ($provide) {
@@ -138,7 +138,7 @@ describe("Controllers", function () {
             $interval.flush(WorkoutService.sampleWorkout.exercises[0].duration * 1000);
             expect($scope.carousel.next).toHaveBeenCalled();
             $interval.flush(WorkoutService.sampleWorkout.restBetweenExercise * 1000);
-            expect($scope.carousel.next.calls.length).toEqual(2);
+            expect($scope.carousel.next.calls.count()).toEqual(2);
         }));
 
         it("should end the workout when all exercises are complete", inject(function (WorkoutService, $interval, workoutHistoryTracker, $location) {
