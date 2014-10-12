@@ -30,6 +30,7 @@ module.exports = function(config) {
 		'app/js/shared/*.js',
 		'app/js/WorkoutBuilder/*.js',
 		'app/js/config.js',
+		'app/js/config.spec.js',
     ],
 
 
