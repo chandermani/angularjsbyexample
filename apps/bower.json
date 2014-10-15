@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular": "1.2.x",
+    "angular": "1.2.15",
     "angular-route": "1.2.15",
 	"angular-resource": "1.2.15",
 	"angular-sanitize": "1.2.15",
