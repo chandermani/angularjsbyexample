@@ -9,5 +9,11 @@ describe("Filters", function () {
 
             expect($filter("secondsToTime")(3610)).toBe("01:00:10");
         }));
+
+        it('should convert return 00:00:00 if not integer', inject(function ($filter) {
+            expect($filter("secondsToTime")("")).toBe("00:00:00");
+
+            expect($filter("secondsToTime")("test")).toBe("00:00:00");
+        }));
     });
 });
