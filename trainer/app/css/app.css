@@ -1,0 +1,119 @@
+/* app css stylesheet */
+
+html{
+    height:100%;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    min-height: 100%;
+    font-size: 13px;
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers - start*/
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+/* styles for validation helpers - end */
+
+/*styles for top nav bar - start*/
+.navbar-default.top-navbar {
+    background-color: #4eaded;
+    border-color: #4eaded;
+}
+
+.navbar-default.top-navbar h1 {
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/*styles for top nav bar - end*/
+
+/*styles for container - start*/
+.container.app-container{
+    width:100%;
+    max-width:100%;
+}
+.workout-display-div{
+    text-align:center;
+    padding:40px;
+}
+.workout-display-div .img-responsive{
+    margin: 25px auto;
+    width:540px;
+    height:360px;
+    cursor:pointer;
+}
+.workout-display-div .time-progress{
+    margin-top:40px;
+}
+/*styles for container - end*/
+
+/*Styles for start page - start*/
+.text-center{
+    color:#4eaded;
+}
+#start{
+    text-align:center;
+    margin-top:25px;
+}
+#start a {
+    text-decoration: none;
+    font-size: 67px;
+    color:#4eaded;
+}
+#start a:hover{
+    color:#4eaded;
+}
+#start a .glyphicon {
+    top:8px;
+}
+/*Styles for start page - end*/
+
+/*Styles for workout page - start*/
+.workout-app-container{
+    padding-top:15px;
+}
+
+#video-panel .panel-body{
+    max-height:650px;
+    overflow:auto;
+}
+/*Styles for workout page - end*/
