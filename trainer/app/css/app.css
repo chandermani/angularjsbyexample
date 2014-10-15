@@ -1,0 +1,163 @@
+/* app css stylesheet */
+
+html{
+    height:100%;
+}
+
+body {
+    padding-top: 69px;
+    padding-bottom: 20px;
+    min-height: 100%;
+    font-size: 13px;
+    font-family: 'Roboto Slab';
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers - start*/
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+/* styles for validation helpers - end */
+
+/*styles for top nav bar - start*/
+.navbar-default.top-navbar {
+    background-color: #4eaded;
+    border-color: #4eaded;
+}
+
+.navbar-default.top-navbar h1{
+    color:white;
+}
+/*styles for top nav bar - end*/
+
+/*styles for container - start*/
+.container.app-container{
+    width:100%;
+    max-width:100%;
+}
+
+.container .start-button {
+    background: #4eaded;
+    text-align: center;
+    font-size: 11em;
+    line-height: 250px;
+    border-radius: 200px;
+    width: 600px;
+    height: 250px;
+    margin-top: 100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.container .start-button a{
+    color:white;
+    text-decoration:none;
+}
+
+.left-nav-bar {
+    position: fixed;
+    color: white;
+    height: 100%;
+    background-color: #4eaded;
+}
+.right-nav-bar {
+    position: fixed;
+    height: 100%;
+    background-color: #e7e7e7;
+    right: 0px;
+    color: white;
+}
+.workout-content{
+    padding:30px;
+}
+.workout-content .workout-display-div{
+    padding:40px;
+    text-align:center;
+}
+.workout-display-div .img-responsive{
+    margin: 25px auto;
+    width:540px;
+    height:360px;
+    cursor:pointer;
+}
+.workout-display-div .time-progress{
+    margin-top:40px;
+}
+.workout-content .next-workout-display {
+    background-color: #e7e7e7;
+    position: fixed;
+    bottom: 0px;
+    padding: 15px;
+    margin: 0px -30px;
+    width: 100%;
+}
+.next-workout-display  h2{
+    margin:0px;
+}
+.workout-circle {
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    float: left;
+    border: 1px solid #4eaded;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.workout-circle.active{
+    background-color:#4eaded;
+}
+.rest-circle.active{
+    background-color:#4eaded;
+}
+.rest-circle {
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    float: left;
+    border:1px solid #4eaded;
+    margin: 6px 13px;
+}
+.last-indication .rest-circle{
+    display:none;
+}
+.indication-circles{
+    width:100%;
+    float:left;
+}
+/*styles for container - end*/
