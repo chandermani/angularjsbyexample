@@ -3,29 +3,27 @@ describe("Controllers", function () {
 
     beforeEach(module('app'));
     beforeEach(module('7minWorkout'));
-    beforeEach(module('WorkoutBuilder'));
 
-    beforeEach(function () {
-        module(function ($provide) {
-            $provide.factory("WorkoutService", function ($q, WorkoutPlan, Exercise) {
-                var mock = {};
-                mock.sampleWorkout = new WorkoutPlan({
-                    name: "testworkout",
-                    title: "Test Workout",
-                    description: "This is a test workout",
-                    restBetweenExercise: "40",
-                    exercises: [{ details: new Exercise({ name: "exercise1", title: "Exercise 1", description: "Exercise 1 description", image: "/image1/path",nameSound:"audio1/path" }), duration: 50 },
-                                { details: new Exercise({ name: "exercise2", title: "Exercise 2", description: "Exercise 2 description", image: "/image2/path", nameSound: "audio2/path" }), duration: 30 },
-                                { details: new Exercise({ name: "exercise3", title: "Exercise 3", description: "Exercise 3 description", image: "/image3/path", nameSound: "audio3/path" }), duration: 20 }, ]
-                });
-                mock.getWorkout = function (name) {
-                    return $q.when(mock.sampleWorkout);
-                }
-                mock.totalWorkoutDuration = 180;
-                return mock;
+    beforeEach(module(function ($provide) {
+        $provide.factory("WorkoutService", function ($q, WorkoutPlan, Exercise) {
+            var mock = {};
+            mock.sampleWorkout = new WorkoutPlan({
+                name: "testworkout",
+                title: "Test Workout",
+                description: "This is a test workout",
+                restBetweenExercise: "40",
+                exercises: [{ details: new Exercise({ name: "exercise1", title: "Exercise 1", description: "Exercise 1 description", image: "/image1/path", nameSound: "audio1/path" }), duration: 50 },
+                            { details: new Exercise({ name: "exercise2", title: "Exercise 2", description: "Exercise 2 description", image: "/image2/path", nameSound: "audio2/path" }), duration: 30 },
+                            { details: new Exercise({ name: "exercise3", title: "Exercise 3", description: "Exercise 3 description", image: "/image3/path", nameSound: "audio3/path" }), duration: 20 }, ]
             });
+            mock.getWorkout = function (name) {
+                return $q.when(mock.sampleWorkout);
+            }
+            mock.totalWorkoutDuration = 180;
+            return mock;
         });
-    });
+    }));
+
     describe("WorkoutController", function () {
         var ctrl, $scope;
 
@@ -39,7 +37,7 @@ describe("Controllers", function () {
             $scope = $rootScope.$new();
             $scope.carousel = { next: function () { } };
             ctrl = $controller('WorkoutController', {
-                '$scope': $scope,
+                $scope: $scope,
                 $interval: $interval,
                 $location: $location,
                 $timeout: $timeout,
