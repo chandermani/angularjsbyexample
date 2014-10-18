@@ -132,7 +132,7 @@ describe("Controllers", function () {
             expect($scope.currentExerciseDuration).toBe(0);
         }));
 
-        it("should move carousel forward", inject(function (WorkoutService, $interval) {
+        it("should move carousel forward on completion of exercise", inject(function (WorkoutService, $interval) {
             $interval.flush(WorkoutService.sampleWorkout.exercises[0].duration * 1000);
             expect($scope.carousel.next).toHaveBeenCalled();
             $interval.flush(WorkoutService.sampleWorkout.restBetweenExercise * 1000);
