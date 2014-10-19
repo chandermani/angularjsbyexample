@@ -1,0 +1,20 @@
+﻿describe("Directives", function () {
+    var $compile, $rootScope, $scope;
+
+    beforeEach(module('app'));
+    beforeEach(module('/partials/workoutbuilder/workout-tile.html'));
+
+    beforeEach(inject(function (_$compile_, _$rootScope_) {
+        $compile = _$compile_;
+        $rootScope = _$rootScope_;
+        $scope = $rootScope.$new();
+    }));
+
+    describe("Workout tile", function () {
+        iit("should load workout tile directive", inject(function ($templateCache) {
+            $compile("<workout-tile></workout-tile")($scope);
+            $scope.$digest();
+        }));
+    });
+
+});

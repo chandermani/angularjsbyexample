@@ -1,6 +1,6 @@
 describe("Directives", function () {
-    var $compile, $rootScope,$scope;
-    
+    var $compile, $rootScope, $scope;
+
     beforeEach(module('app'));
 
     beforeEach(inject(function (_$compile_, _$rootScope_) {
@@ -8,6 +8,7 @@ describe("Directives", function () {
         $rootScope = _$rootScope_;
         $scope = $rootScope.$new();
     }));
+
     describe("remote validator", function () {
         var inputElement;
         beforeEach(inject(function () {
@@ -23,7 +24,7 @@ describe("Directives", function () {
         it("should load the directive without error", function () {
             $compile(inputElement)($scope);
         });
-        
+
         it("should verify unique value when use input changes", inject(function ($q) {
             spyOn($scope, "validate").and.returnValue($q.when(true));
             $compile(inputElement)($scope);
@@ -88,7 +89,7 @@ describe("Directives", function () {
     });
 
     describe("ajax button validator", function () {
-        
+
         beforeEach(inject(function () {
             $scope.save = function (value) { };
             $scope.submitted = false;
@@ -136,5 +137,4 @@ describe("Directives", function () {
         }));
 
     });
-
 });
