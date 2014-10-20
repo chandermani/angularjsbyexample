@@ -12,8 +12,9 @@
 
     describe("Workout tile", function () {
         it("should load workout tile directive", inject(function ($templateCache) {
-            $compile("<workout-tile></workout-tile")($scope);
+            var e = $compile("<workout-tile></workout-tile")($scope);
             $scope.$digest();
+            expect(e.html().indexOf('class="duration"') > 0);
         }));
     });
 

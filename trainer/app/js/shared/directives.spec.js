@@ -32,7 +32,7 @@ describe("Directives", function () {
             expect($scope.validate).toHaveBeenCalled();
         }));
 
-        iit("verify failed 'unqiue' validation should set model controller invalid.", inject(function ($q) {
+        it("verify failed 'unqiue' validation should set model controller invalid.", inject(function ($q) {
             spyOn($scope, "validate").and.returnValue($q.when(false));
             $compile(inputElement)($scope);
             $scope.testForm.unique.$setViewValue("dummy");
