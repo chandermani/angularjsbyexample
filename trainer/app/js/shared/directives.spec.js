@@ -32,13 +32,13 @@ describe("Directives", function () {
             expect($scope.validate).toHaveBeenCalled();
         }));
 
-        it("verify unqiue if failed should clear model", inject(function ($q) {
+        iit("verify failed 'unqiue' validation should set model controller invalid.", inject(function ($q) {
             spyOn($scope, "validate").and.returnValue($q.when(false));
             $compile(inputElement)($scope);
             $scope.testForm.unique.$setViewValue("dummy");
+            expect($scope.validate).toHaveBeenCalled();
             $scope.$digest();
 
-            expect($scope.validate).toHaveBeenCalled();
             expect($scope.testForm.$valid).toBe(false);
             expect($scope.testForm.unique.$valid).toBe(false);
             expect($scope.testForm.unique.$error.unique).toBe(true);
@@ -46,7 +46,7 @@ describe("Directives", function () {
 
         }));
 
-        it("should verify unique value when use input changes", inject(function ($q) {
+        it("should not have error if remote validation success", inject(function ($q) {
             spyOn($scope, "validate").and.returnValue($q.when(true));
             $scope.name = "initialValue";
             $compile(inputElement)($scope);

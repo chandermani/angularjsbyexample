@@ -11,7 +11,7 @@
     }));
 
     describe("Workout tile", function () {
-        iit("should load workout tile directive", inject(function ($templateCache) {
+        it("should load workout tile directive", inject(function ($templateCache) {
             $compile("<workout-tile></workout-tile")($scope);
             $scope.$digest();
         }));
