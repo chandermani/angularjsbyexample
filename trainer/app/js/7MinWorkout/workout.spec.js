@@ -2,7 +2,6 @@
 describe("Controllers", function () {
 
     beforeEach(module('app'));
-    beforeEach(module('7minWorkout'));
 
     beforeEach(module(function ($provide) {
         $provide.factory("WorkoutService", function ($q, WorkoutPlan, Exercise) {
