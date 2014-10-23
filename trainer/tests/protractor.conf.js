@@ -7,7 +7,7 @@ exports.config = {
 
   // Spec patterns are relative to the location of this config.
   specs: [
-    'spec/*_spec.js',
+    'e2w/*.js',
   ],
 
   // Patterns to exclude.
@@ -61,7 +61,7 @@ exports.config = {
   //
   // A base URL for your application under test. Calls to protractor.get()
   // with relative paths will be prepended with this.
-  baseUrl: 'http://localhost:54963/index.html',
+  baseUrl: 'http://localhost:7155/index.html',
 
   // CSS Selector for the element housing the angular app - this defaults to
   // body, but is necessary if ng-app is on a descendant of <body>.
@@ -73,10 +73,6 @@ exports.config = {
   // This can be changed via the command line as:
   //   --params.login.user 'Joe'
   params: {
-    login: {
-      user: 'Jane',
-      password: '1234'
-    }
   },
     // Require files before executing the features.
     require: 'cucumber/stepDefinitions.js',
