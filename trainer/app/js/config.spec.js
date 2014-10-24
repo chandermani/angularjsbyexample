@@ -1,7 +1,5 @@
-describe("Workout Builder", function () {
+describe("Trainer routes", function () {
     beforeEach(module('app'));
-    beforeEach(module('7minWorkout'));
-    beforeEach(module('WorkoutBuilder'));
 
     it("should default to start workout route", inject(function ($rootScope, $location, $route, $httpBackend) {    //Unless we inject $route route transitions do not happen, even if we change location\
         $httpBackend.whenGET("partials/workout/start.html").respond("<div/>");

@@ -31,6 +31,7 @@ module.exports = function(config) {
 		'app/js/WorkoutBuilder/*.js',
 		'app/js/config.js',
 		'app/js/config.spec.js',
+		'app/partials/**/*.html',
     ],
 
 
@@ -43,8 +44,14 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+		'app/partials/**/*.html': ['ng-html2js']
     },
 
+	ngHtml2JsPreprocessor: {
+      // strip this from the file path
+      stripPrefix: 'app',
+    },
+	
 
     // test results reporter to use
     // possible values: 'dots', 'progress'

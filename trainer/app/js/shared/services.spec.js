@@ -6,15 +6,10 @@ describe("Shared Services", function () {
         collectionUrl = "https://api.mongolab.com/api/1/databases/testdb/collections",
         apiKey = "testKey";
 
-        beforeEach(function () {
-            module(function (WorkoutServiceProvider, ApiKeyAppenderInterceptorProvider) {
-                WorkoutServiceProvider.configure("testdb");
-                ApiKeyAppenderInterceptorProvider.setApiKey("testKey")
-            });
-            //module(function ($provide) {
-            //    $provide.value("ApiKeyAppenderInterceptor", {});
-            //})
-        });
+        beforeEach(module(function (WorkoutServiceProvider, ApiKeyAppenderInterceptorProvider) {
+            WorkoutServiceProvider.configure("testdb");
+            ApiKeyAppenderInterceptorProvider.setApiKey("testKey")
+        }));
 
         beforeEach(inject(function (_WorkoutService_, _$httpBackend_) {
             WorkoutService = _WorkoutService_;
@@ -26,7 +21,7 @@ describe("Shared Services", function () {
         });
 
         it("should request all workouts endpoints", function () {
-            $httpBackend.expectGET(collectionUrl + "/workouts?apiKey=" + "testKey").respond([{}]);
+            $httpBackend.expectGET(collectionUrl + "/workouts?apiKey=" + "testKey").respond([]);
             WorkoutService.getWorkouts();
             $httpBackend.flush();
         });
