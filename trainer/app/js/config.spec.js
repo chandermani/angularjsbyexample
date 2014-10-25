@@ -6,6 +6,9 @@ describe("Trainer routes", function () {
         $location.path("/");
         $rootScope.$digest();
         expect($location.path()).toBe("/start");
+        expect($route.current.templateUrl).toBe("partials/workout/start.html");
+        expect($route.current.controller).toBeUndefined();
+
     }));
 
     it("should load the workout.", inject(function ($rootScope, $location, $route, $httpBackend) {
