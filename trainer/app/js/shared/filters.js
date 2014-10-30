@@ -1,7 +1,7 @@
 'use strict';
 
 /* Filters */
-angular.module('7minWorkout').filter('secondsToTime', function () {
+angular.module('app').filter('secondsToTime', function () {
     return function (input) {
         var sec = parseInt(input, 10);
         if (isNaN(sec)) return "00:00:00";
