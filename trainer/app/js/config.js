@@ -1,5 +1,5 @@
 angular.module('app').
-config(function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider, $httpProvider, ApiKeyAppenderInterceptorProvider) {
+config(function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider, $httpProvider, ApiKeyAppenderInterceptorProvider, $translateProvider, $translatePartialLoaderProvider) {
 
     ApiKeyAppenderInterceptorProvider.setApiKey("E16WgslFduXHiMAdAg6qcG1KKYx7WNWg");
 
@@ -69,4 +69,12 @@ config(function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider, $
       'self',
       // Allow loading from our assets domain.  Notice the difference between * and **.
       'http://*.youtube.com/**']);
+
+    $translatePartialLoaderProvider.addPart('workoutrunner');
+    $translatePartialLoaderProvider.addPart('workoutbuilder');
+    $translateProvider.useLoader('$translatePartialLoader', {
+        urlTemplate: '/i18n/{lang}/{part}.json'
+    });
+
+    $translateProvider.preferredLanguage('en');
 });
