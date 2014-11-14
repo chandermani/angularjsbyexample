@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('app')
-  .controller('RootController', ['$scope', '$modal', function ($scope, $modal) {
+  .controller('RootController', ['$scope', '$modal', '$translate', function ($scope, $modal, $translate) {
       $scope.showWorkoutHistory = function () {
           var dailog = $modal.open({
               templateUrl: 'partials/workout/workout-history.html',
@@ -31,6 +31,15 @@ angular.module('app')
           $scope.routeError = current.routeErrorMessage;
 
       });
-      
 
+      $scope.setLanguage = function (languageKey) {
+          $translate.use(languageKey);
+          $scope.language = languageKey;
+
+      };
+      
+      var init = function () {
+          $scope.language = $translate.preferredLanguage();
+      };
+      init();
   }]);

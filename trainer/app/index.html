@@ -21,7 +21,9 @@
                 <div class="navbar-brand">Personal Trainer</div>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a ng-click="showWorkoutHistory()" title="Workout History">History</a></li>
+                <li><a ng-click="setLanguage('en')" title="{{'TOPNAV.ENGLISH'|translate}}" ng-class="{'btn-primary':language==='en'}"><img src="img/flag-usa.gif" alt="English"/></a></li>
+                <li><a ng-click="setLanguage('de')" title="{{'TOPNAV.GERMAN'|translate}}" ng-class="{'btn-primary':language==='de'}"><img src="img/flag-germany.gif" alt="German"/></a></li>
+                <li><a ng-click="showWorkoutHistory()" title="{{'TOPNAV.HISTORYTITLE'|translate}}">{{'TOPNAV.HISTORY'|translate}}</a></li>
             </ul>
         </div>
         <div id="top-nav-container" class="second-top-nav">

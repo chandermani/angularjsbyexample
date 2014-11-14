@@ -1,4 +1,10 @@
 {
+	"TOPNAV":{
+		"HISTORY":"Geschichte",
+		"HISTORYTITLE":"Workout Geschichte",
+		"ENGLISH":"Englisch",
+		"GERMAN":"Deutsch"
+	},
     "START": {
         "HEADER":"Bereit für ein Workout?",
         "SELECT":"Wählen Workout",
