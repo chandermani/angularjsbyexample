@@ -10,5 +10,13 @@
         "SELECT":"Wählen Workout",
         "WORKOUTS":"Workouts",
         "SEARCH":"Suchen Sie nach dem Training"
-    }
+    },
+	"RUNNER" : {
+		"DESC":"Beschreibung",
+		"STEPS":"Anleitung",
+		"VIDEOS":"Videos",
+		"WORKOUTTIMEREMAINING":"übrig Workout",
+		"TIMEREMAINING":"verbleibende Zeit",
+		"NEXTUP":"Als nächstes"
+	}
 }

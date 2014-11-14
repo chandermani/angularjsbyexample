@@ -10,5 +10,13 @@
         "SELECT":"Select Workout",
         "WORKOUTS":"Workouts",
         "SEARCH":"Search for workout"
-    }
+    },
+	"RUNNER" : {
+		"DESC":"Description",
+		"STEPS":"Steps",
+		"VIDEOS":"Videos",
+		"WORKOUTTIMEREMAINING":"Workout Remaining",
+		"TIMEREMAINING":"Time Remaining",
+		"NEXTUP":"Next Up"
+	}
 }
