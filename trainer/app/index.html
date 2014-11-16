@@ -21,7 +21,9 @@
                 <div class="navbar-brand">Personal Trainer</div>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a ng-click="showWorkoutHistory()" title="Workout History">History</a></li>
+                <li><a ng-click="setLanguage('en')" title="{{'TOPNAV.ENGLISH'|translate}}" ng-class="{'btn-primary':language==='en'}"><img src="img/flag-usa.gif" alt="English"/></a></li>
+                <li><a ng-click="setLanguage('de')" title="{{'TOPNAV.GERMAN'|translate}}" ng-class="{'btn-primary':language==='de'}"><img src="img/flag-germany.gif" alt="German"/></a></li>
+                <li><a ng-click="showWorkoutHistory()" title="{{'TOPNAV.HISTORYTITLE'|translate}}">{{'TOPNAV.HISTORY'|translate}}</a></li>
             </ul>
         </div>
         <div id="top-nav-container" class="second-top-nav">
@@ -49,6 +51,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.js"></script>
     <!--Script required for E2E testing. Comment it in production use-->
     <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-mocks.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bower-angular-translate/2.0.1/angular-translate.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bower-angular-translate-loader-partial/2.0.0/angular-translate-loader-partial.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
     <!--<script src="//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.js"></script>-->
     <!--<script src="js/vendor/angular-media-player.js"></script>-->
