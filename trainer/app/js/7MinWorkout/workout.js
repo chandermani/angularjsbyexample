@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('7minWorkout')
-  .controller('WorkoutController', ['$scope', '$interval', '$location', function ($scope, $interval, $location) {
+  .controller('WorkoutController', ['$scope', '$interval', function ($scope, $interval) {
       function WorkoutPlan(args) {
           this.exercises = [];
           this.name = args.name;
