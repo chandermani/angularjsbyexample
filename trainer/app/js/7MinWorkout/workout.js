@@ -312,7 +312,7 @@ angular.module('7minWorkout')
                       $scope.nextUpAudio.play();
                   }, 2000);
                   $timeout(function () {
-                      $scope.nextUpExeciseAudio.play($scope.currentExerciseIndex + 1, true);
+                      $scope.nextUpExerciseAudio.play($scope.currentExerciseIndex + 1, true);
                   }, 3000);
               }
           }
