@@ -155,7 +155,7 @@ angular.module('7minWorkout')
                       $scope.nextUpAudio.play();
                   }, 2000);
                   $timeout(function () {
-                      $scope.nextUpExeciseAudio.play($scope.currentExerciseIndex + 1, true);
+                      $scope.nextUpExerciseAudio.play($scope.currentExerciseIndex + 1, true);
                   }, 3000);
               }
           }
@@ -176,7 +176,7 @@ angular.module('7minWorkout')
           if (newValue) {
               $scope.ticksAudio.pause();
               $scope.nextUpAudio.pause();
-              $scope.nextUpExeciseAudio.pause();
+              $scope.nextUpExerciseAudio.pause();
               $scope.halfWayAudio.pause();
               $scope.aboutToCompleteAudio.pause();
           }
