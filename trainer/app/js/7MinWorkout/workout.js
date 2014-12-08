@@ -130,7 +130,7 @@ angular.module('7minWorkout')
                   name: "pushUp",
                   title: "Push Up",
                   description: "A push-up is a common exercise performed in a prone position by raising and lowering the body using the arms",
-                  image: "img/pushup.png",
+                  image: "img/Pushup.png",
                   videos: ["//www.youtube.com/embed/Eh00_rniF8E", "//www.youtube.com/embed/ZWdBqFLNljc", "//www.youtube.com/embed/UwRLWMcOdwI", "//www.youtube.com/embed/ynPwl6qyUNM", "//www.youtube.com/embed/OicNTT2xzMI"],
                   procedure: "Lie prone on the ground with hands placed as wide or slightly wider than shoulder width. \
                               Keeping the body straight, lower body to the ground by bending arms at the elbows. \
@@ -202,7 +202,7 @@ angular.module('7minWorkout')
                   name: "plank",
                   title: "Plank",
                   description: "The plank (also called a front hold, hover, or abdominal bridge) is an isometric core strength exercise that involves maintaining a difficult position for extended periods of time. ",
-                  image: "img/plank.png",
+                  image: "img/Plank.png",
                   videos: ["//www.youtube.com/embed/pSHjTRCQxIw", "//www.youtube.com/embed/TvxNkmjdhMM"],
                   procedure: "Get into pushup position on the floor.\
                               Bend your elbows 90 degrees and rest your weight on your forearms.\
