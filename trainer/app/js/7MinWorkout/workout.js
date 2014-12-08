@@ -176,7 +176,7 @@ angular.module('7minWorkout')
                   name: "pushUp",
                   title: "Push Up",
                   description: "A push-up is a common exercise performed in a prone position by raising and lowering the body using the arms",
-                  image: "img/pushup.png",
+                  image: "img/Pushup.png",
                   nameSound: "content/pushups.wav",
                   videos: ["Eh00_rniF8E", "ZWdBqFLNljc", "UwRLWMcOdwI", "ynPwl6qyUNM", "OicNTT2xzMI"],
                   procedure: "Lie prone on the ground with hands placed as wide or slightly wider than shoulder width. \
@@ -253,7 +253,7 @@ angular.module('7minWorkout')
                   name: "plank",
                   title: "Plank",
                   description: "The plank (also called a front hold, hover, or abdominal bridge) is an isometric core strength exercise that involves maintaining a difficult position for extended periods of time. ",
-                  image: "img/plank.png",
+                  image: "img/Plank.png",
                   nameSound: "content/plank.wav",
                   videos: ["pSHjTRCQxIw", "TvxNkmjdhMM"],
                   procedure: "Get into pushup position on the floor.\
