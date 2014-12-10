@@ -1,0 +1,43 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Workout Video</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <label>Filter Workouts: </label>
+        <div class="btn-group">
+            <label><input type="radio" name="searchFilter" ng-model="search.completed" value="">All </label>
+            <label><input type="radio" name="searchFilter" ng-model="search.completed" value="true">Completed </label>
+            <label><input type="radio" name="searchFilter" ng-model="search.completed" value="false">Incomplete </label>
+        </div>
+    </div>
+    <div class="row table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Started</th>
+                    <th>Ended</th>
+                    <th>Last Exercise</th>
+                    <th>Exercises Done</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="historyItem in history | filter:search | orderBy:'-startedOn'">
+                    <td>{{$index+1}}</td>
+                    <td>{{historyItem.startedOn | date:'short'}}</td>
+                    <td>{{historyItem.endedOn | date:'short'}}</td>
+                    <td>{{historyItem.lastExercise}}</td>
+                    <td>{{historyItem.exercisesDone}}</td>
+                    <td>{{historyItem.completed ? "Yes" : "No"}}</td>
+                </tr>
+                <tr ng-if="history.length==0" class="warning">
+                    <td colspan="6">No Workout History Found.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+</div>
