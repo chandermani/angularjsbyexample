@@ -353,7 +353,7 @@ angular.module('7minWorkout')
 
       $scope.$watch('currentExerciseDuration', function (newValue, oldValue) {
           if (newValue) {
-              if (newValue == $scope.currentExercise.duration / 2 && $scope.currentExercise.details.name != 'rest') {
+              if (newValue == Math.floor($scope.currentExercise.duration / 2) && $scope.currentExercise.details.name != 'rest') {
                   $scope.halfWayAudio.play();
               }
               else if (newValue == $scope.currentExercise.duration - 3) {
