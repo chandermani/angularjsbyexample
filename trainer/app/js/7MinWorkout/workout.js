@@ -206,7 +206,7 @@ angular.module('7minWorkout')
                   name: "stepUpOntoChair",
                   title: "Step Up Onto Chair",
                   description: "Step exercises are ideal for building muscle in your lower body.",
-                  image: "img/stepUpOntoChair.jpeg",
+                  image: "img/stepUpOntoChair.png",
                   nameSound: "content/stepup.wav",
                   videos: ["aajhW7DD1EA"],
                   procedure: "Position your chair in front of you.\
@@ -237,7 +237,7 @@ angular.module('7minWorkout')
                   name: "tricepdips",
                   title: "Tricep Dips On Chair",
                   description: "A body weight exercise that targets triceps.",
-                  image: "img/tricepdips.jpg",
+                  image: "img/tricepdips.png",
                   nameSound: "content/tricepdips.wav",
                   videos: ["tKjcgfu44sI", "jox1rb5krQI"],
                   procedure: "Sit up on a chair. Your legs should be slightly extended, with your feet flat on the floor.\
@@ -297,7 +297,7 @@ angular.module('7minWorkout')
                   name: "pushupNRotate",
                   title: "Pushup And Rotate",
                   description: "A variation of pushup that requires you to rotate.",
-                  image: "img/pushupNRotate.jpg",
+                  image: "img/pushupNRotate.png",
                   nameSound: "content/pushupandrotate.wav",
                   videos: ["qHQ_E-f5278"],
                   procedure: "Assume the classic pushup position, but as you come up, rotate your body so your right arm lifts up and extends overhead.\
