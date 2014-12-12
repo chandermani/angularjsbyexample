@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('7minWorkout')
-  .controller('WorkoutController', ['$scope', '$interval', '$location', '$timeout', 'workoutHistoryTracker', 'appEvents', 'WorkoutService', '$routeParams', 'Exercise', function ($scope, $interval, $location, $timeout, workoutHistoryTracker, appEvents, WorkoutService, $routeParams, Exercise) {
+  .controller('WorkoutController', ['$scope', '$interval', '$location', 'workoutHistoryTracker', 'appEvents', 'WorkoutService', '$routeParams', 'Exercise', function ($scope, $interval, $location, workoutHistoryTracker, appEvents, WorkoutService, $routeParams, Exercise) {
       var restExercise;
       var exerciseIntervalPromise;
       var startWorkout = function () {
