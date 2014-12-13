@@ -23,7 +23,7 @@
                 <img class="img-responsive" ng-src="{{image}}" ng-repeat="image in exerciseImages track by $index" />
             </div>
             <div class="progress time-progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="{{currentExercise.duration}}" ng-style="{'width':(currentExerciseDuration/currentExercise.duration) * 100 + '%'}">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{(currentExerciseDuration/currentExercise.duration) * 100}}" aria-valuemin="0" aria-valuemax="{{currentExercise.duration}}" ng-style="{'width':(currentExerciseDuration/currentExercise.duration) * 100 + '%'}">
                 </div>
             </div>
             <div class="row">
