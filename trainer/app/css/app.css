@@ -311,3 +311,8 @@ div[ng-view].ng-leave-active {
     background:#1D89CF;
 }
 /*styles for tile- end*/
+
+.select-duration {
+    color:rgb(51,51,51);
+    margin-top:2px;
+}
