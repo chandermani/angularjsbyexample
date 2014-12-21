@@ -29,10 +29,11 @@
             </div>
             <div class="form-group row" ng-class="{'has-error':formWorkout.restBetweenExercise.$error.number}">
                 <label for="workout-rest">Rest Time (in seconds):</label>
-                <input type="number" name="restBetweenExercise" class="form-control" id="workout-rest" placeholder="Rest period between exercise in seconds." ng-model="workout.restBetweenExercise" min="0" ng-pattern="/^\d+$/">
+                <input type="number" name="restBetweenExercise" class="form-control" id="workout-rest" placeholder="Rest period between exercise in seconds." ng-model="workout.restBetweenExercise" min="1" ng-pattern="/^-?\d+$/" required>
+                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.required" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.required}">Time duration is required.</label>
                 <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.number" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.number}">Time duration should be numeric.</label>
                 <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.min" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.min}">Only positive integer value allowed.</label>
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.pattern" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.pattern}">Only positive integer value allowed.</label>
+                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.pattern" ng-class="{'text-danger': formWorkout.restBetweenExercise.$error.pattern}">Only integer value allowed.</label>
             </div>
             <div class="form-group row">
                 <label>Total Exercises:</label>
