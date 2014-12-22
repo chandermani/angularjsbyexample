@@ -19,8 +19,7 @@ angular.module('WorkoutBuilder')
 
       $scope.$watch('formWorkout.exerciseCount', function (newValue) {
           if (newValue) {
-              if ($scope.workout.exercises.length === 0)
-                  newValue.$setValidity("count", false);
+              newValue.$setValidity("count", $scope.workout.exercises.length > 0);
           }
       });
 
