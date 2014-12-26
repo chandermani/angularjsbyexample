@@ -34,10 +34,16 @@
             <div class="form-group row" ng-class="{'has-error':formWorkout.restBetweenExercise.$error.number}">
                 <label for="workout-rest">Rest Time (in seconds):</label>
                 <input type="number" name="restBetweenExercise" class="form-control" id="workout-rest" placeholder="Rest period between exercise in seconds." ng-model="workout.restBetweenExercise" min="1" ng-pattern="/^-?\d+$/" required>
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.required" class="text-danger">Time duration is required.</label>
+                <!--<label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.required" class="text-danger">Time duration is required.</label>
                 <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.number" class="text-danger">Time duration should be numeric.</label>
                 <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.min" class="text-danger">Only positive integer value allowed.</label>
-                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.pattern" class="text-danger">Only integer value allowed.</label>
+                <label ng-show="formWorkout.restBetweenExercise.$dirty && formWorkout.restBetweenExercise.$error.pattern" class="text-danger">Only integer value allowed.</label>-->
+                <div ng-messages="formWorkout.restBetweenExercise.$error" ng-if="formWorkout.restBetweenExercise.$dirty">
+                    <label ng-message="required" class="text-danger">Time duration is required.</label>
+                    <label ng-message="number" class="text-danger">Time duration should be numeric.</label>
+                    <label ng-message="min" class="text-danger">Only positive integer value allowed.</label>
+                    <label ng-message="pattern" class="text-danger">Only integer value allowed.</label>
+                </div>
             </div>
             <div class="form-group row">
                 <label>Total Exercises:</label>
