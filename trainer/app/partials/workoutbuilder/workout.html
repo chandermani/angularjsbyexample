@@ -71,11 +71,10 @@
             </div>
             <div class="details">
                 <ng-form name="formDuration">
-                    <input type="number" name="duration" ng-model="exercise.duration" class="form-control" placeholder="Exercise duration in seconds." min="1" ng-pattern="/^\d+$/" required />
+                    <select class="select-duration form-control" name="duration" ng-model="exercise.duration" ng-options="duration.value as duration.title for duration in durations" required>
+                        <option value="">Select Duration</option>
+                    </select>
                     <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.required)" class="text-danger">Time duration is required.</label>
-                    <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.number)" class="text-danger">Time duration should be numeric.</label>
-                    <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.min)" class="text-danger">Time duration should be more than zero.</label>
-                    <label ng-show="hasError(formDuration.duration,formDuration.duration.$error.pattern)" class="text-danger">Only positive integer value allowed.</label>
                 </ng-form>
             </div>
         </div>
