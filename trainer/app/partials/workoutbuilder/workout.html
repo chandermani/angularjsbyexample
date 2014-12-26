@@ -66,8 +66,7 @@
 				<img ng-src="{{exercise.details.image ? exercise.details.image : '/img/running.png'}}"/>
 			</div>
             <div class="details">
-                <select class="select-duration form-control" name="duration" ng-model="exercise.duration">
-                    <option value="{{duration.value}}" label="{{duration.title}}" ng-repeat="duration in durations" ng-selected="exercise.duration==duration.value">{{duration.title}}</option>
+                <select class="select-duration form-control" name="duration" ng-model="exercise.duration" ng-options="duration.value as duration.title for duration in durations">
                 </select>
             </div>
 		</div>
