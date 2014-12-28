@@ -17,19 +17,6 @@ angular.module('WorkoutBuilder')
           WorkoutBuilderService.removeExercise(exercise);
       };
 
-      var restWatch = $scope.$watch('formWorkout.restBetweenExercise', function (newValue) {
-          // Conversion logic courtesy http://stackoverflow.com/questions/596467/how-do-i-convert-a-number-to-an-integer-in-javascript
-          if (newValue) {
-              newValue.$parsers.unshift(function (value) {
-                  return isNaN(parseInt(value)) ? value : parseInt(value);
-              });
-              newValue.$formatters.push(function (value) {
-                  return isNaN(parseInt(value)) ? value : parseInt(value);
-              });
-              restWatch(); //De-register the watch.
-          }
-      });
-
       $scope.durations = [{ title: "15 seconds", value: 15 },
                           { title: "30 seconds", value: 30 },
                           { title: "45 seconds", value: 45 },
