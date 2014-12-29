@@ -100,19 +100,19 @@ input[type="checkbox"].input-validation-error {
 .text-center{
     color:#4eaded;
 }
-#start{
+.action{
     text-align:center;
     margin-top:25px;
 }
-#start a {
+.action a {
     text-decoration: none;
-    font-size: 54px;
+    font-size: 50px;
     color:#4eaded;
 }
-#start a:hover{
-    color:#4eaded;
+.action a:hover{
+    color:#005E9E;
 }
-#start a .glyphicon {
+.action a .glyphicon {
     top:8px;
 }
 /*Styles for start page - end*/
