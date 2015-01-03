@@ -21,7 +21,7 @@ angular.module('WorkoutBuilder')
                     return buildingWorkout;
                 },
                 function (error) {
-                    throw error;
+                    return $q.reject(error);
                 });
             }
             else {
