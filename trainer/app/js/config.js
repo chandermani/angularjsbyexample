@@ -1,6 +1,7 @@
 angular.module('app').
 config(function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider, $httpProvider, ApiKeyAppenderInterceptorProvider, $translateProvider, $translatePartialLoaderProvider) {
 
+    // IMPORTANT: Set the database name and API Key here before running the application
     ApiKeyAppenderInterceptorProvider.setApiKey("E16WgslFduXHiMAdAg6qcG1KKYx7WNWg");
 
     $httpProvider.interceptors.push('ApiKeyAppenderInterceptor');
