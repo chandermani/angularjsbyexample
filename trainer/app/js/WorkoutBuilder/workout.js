@@ -97,9 +97,9 @@ angular.module('WorkoutBuilder')
       $scope.uniqueUserName = function (value) {
           if (!value) return $q.when(true);
           return WorkoutService
-                    .getWorkout(value.toLowerCase()).then(function (data) { return false; },
-                                       function (error) { return true; }
-                    );
+                   .getWorkout(value.toLowerCase())
+                   .then(function (data) { return $q.reject(); },
+                          function (error) { return true; });
       };
 
       $scope.deleteWorkout = function () {
