@@ -14,7 +14,7 @@ angular.module('WorkoutBuilder')
   }]);
 
 angular.module('WorkoutBuilder')
-  .controller('WorkoutDetailController', ['$scope', 'WorkoutBuilderService', 'selectedWorkout', '$location', '$routeParams', 'WorkoutService', '$q', function ($scope, WorkoutBuilderService, selectedWorkout, $location, $routeParams, WorkoutService, $q) {
+  .controller('WorkoutDetailController', ['$scope', 'WorkoutBuilderService', 'selectedWorkout', '$location', '$routeParams', function ($scope, WorkoutBuilderService, selectedWorkout, $location, $routeParams) {
       $scope.removeExercise = function (exercise) {
           WorkoutBuilderService.removeExercise(exercise);
       };
