@@ -1,6 +1,7 @@
 angular.module('app').
 config(function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider) {
 
+    // IMPORTANT: Set the database name and API Key here before running the application
     WorkoutServiceProvider.configure("angularjsbyexample", "E16WgslFduXHiMAdAg6qcG1KKYx7WNWg");
 
     $routeProvider.when('/start', { templateUrl: 'partials/start.html' });
