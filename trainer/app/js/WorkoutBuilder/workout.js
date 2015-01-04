@@ -104,7 +104,7 @@ angular.module('WorkoutBuilder')
           if (!value) return $q.when(true);
           return WorkoutService
                     .getWorkout(value.toLowerCase())
-                    .then(function (data) { return false; },
+                    .then(function (data) { return $q.reject(); },
                           function (error) { return true; });
       };
 

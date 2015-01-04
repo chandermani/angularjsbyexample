@@ -15,23 +15,38 @@ angular.module('app').directive('ngConfirm', [function () {
     }
 }]);
 
+// Angular validator pre Angular 1.3. Use this if you are on an earlier branch
+//angular.module('app').directive('remoteValidator', ['$parse', function ($parse) {
+//    return {
+//        require: 'ngModel',
+//        link: function (scope, elm, attr, ngModelCtrl) {
+//            var expfn = $parse(attr["remoteValidatorFunction"]);
+//            var validatorName = attr["remoteValidator"];
+//            ngModelCtrl.$parsers.push(function (value) {
+//                var result = expfn(scope, { 'value': value });
+//                if (result.then) {
+//                    result.then(function (data) { //For promise type result object
+//                        ngModelCtrl.$setValidity(validatorName, true);
+//                    }, function (error) {
+//                        ngModelCtrl.$setValidity(validatorName, false);
+//                    });
+//                }
+//                return value;
+//            });
+//        }
+//    }
+//}]);
+
+// Angular validator using Angular 1.3. Use this if you are on 1.3
 angular.module('app').directive('remoteValidator', ['$parse', function ($parse) {
     return {
         require: 'ngModel',
         link: function (scope, elm, attr, ngModelCtrl) {
             var expfn = $parse(attr["remoteValidatorFunction"]);
             var validatorName = attr["remoteValidator"];
-            ngModelCtrl.$parsers.push(function (value) {
-                var result = expfn(scope, { 'value': value });
-                if (result.then) {
-                    result.then(function (data) { //For promise type result object
-                        ngModelCtrl.$setValidity(validatorName, data);
-                    }, function (error) {
-                        ngModelCtrl.$setValidity(validatorName, true);
-                    });
-                }
-                return value;
-            });
+            ngModelCtrl.$asyncValidators[validatorName] = function (value) {
+                return expfn(scope, { 'value': value });
+            }
         }
     }
 }]);
