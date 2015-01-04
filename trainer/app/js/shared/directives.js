@@ -15,35 +15,59 @@ angular.module('app').directive('ngConfirm', [function () {
         }
     }
 }]);
+// Angular validator pre Angular 1.3. Use this if you are on an earlier branch
+//angular.module('app').directive('remoteValidator', ['$parse', function ($parse) {
+//    return {
+//        restrict: 'A',
+//        priority: 5,
+//        require: ['ngModel', '?^busyIndicator'],
+//        link: function (scope, elm, attr, ctrls) {
+//            var expfn = $parse(attr["remoteValidatorFunction"]);
+//            var validatorName = attr["remoteValidator"];
+//            var ngModelCtrl = ctrls[0];
+//            var busyIndicator = ctrls[1];
+//            ngModelCtrl.$parsers.push(function (value) {
+//                var result = expfn(scope, { 'value': value });
+//                if (result.then) {
+//                    if (busyIndicator) busyIndicator.show();
+//                    result.then(function (data) { //For promise type result object
+//                        if (busyIndicator) busyIndicator.hide();
+//                        ngModelCtrl.$setValidity(validatorName, data);
+//                    }, function (error) {
+//                        if (busyIndicator) busyIndicator.hide();
+//                        ngModelCtrl.$setValidity(validatorName, true);
+//                    });
+//                }
+//                return value;
+//            });
+//        }
+//    }
+//}]);
 
+// Angular validator using Angular 1.3. Use this if you are on 1.3
 angular.module('app').directive('remoteValidator', ['$parse', function ($parse) {
     return {
         restrict: 'A',
-        priority: 5,
         require: ['ngModel', '?^busyIndicator'],
         link: function (scope, elm, attr, ctrls) {
             var expfn = $parse(attr["remoteValidatorFunction"]);
             var validatorName = attr["remoteValidator"];
-            var modelCtrl = ctrls[0];
+            var ngModelCtrl = ctrls[0];
             var busyIndicator = ctrls[1];
-            modelCtrl.$parsers.push(function (value) {
-                var result = expfn(scope, { 'value': value });
-                if (result.then) {
-                    if (busyIndicator) busyIndicator.show();
-                    result.then(function (data) { //For promise type result object
-                        if (busyIndicator) busyIndicator.hide();
-                        modelCtrl.$setValidity(validatorName, data);
-                    }, function (error) {
-                        if (busyIndicator) busyIndicator.hide();
-                        modelCtrl.$setValidity(validatorName, true);
-                    });
-                }
-                return value;
+
+            ngModelCtrl.$asyncValidators[validatorName] = function (value) {
+                return expfn(scope, { 'value': value });
+            }
+
+            scope.$watch(function () { return ngModelCtrl.$pending; }, function (newValue) {
+                if (newValue) busyIndicator.show();
+                else busyIndicator.hide();
             });
         }
     }
 }]);
 
+// Angular 1.3 has already a built-in directive for supporting update on blur. Instead of using update-on-blur use ng-model-options="{ updateOn: 'blur' }" for Angular 1.3
 angular.module('app').directive('updateOnBlur', function () {
     return {
         restrict: 'A',
