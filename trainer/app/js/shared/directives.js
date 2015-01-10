@@ -161,7 +161,7 @@ angular.module('app').directive('owlCarousel', ['$compile', '$timeout', function
                 pagination: false,
                 afterAction: function () {
                     var itemIndex = this.currentItem;
-                    $timeout(function () {
+                    scope.$evalAsync(function () {
                         scope.onUpdate({ currentItemIndex: itemIndex });
                     })
                 },
