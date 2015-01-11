@@ -57,11 +57,12 @@ angular.module('app').directive('remoteValidator', ['$parse', function ($parse) 
             ngModelCtrl.$asyncValidators[validatorName] = function (value) {
                 return expfn(scope, { 'value': value });
             }
-
-            scope.$watch(function () { return ngModelCtrl.$pending; }, function (newValue) {
-                if (newValue) busyIndicator.show();
-                else busyIndicator.hide();
-            });
+            if (busyIndicator) {
+                scope.$watch(function () { return ngModelCtrl.$pending; }, function (newValue) {
+                    if (newValue) busyIndicator.show();
+                    else busyIndicator.hide();
+                });
+            }
         }
     }
 }]);
