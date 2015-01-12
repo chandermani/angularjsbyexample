@@ -95,7 +95,8 @@ angular.module('WorkoutBuilder')
       }
 
       $scope.uniqueUserName = function (value) {
-          if (!value) return $q.when(true);
+          // Empty workout name or existing workout name does not require validation.
+          if (!value || value === $routeParams.id) return $q.when(true);
           return WorkoutService
                    .getWorkout(value.toLowerCase())
                    .then(function (data) { return $q.reject(); },
