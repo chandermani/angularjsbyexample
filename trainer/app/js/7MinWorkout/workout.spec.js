@@ -258,7 +258,7 @@ describe("Controllers", function () {
             // Mocking audio controller
             $scope.ticksAudio = new AudioController();
             $scope.nextUpAudio = new AudioController();
-            $scope.nextUpExeciseAudio = new AudioController();
+            $scope.nextUpExerciseAudio = new AudioController();
             $scope.halfWayAudio = new AudioController();
             $scope.aboutToCompleteAudio = new AudioController();
 
@@ -318,26 +318,26 @@ describe("Controllers", function () {
 
         it("should play next up audio at the end of rest exercise", inject(function (WorkoutService, $timeout) {
             spyOn($scope.nextUpAudio, "play");
-            spyOn($scope.nextUpExeciseAudio, "play");
+            spyOn($scope.nextUpExerciseAudio, "play");
 
             $scope.currentExercise = { details: { name: 'rest' } };
             $scope.$digest();
 
             expect($scope.nextUpAudio.play).not.toHaveBeenCalled();
-            expect($scope.nextUpExeciseAudio.play).not.toHaveBeenCalled();
+            expect($scope.nextUpExerciseAudio.play).not.toHaveBeenCalled();
 
             $timeout.flush(2000);
             expect($scope.nextUpAudio.play).toHaveBeenCalled();
-            expect($scope.nextUpExeciseAudio.play).not.toHaveBeenCalled();
+            expect($scope.nextUpExerciseAudio.play).not.toHaveBeenCalled();
 
             $timeout.flush(1000);
-            expect($scope.nextUpExeciseAudio.play).toHaveBeenCalled();
+            expect($scope.nextUpExerciseAudio.play).toHaveBeenCalled();
         }));
 
         it("should pause all audios when workout paused", function () {
             spyOn($scope.ticksAudio, "pause");
             spyOn($scope.nextUpAudio, "pause");
-            spyOn($scope.nextUpExeciseAudio, "pause");
+            spyOn($scope.nextUpExerciseAudio, "pause");
             spyOn($scope.halfWayAudio, "pause");
             spyOn($scope.aboutToCompleteAudio, "pause");
 
@@ -346,7 +346,7 @@ describe("Controllers", function () {
 
             expect($scope.ticksAudio.pause).toHaveBeenCalled();
             expect($scope.nextUpAudio.pause).toHaveBeenCalled();
-            expect($scope.nextUpExeciseAudio.pause).toHaveBeenCalled();
+            expect($scope.nextUpExerciseAudio.pause).toHaveBeenCalled();
             expect($scope.halfWayAudio.pause).toHaveBeenCalled();
             expect($scope.aboutToCompleteAudio.pause).toHaveBeenCalled();
 
