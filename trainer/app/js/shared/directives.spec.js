@@ -33,7 +33,7 @@ describe("Directives", function () {
         }));
 
         it("verify failed 'unqiue' validation should set model controller invalid.", inject(function ($q) {
-            spyOn($scope, "validate").and.returnValue($q.when(false));
+            spyOn($scope, "validate").and.returnValue($q.reject());
             $compile(inputElement)($scope);
             $scope.testForm.unique.$setViewValue("dummy");
             expect($scope.validate).toHaveBeenCalled();
@@ -56,16 +56,15 @@ describe("Directives", function () {
             expect($scope.validate).toHaveBeenCalled();
             expect($scope.testForm.$valid).toBe(true);
             expect($scope.testForm.unique.$valid).toBe(true);
-            expect($scope.testForm.unique.$error.unique).toBe(false);
+            expect($scope.testForm.unique.$error.unique).toBeUndefined(false);
         }));
     });
 
     describe("remote validator with busy indicator", function () {
         var inputElement;
         beforeEach(inject(function ($q) {
-            $scope.validate = function (value) { };
+            $scope.validate = function () { };
             inputElement = "<form name='testForm'><div busy-indicator=''><input type='text' name='unique' ng-model='name' remote-validator='unique' remote-validator-function='validate(value)' /></div></form>";
-            spyOn($scope, "validate").and.returnValue($q.when(false));
         }));
 
         it("should load busy indicator", function () {
@@ -74,18 +73,24 @@ describe("Directives", function () {
             expect(e.html().indexOf("glyphicon glyphicon-refresh") > 0).toBe(true);
         });
 
-        it("should show busy indicator when remote request is made and hide later", function () {
-            var html = $compile(inputElement)($scope),
+        it("should show busy indicator when remote request is made and hide later", inject(function ($q) {
+            var defer = $q.defer(),
+                html = $compile(inputElement)($scope),
                 childElementScope = html.children().scope();
+
+            spyOn($scope, "validate").and.returnValue(defer.promise);
+
             expect(childElementScope.busy).toBeUndefined();
 
             $scope.testForm.unique.$setViewValue("dummy");
             expect(childElementScope.busy).toBe(true);
+
+            defer.resolve(true);
             $scope.$digest();
 
             expect(childElementScope.busy).toBe(false);
 
-        });
+        }));
     });
 
     describe("ajax button validator", function () {
