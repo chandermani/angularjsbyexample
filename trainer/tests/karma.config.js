@@ -21,6 +21,7 @@ module.exports = function(config) {
 		'app/bower_components/angular-sanitize/angular-sanitize.js',
 		'app/bower_components/angular-animate/angular-animate.js',
 		'app/bower_components/angular-mocks/angular-mocks.js',
+		'app/bower_components/angular-messages/angular-messages.js',
 		'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
 		'app/bower_components/angular-media-player/dist/angular-media-player.js',
 		'app/bower_components/angular-local-storage/dist/angular-local-storage.js',
