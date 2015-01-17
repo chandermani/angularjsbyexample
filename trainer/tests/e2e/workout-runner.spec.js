@@ -43,7 +43,7 @@ describe("Workout Runner", function () {
             browser.get("#/workout/testworkout");
         });
 
-        iit("should pause workout when paused button clicked", function () {
+        it("should pause workout when paused button clicked", function () {
             var page = new WorkoutRunnerPage(),
                 timeRemaining;
 
@@ -80,7 +80,7 @@ describe("Workout Runner", function () {
 
         it("should end workout when time completes", function () {
             var page = new WorkoutRunnerPage();
-            browser.sleep(15000);
+            browser.sleep(20000);
             expect(browser.getCurrentUrl()).toContain("/finish");
         });
     });
