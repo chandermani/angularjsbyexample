@@ -19,7 +19,7 @@ angular.module('appe2e', ['app', 'ngMockE2E'])
         // 7 min workout
         $httpBackend.whenGET(workoutsEndpoint + "/7minworkout?apiKey=" + apiKey).respond({ "_id": "7minworkout", "exercises": [{ "name": "jumpingJacks", "duration": 30 }, { "name": "wallSit", "duration": 30 }, { "name": "pushUp", "duration": 30 }, { "name": "crunches", "duration": 30 }, { "name": "stepUpOntoChair", "duration": 30 }, { "name": "squat", "duration": 30 }, { "name": "tricepdips", "duration": 30 }, { "name": "plank", "duration": 30 }, { "name": "highKnees", "duration": 30 }, { "name": "lunges", "duration": 30 }, { "name": "pushupNRotate", "duration": 30 }, { "name": "sidePlank", "duration": 30 }], "name": "7minworkout", "title": "7 Minute Workout", "description": "A high intensity workout that consists of 12 exercises.", "restBetweenExercise": 10 });
         // test workout
-        $httpBackend.whenGET(workoutsEndpoint + "/testworkout?apiKey=" + apiKey).respond({ "_id": "testworkout", "exercises": [{ "name": "crunches", "duration": 5 }, { "name": "pushUp", "duration": 5 }], "name": "testworkout", "title": "A test Workout", "description": "This is a test workout for E2E testing.", "restBetweenExercise": 5 });
+        $httpBackend.whenGET(workoutsEndpoint + "/testworkout?apiKey=" + apiKey).respond({ "_id": "testworkout", "exercises": [{ "name": "crunches", "duration": 5 }, { "name": "pushUp", "duration": 5 }], "name": "testworkout", "title": "A test Workout", "description": "This is a test workout for E2E testing.", "restBetweenExercise": 10 });
 
         // adds a new phone to the phones array
         $httpBackend.whenPOST('/phones').respond(function (method, url, data) {
