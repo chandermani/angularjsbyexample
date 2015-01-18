@@ -7,7 +7,7 @@ To run the unit test follow these steps (Run them from command line, from `tests
  5. Run karma wizard `karma init` and use the default options. This should install the necessary dependencies and create a new config file in the parent folder. *DELETE IT*. The config file in this folder needs to be used.
  6. To run the test do `karma start tests/karma.config.js`
  
- To run the E2E integration tests (Run them from command line, from `tests` parent folder):
+To run the E2E integration tests (Run them from command line, from `tests` parent folder):
  1. Install Protractor `npm install -g protractor`. (All E2E tests have been verified against Protractor `1.6.1`).
  2. Update webdriver-manager with `webdriver-manager update`.
  3. Update `protractor.conf.js` with app server `hostname` and `port`.
