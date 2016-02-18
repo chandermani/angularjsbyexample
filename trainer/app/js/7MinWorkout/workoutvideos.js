@@ -2,6 +2,13 @@
 
 angular.module('7minWorkout')
   .controller('WorkoutVideosController', ['$scope', '$modal', function ($scope, $modal) {
+      var VideoPlayerController = function ($scope, $modalInstance, video) {
+          $scope.video = video;
+          $scope.ok = function () {
+              $modalInstance.close();
+          };
+      };
+      
       $scope.playVideo = function (videoId) {
           $scope.pauseWorkout();
           var dailog = $modal.open({
@@ -19,12 +26,6 @@ angular.module('7minWorkout')
           });
       };
 
-      var VideoPlayerController = function ($scope, $modalInstance, video) {
-          $scope.video = video;
-          $scope.ok = function () {
-              $modalInstance.close();
-          };
-      };
       VideoPlayerController['$inject'] = ['$scope', '$modalInstance', 'video'];
 
       var init = function () {
