@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('7minWorkout')
-  .controller('WorkoutVideosController', ['$scope', '$modal', function ($scope, $modal) {
+  .controller('WorkoutVideosController', ['$scope', '$uibModal', function ($scope, $modal) {
       $scope.playVideo = function (videoId) {
           $scope.pauseWorkout();
           var dailog = $modal.open({
@@ -9,7 +9,7 @@ angular.module('7minWorkout')
               controller: VideoPlayerController,
               scope:$scope.$new(true),
               resolve: {
-                  video: function () {  
+                  video: function () {
                       return '//www.youtube.com/embed/' + videoId;
                   }
               },
@@ -25,7 +25,7 @@ angular.module('7minWorkout')
               $modalInstance.close();
           };
       };
-      VideoPlayerController['$inject'] = ['$scope', '$modalInstance', 'video'];
+      VideoPlayerController['$inject'] = ['$scope', '$uibModalInstance', 'video'];
 
       var init = function () {
       };

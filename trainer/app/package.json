@@ -1,0 +1,43 @@
+{
+  "name": "angularjs-by-example",
+  "version": "1.0.0",
+  "description": "Companion code for AngularJS by Example book (Angular1).",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-animate": "^1.5.3",
+    "angular-messages": "^1.5.3",
+    "angular-mock": "^1.0.0",
+    "angular-mocks": "^1.5.3",
+    "angular-resource": "^1.5.3",
+    "angular-route": "^1.5.3",
+    "angular-sanitize": "^1.5.3",
+    "angular-translate": "^2.11.0",
+    "angular-translate-loader-partial": "^2.11.0",
+    "angular-ui-bootstrap": "^1.2.5",
+    "babel-runtime": "^5.8.38",
+    "es6-module-loader": "^0.17.11",
+    "http-server": "^0.9.0",
+    "jquery": "^1.11.1",
+    "systemjs": "^0.19.23",
+    "traceur": "^0.0.104"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandermani/angularjsbyexample.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "Angular"
+  ],
+  "author": "Chandermani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chandermani/angularjsbyexample/issues"
+  },
+  "homepage": "https://github.com/chandermani/angularjsbyexample#readme"
+}

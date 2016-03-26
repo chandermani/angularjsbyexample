@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('app')
-  .controller('RootController', ['$scope', '$modal', '$translate', function ($scope, $modal, $translate) {
+  .controller('RootController', ['$scope', '$uibModal', '$translate', function ($scope, $modal, $translate) {
       $scope.showWorkoutHistory = function () {
           var dailog = $modal.open({
               templateUrl: 'partials/workout/workout-history.html',
@@ -19,7 +19,7 @@ angular.module('app')
               $modalInstance.close();
           };
       };
-      WorkoutHistoryController['$inject'] = ['$scope', '$modalInstance', 'workoutHistoryTracker'];
+      WorkoutHistoryController['$inject'] = ['$scope', '$uibModalInstance', 'workoutHistoryTracker'];
 
       $scope.$on('$routeChangeSuccess', function (event, current, previous) {
           $scope.currentRoute = current;
@@ -39,7 +39,7 @@ angular.module('app')
           $scope.language = languageKey;
 
       };
-      
+
       var init = function () {
           $scope.language = $translate.preferredLanguage();
       };
