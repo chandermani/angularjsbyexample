@@ -1,16 +1,4 @@
 'use strict';
-
-angular.module('WorkoutBuilder')
-  .controller('ExercisesNavController', ['$scope', 'WorkoutService', 'WorkoutBuilderService', function ($scope, WorkoutService, WorkoutBuilderService) {
-      $scope.addExercise = function (exercise) {
-          WorkoutBuilderService.addExercise(exercise);
-      }
-      var init = function () {
-          $scope.exercises = WorkoutService.Exercises.query();
-      };
-      init();
-  }]);
-
 angular.module('WorkoutBuilder')
   .controller('ExerciseListController', ['$scope', 'WorkoutService', '$location', function ($scope, WorkoutService, $location) {
       $scope.goto = function (exercise) {
