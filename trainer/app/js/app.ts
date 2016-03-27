@@ -1,3 +1,4 @@
+/// <reference path="../typings/browser.d.ts" />
 import  './app.module.js';
 import  './config.js';
 import  './root.js';
@@ -14,6 +15,8 @@ import './WorkoutBuilder/directives.js';
 import './WorkoutBuilder/exercise.js';
 import './WorkoutBuilder/workout.js';
 
+import {upgradeAdapter} from './upgrade-adapter';
+
 angular.element(document).ready(function() {
-    angular.bootstrap(document.body, ['app'], { strictDi: true });
+    upgradeAdapter.bootstrap(document.body, ['app'], { strictDi: true });
 });
