@@ -4,9 +4,12 @@ import {Pipe} from '@angular/core';
   name: 'search'
 })
 export class SearchPipe {
-  transform(value: Array<any>, field:string, searchTerm:string): any {
+  transform(value: Array<any>, field: string, searchTerm: any): any {
     if (!field) return [];
-    if (!searchTerm || 0 === searchTerm.length) return value;
+    if ((!searchTerm && searchTerm !== false) || 0 === searchTerm.length) return value;
+    if (typeof (searchTerm) === "boolean") {
+      return value.filter((item) => item[field] == searchTerm);
+    }
     return value.filter((item) => item[field].startsWith(searchTerm));
   }
 }
@@ -15,8 +18,8 @@ export class SearchPipe {
   name: 'orderBy'
 })
 export class OrderByPipe {
-  transform(value: Array<any>, field:string): any {
-    if(value==null) {
+  transform(value: Array<any>, field: string): any {
+    if (value == null) {
       return null;
     }
     if (field.startsWith("-")) {

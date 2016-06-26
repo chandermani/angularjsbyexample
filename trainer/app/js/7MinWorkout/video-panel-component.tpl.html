@@ -1,0 +1,19 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{'RUNNER.VIDEOS'|translate}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div *ngFor="let video of videos" (click)="playVideo(video)" class="row video-image">
+                    <div class="col-sm-12">
+                        <div id="play-video-overlay">
+                            <span class="glyphicon glyphicon-play-circle video absolute-center"></span>
+                        </div>
+                        <img height="220" [src]="'//i.ytimg.com/vi/'+video+'/hqdefault.jpg'" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

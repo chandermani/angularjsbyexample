@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngSanitize', '7minWorkout', 'WorkoutBuilder', 'mediaPlayer', 'ui.bootstrap', 'LocalStorageModule', 'ngAnimate', 'ngResource', 'ngMessages', 'start', 'finish']);
+angular.module('app', ['ngRoute', 'ngSanitize', '7minWorkout', 'WorkoutBuilder', 'mediaPlayer', 'LocalStorageModule', 'ngAnimate', 'ngResource', 'ngMessages', 'start', 'finish']);
 
 angular.module('7minWorkout', []);
 angular.module('WorkoutBuilder', []);

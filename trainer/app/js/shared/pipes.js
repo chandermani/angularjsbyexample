@@ -24,8 +24,11 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 SearchPipe.prototype.transform = function (value, field, searchTerm) {
                     if (!field)
                         return [];
-                    if (!searchTerm || 0 === searchTerm.length)
+                    if ((!searchTerm && searchTerm !== false) || 0 === searchTerm.length)
                         return value;
+                    if (typeof (searchTerm) === "boolean") {
+                        return value.filter(function (item) { return item[field] == searchTerm; });
+                    }
                     return value.filter(function (item) { return item[field].startsWith(searchTerm); });
                 };
                 SearchPipe = __decorate([
