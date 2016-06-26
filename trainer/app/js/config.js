@@ -9,9 +9,9 @@ config(['$routeProvider', '$sceDelegateProvider', 'WorkoutServiceProvider', '$ht
 
     WorkoutServiceProvider.configure("angularjsbyexample");
 
-    $routeProvider.when('/start', { templateUrl: 'partials/workout/start.html' });
+    $routeProvider.when('/start', { template: '<start></start>' });
     $routeProvider.when('/workout/:id', { templateUrl: 'partials/workout/workout.html', controller: 'WorkoutController' });
-    $routeProvider.when('/finish', { templateUrl: 'partials/workout/finish.html' });
+    $routeProvider.when('/finish', { template: '<finish></finish>' });
 
     $routeProvider.when('/builder', {
         redirectTo: '/builder/workouts'

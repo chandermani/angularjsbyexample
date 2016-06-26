@@ -2,11 +2,13 @@
     var map = {
         'app': 'js',
         '@angular': '/node_modules/@angular',
-        'rxjs': '/node_modules/rxjs'
+        'rxjs': '/node_modules/rxjs',
+        'ng2-translate': 'node_modules/ng2-translate'
     };
     var packages = {
         'app': { main: 'app.js', defaultExtension: 'js' },
         'rxjs': { defaultExtension: 'js' },
+        'ng2-translate': { main: 'ng2-translate.js', defaultExtension: 'js' }
     };
 
     var ngPackageNames = [
