@@ -1,0 +1,15 @@
+<div ng-controller="RootController">
+  <top-nav></top-nav>
+    <div class="container-fluid">
+        <div id="content-container" class="row">
+            <div class="col-sm-2 left-nav-bar" ng-if="currentRoute.leftNav">
+                <div id="left-nav" ng-include="currentRoute.leftNav">
+                </div>
+            </div>
+            <div class="col-sm-10 col-sm-offset-2">
+                <label ng-if="routeHasError" class="alert alert-danger">{{routeError}}</label>
+                <div id="page-content" ng-view></div>
+            </div>
+        </div>
+    </div>
+</div>
