@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('app')
-  .controller('RootController', ['$scope', '$uibModal', '$translate', function ($scope, $modal, $translate) {
+  .controller('RootController', ['$scope', '$uibModal', 'ng2TranslateService', function ($scope, $modal, ng2TranslateService) {
       $scope.showWorkoutHistory = function () {
           var dailog = $modal.open({
               templateUrl: 'partials/workout/workout-history.html',
@@ -35,13 +35,12 @@ angular.module('app')
       });
 
       $scope.setLanguage = function (languageKey) {
-          $translate.use(languageKey);
+          ng2TranslateService.use(languageKey);
           $scope.language = languageKey;
 
       };
 
-      var init = function () {
-          $scope.language = $translate.preferredLanguage();
-      };
-      init();
+      ng2TranslateService.onLangChange.subscribe(function(event){
+        $scope.language = event.lang;
+      });
   }]);
