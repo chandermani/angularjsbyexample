@@ -1,0 +1,17 @@
+<div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{'RUNNER.DESC'|translate}}</h3>
+        </div>
+        <div class="panel-body">
+            {{description}}
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{'RUNNER.STEPS'|translate}}</h3>
+        </div>
+        <div class="panel-body" [innerHTML]="steps">
+        </div>
+    </div>
+</div>

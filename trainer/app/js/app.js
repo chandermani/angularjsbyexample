@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/http', 'ng2-translate', 'angular2-modal/platform-browser', 'angular2-modal/plugins/bootstrap', './app.module.js', './config.js', './root.js', './shared/directives.js', './shared/model.js', './shared/services.js', './7MinWorkout/services.js', './7MinWorkout/directives.js', './7MinWorkout/filters.js', './7MinWorkout/workout.js', './WorkoutBuilder/services.js', './WorkoutBuilder/directives.js', './WorkoutBuilder/exercise.js', './WorkoutBuilder/workout.js', './WorkoutBuilder/exercise-nav-component', './upgrade-adapter', './start/start-component', './finish/finish-component', './ng1-root-component', './ng2-root-component', './root/workout-history-component', './root/top-nav-component', './7MinWorkout/video-panel-component', './shared/filters'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/http', 'ng2-translate', 'angular2-modal/platform-browser', 'angular2-modal/plugins/bootstrap', './app.module.js', './config.js', './root.js', './shared/directives.js', './shared/model.js', './shared/services.js', './7MinWorkout/services.js', './7MinWorkout/directives.js', './7MinWorkout/filters.js', './7MinWorkout/workout.js', './WorkoutBuilder/services.js', './WorkoutBuilder/directives.js', './WorkoutBuilder/exercise.js', './WorkoutBuilder/workout.js', './WorkoutBuilder/exercise-nav-component', './upgrade-adapter', './start/start-component', './finish/finish-component', './ng1-root-component', './ng2-root-component', './root/workout-history-component', './root/top-nav-component', './7MinWorkout/video-panel-component', './7MinWorkout/description-panel-component', './7MinWorkout/workout-audio-component', './shared/filters'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var core_1, http_1, ng2_translate_1, platform_browser_1, bootstrap_1, upgrade_adapter_1;
@@ -44,7 +44,9 @@ System.register(['@angular/core', '@angular/http', 'ng2-translate', 'angular2-mo
             function (_20) {},
             function (_21) {},
             function (_22) {},
-            function (_23) {}],
+            function (_23) {},
+            function (_24) {},
+            function (_25) {}],
         execute: function() {
             upgrade_adapter_1.upgradeAdapter.upgradeNg1Provider('ExercisePlan');
             upgrade_adapter_1.upgradeAdapter.upgradeNg1Provider('WorkoutPlan');
