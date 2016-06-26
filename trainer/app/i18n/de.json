@@ -9,7 +9,8 @@
         "HEADER":"Bereit f�r ein Workout?",
         "SELECT":"W�hlen Workout",
         "WORKOUTS":"Workouts",
-        "SEARCH":"Suchen Sie nach dem Training"
+        "SEARCH":"Suchen Sie nach dem Training",
+		"CREATE":"Erstellen Sie ein Workout"
     },
 	"RUNNER" : {
 		"DESC":"Beschreibung",

@@ -21,9 +21,9 @@
                 <div class="navbar-brand">Personal Trainer</div>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a ng-click="setLanguage('en')" title="{{'TOPNAV.ENGLISH'|translate}}" ng-class="{'btn-primary':language==='en'}"><img src="img/flag-usa.gif" alt="English"/></a></li>
-                <li><a ng-click="setLanguage('de')" title="{{'TOPNAV.GERMAN'|translate}}" ng-class="{'btn-primary':language==='de'}"><img src="img/flag-germany.gif" alt="German"/></a></li>
-                <li><a ng-click="showWorkoutHistory()" title="{{'TOPNAV.HISTORYTITLE'|translate}}">{{'TOPNAV.HISTORY'|translate}}</a></li>
+                <li><a ng-click="setLanguage('en')" title="{{'TOPNAV.ENGLISH'|ng2Translate}}" ng-class="{'btn-primary':language==='en'}"><img src="img/flag-usa.gif" alt="English"/></a></li>
+                <li><a ng-click="setLanguage('de')" title="{{'TOPNAV.GERMAN'|ng2Translate}}" ng-class="{'btn-primary':language==='de'}"><img src="img/flag-germany.gif" alt="German"/></a></li>
+                <li><a ng-click="showWorkoutHistory()" title="{{'TOPNAV.HISTORYTITLE'|ng2Translate}}">{{'TOPNAV.HISTORY'|ng2Translate}}</a></li>
             </ul>
         </div>
         <div id="top-nav-container" class="second-top-nav">
@@ -52,8 +52,6 @@
     <script src="node_modules/angular-messages/angular-messages.js"></script>
     <!--Script required for E2E testing. Comment it in production use-->
     <!--<script src="node_modules/angular-mocks/angular-mocks.js"></script>-->
-    <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
-    <script src="node_modules/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
     <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.js"></script>
     <script src="js/vendor/angular-media-player.js"></script>

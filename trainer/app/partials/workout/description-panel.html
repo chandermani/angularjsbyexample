@@ -1,7 +1,7 @@
 <div>
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title" translate>RUNNER.DESC</h3>
+            <h3 class="panel-title">{{'RUNNER.DESC'|ng2Translate}}</h3>
         </div>
         <div class="panel-body">
             {{currentExercise.details.description}}
@@ -9,7 +9,7 @@
     </div>
     <div class="panel panel-info">
         <div class="panel-heading">
-            <h3 class="panel-title" translate>RUNNER.STEPS</h3>
+            <h3 class="panel-title">{{'RUNNER.STEPS'|ng2Translate}}</h3>
         </div>
         <div class="panel-body" ng-bind-html="currentExercise.details.procedure">
         </div>

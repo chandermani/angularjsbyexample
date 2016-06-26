@@ -26,6 +26,8 @@ import {upgradeAdapter} from './upgrade-adapter';
 import './start/start-component';
 import './finish/finish-component';
 
+import './shared/filters'
+
 upgradeAdapter.upgradeNg1Provider('ExercisePlan');
 upgradeAdapter.upgradeNg1Provider('WorkoutPlan');
 upgradeAdapter.upgradeNg1Provider('WorkoutService');
@@ -42,6 +44,8 @@ upgradeAdapter.addProvider(provide(TranslateLoader, {
 
 upgradeAdapter.addProvider(TranslateService);
 upgradeAdapter.addProvider(HTTP_PROVIDERS);
+
+angular.module('app').factory('ng2TranslateService', upgradeAdapter.downgradeNg2Provider(TranslateService));
 
 angular.element(document).ready(function() {
   upgradeAdapter.bootstrap(document.body, ['app'], { strictDi: true })

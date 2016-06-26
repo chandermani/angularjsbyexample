@@ -17,7 +17,7 @@
         </span>
 
         <div class="row workout-display-div">
-            <h4>{{'RUNNER.WORKOUTTIMEREMAINING'|translate}} - <strong>{{workoutTimeRemaining | secondsToTime}}</strong></h4>
+            <h4>{{'RUNNER.WORKOUTTIMEREMAINING'|ng2Translate}} - <strong>{{workoutTimeRemaining | secondsToTime}}</strong></h4>
             <h1>{{currentExercise.details.title}}</h1>
             <div owl-carousel="carousel" options="carouselOptions" source="exerciseImages" on-update="imageUpdated(currentItemIndex)">
                 <img class="img-responsive" ng-src="{{image}}" ng-repeat="image in exerciseImages track by $index" />
@@ -27,8 +27,8 @@
                 </div>
             </div>
             <div class="row">
-                <h3 class="col-sm-6 text-left">{{'RUNNER.TIMEREMAINING'|translate}}: <strong>{{currentExercise.duration-currentExerciseDuration}}</strong></h3>
-                <h3 class="col-sm-6 text-right" ng-if="currentExercise.details.name=='rest'">{{'RUNNER.NEXTUP'|translate}}: <strong>{{workoutPlan.exercises[currentExerciseIndex + 1].details.title}}</strong></h3>
+                <h3 class="col-sm-6 text-left">{{'RUNNER.TIMEREMAINING'|ng2Translate}}: <strong>{{currentExercise.duration-currentExerciseDuration}}</strong></h3>
+                <h3 class="col-sm-6 text-right" ng-if="currentExercise.details.name=='rest'">{{'RUNNER.NEXTUP'|ng2Translate}}: <strong>{{workoutPlan.exercises[currentExerciseIndex + 1].details.title}}</strong></h3>
             </div>
         </div>
     </div>
