@@ -31,7 +31,8 @@ import './ng2-root-component';
 import './root/workout-history-component';
 import './root/top-nav-component';
 import './7MinWorkout/video-panel-component';
-
+import './7MinWorkout/description-panel-component';
+import './7MinWorkout/workout-audio-component';
 
 import './shared/filters'
 
