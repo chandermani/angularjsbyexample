@@ -68,4 +68,3 @@ export class WorkoutAudioComponent {
         }
     }
 }
-angular.module('7minWorkout').directive('workoutAudio', <angular.IDirectiveFactory>upgradeAdapter.downgradeNg2Component(WorkoutAudioComponent));

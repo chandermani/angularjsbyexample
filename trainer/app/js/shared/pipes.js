@@ -11,7 +11,7 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var SearchPipe, OrderByPipe, SecondsToTime;
+    var SearchPipe, OrderByPipe, SecondsToTimePipe;
     return {
         setters:[
             function (core_1_1) {
@@ -70,10 +70,10 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                 return OrderByPipe;
             }());
             exports_1("OrderByPipe", OrderByPipe);
-            SecondsToTime = (function () {
-                function SecondsToTime() {
+            SecondsToTimePipe = (function () {
+                function SecondsToTimePipe() {
                 }
-                SecondsToTime.prototype.transform = function (value) {
+                SecondsToTimePipe.prototype.transform = function (value) {
                     if (!isNaN(value)) {
                         var hours = Math.floor(value / 3600);
                         var minutes = Math.floor((value - (hours * 3600)) / 60);
@@ -84,15 +84,15 @@ System.register(['@angular/core'], function(exports_1, context_1) {
                     }
                     return;
                 };
-                SecondsToTime = __decorate([
+                SecondsToTimePipe = __decorate([
                     core_1.Pipe({
                         name: 'secondsToTime'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], SecondsToTime);
-                return SecondsToTime;
+                ], SecondsToTimePipe);
+                return SecondsToTimePipe;
             }());
-            exports_1("SecondsToTime", SecondsToTime);
+            exports_1("SecondsToTimePipe", SecondsToTimePipe);
         }
     }
 });
