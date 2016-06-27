@@ -15,7 +15,6 @@ import './shared/services.js';
 import './7MinWorkout/services.js';
 import './7MinWorkout/directives.js';
 import './7MinWorkout/filters.js';
-import './7MinWorkout/workout.js';
 import './WorkoutBuilder/services.js';
 import './WorkoutBuilder/directives.js';
 import './WorkoutBuilder/exercise.js';
@@ -33,17 +32,20 @@ import './root/top-nav-component';
 import './7MinWorkout/video-panel-component';
 import './7MinWorkout/description-panel-component';
 import './7MinWorkout/workout-audio-component';
+import './7MinWorkout/workout-component';
 
 import './shared/filters'
 
-upgradeAdapter.upgradeNg1Provider('ExercisePlan');
-upgradeAdapter.upgradeNg1Provider('WorkoutPlan');
 upgradeAdapter.upgradeNg1Provider('WorkoutService');
 upgradeAdapter.upgradeNg1Provider('WorkoutBuilderService');
 upgradeAdapter.upgradeNg1Provider('ExerciseBuilderService');
 upgradeAdapter.upgradeNg1Provider('ApiKeyAppenderInterceptor');
 upgradeAdapter.upgradeNg1Provider('appEvents');
 upgradeAdapter.upgradeNg1Provider('workoutHistoryTracker');
+
+upgradeAdapter.upgradeNg1Provider('$location');
+upgradeAdapter.upgradeNg1Provider('$routeParams');
+
 
 upgradeAdapter.addProvider(provide(TranslateLoader, {
   useFactory: (http: Http) => new TranslateStaticLoader(http, 'i18n', '.json'),

@@ -11,4 +11,3 @@ export class DescriptionPanelComponent {
   @Input() description: string;
   @Input() steps: string;
 }
-angular.module('7minWorkout').directive('descriptionPanel', <angular.IDirectiveFactory>upgradeAdapter.downgradeNg2Component(DescriptionPanelComponent));

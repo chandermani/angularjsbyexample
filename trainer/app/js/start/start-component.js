@@ -44,7 +44,7 @@ System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', '../sha
                     core_1.Component({
                         selector: 'start',
                         templateUrl: '/js/start/start-component.tpl.html',
-                        pipes: [ng2_translate_1.TranslatePipe, pipes_1.OrderByPipe, pipes_1.SearchPipe, pipes_1.SecondsToTime]
+                        pipes: [ng2_translate_1.TranslatePipe, pipes_1.OrderByPipe, pipes_1.SearchPipe, pipes_1.SecondsToTimePipe]
                     }),
                     __param(0, core_1.Inject('WorkoutService')), 
                     __metadata('design:paramtypes', [Object])

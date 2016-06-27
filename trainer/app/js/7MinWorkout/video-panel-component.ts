@@ -24,4 +24,3 @@ export class VideoPanelComponent {
       .then(() => { this.playbackEnded.emit(null); }, (error) => { this.playbackEnded.emit(null); });
   };
 }
-angular.module('7minWorkout').directive('videoPanel', <angular.IDirectiveFactory>upgradeAdapter.downgradeNg2Component(VideoPanelComponent));

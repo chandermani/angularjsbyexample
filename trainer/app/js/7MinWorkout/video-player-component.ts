@@ -47,4 +47,3 @@ export class VideoPlayerComponent implements ModalComponent<VideoDialogContext>,
     return false;
   }
 }
-angular.module('7minWorkout').directive('videoPlayer', <angular.IDirectiveFactory>upgradeAdapter.downgradeNg2Component(VideoPlayerComponent));

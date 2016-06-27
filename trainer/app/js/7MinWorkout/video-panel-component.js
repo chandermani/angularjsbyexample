@@ -1,4 +1,4 @@
-System.register(['@angular/core', './video-player-component', 'angular2-modal/plugins/bootstrap', '../upgrade-adapter', 'ng2-translate'], function(exports_1, context_1) {
+System.register(['@angular/core', './video-player-component', 'angular2-modal/plugins/bootstrap', 'ng2-translate'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './video-player-component', 'angular2-modal/pl
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, video_player_component_1, bootstrap_1, upgrade_adapter_1, ng2_translate_1;
+    var core_1, video_player_component_1, bootstrap_1, ng2_translate_1;
     var VideoPanelComponent;
     return {
         setters:[
@@ -22,9 +22,6 @@ System.register(['@angular/core', './video-player-component', 'angular2-modal/pl
             },
             function (bootstrap_1_1) {
                 bootstrap_1 = bootstrap_1_1;
-            },
-            function (upgrade_adapter_1_1) {
-                upgrade_adapter_1 = upgrade_adapter_1_1;
             },
             function (ng2_translate_1_1) {
                 ng2_translate_1 = ng2_translate_1_1;
@@ -69,7 +66,6 @@ System.register(['@angular/core', './video-player-component', 'angular2-modal/pl
                 return VideoPanelComponent;
             }());
             exports_1("VideoPanelComponent", VideoPanelComponent);
-            angular.module('7minWorkout').directive('videoPanel', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(VideoPanelComponent));
         }
     }
 });

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../upgrade-adapter', 'angular2-modal', 'angular2-modal/plugins/bootstrap', '@angular/platform-browser'], function(exports_1, context_1) {
+System.register(['@angular/core', 'angular2-modal', 'angular2-modal/plugins/bootstrap', '@angular/platform-browser'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -15,15 +15,12 @@ System.register(['@angular/core', '../upgrade-adapter', 'angular2-modal', 'angul
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, upgrade_adapter_1, angular2_modal_1, bootstrap_1, platform_browser_1;
+    var core_1, angular2_modal_1, bootstrap_1, platform_browser_1;
     var VideoDialogContext, VideoPlayerComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (upgrade_adapter_1_1) {
-                upgrade_adapter_1 = upgrade_adapter_1_1;
             },
             function (angular2_modal_1_1) {
                 angular2_modal_1 = angular2_modal_1_1;
@@ -72,7 +69,6 @@ System.register(['@angular/core', '../upgrade-adapter', 'angular2-modal', 'angul
                 return VideoPlayerComponent;
             }());
             exports_1("VideoPlayerComponent", VideoPlayerComponent);
-            angular.module('7minWorkout').directive('videoPlayer', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(VideoPlayerComponent));
         }
     }
 });
