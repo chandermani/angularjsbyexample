@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', './workoutbuilder/workout-builder.module'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', './exercise-nav-component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/platform-browser', './workoutbuilder
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, workout_builder_module_1;
-    var AppModule;
+    var core_1, platform_browser_1, exercise_nav_component_1;
+    var WorkoutBuilderModule;
     return {
         setters:[
             function (core_1_1) {
@@ -20,23 +20,24 @@ System.register(['@angular/core', '@angular/platform-browser', './workoutbuilder
             function (platform_browser_1_1) {
                 platform_browser_1 = platform_browser_1_1;
             },
-            function (workout_builder_module_1_1) {
-                workout_builder_module_1 = workout_builder_module_1_1;
+            function (exercise_nav_component_1_1) {
+                exercise_nav_component_1 = exercise_nav_component_1_1;
             }],
         execute: function() {
-            AppModule = (function () {
-                function AppModule() {
+            WorkoutBuilderModule = (function () {
+                function WorkoutBuilderModule() {
                 }
-                AppModule = __decorate([
+                WorkoutBuilderModule = __decorate([
                     core_1.NgModule({
-                        imports: [platform_browser_1.BrowserModule, workout_builder_module_1.WorkoutBuilderModule]
+                        imports: [platform_browser_1.BrowserModule],
+                        declarations: [exercise_nav_component_1.ExercisesNavComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppModule);
-                return AppModule;
+                ], WorkoutBuilderModule);
+                return WorkoutBuilderModule;
             }());
-            exports_1("AppModule", AppModule);
+            exports_1("WorkoutBuilderModule", WorkoutBuilderModule);
         }
     }
 });
-//# sourceMappingURL=app.module.js.map
+//# sourceMappingURL=workout-builder.module.js.map

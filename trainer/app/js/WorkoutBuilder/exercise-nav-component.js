@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../upgrade-adapter'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,15 +13,12 @@ System.register(['@angular/core', '../upgrade-adapter'], function(exports_1, con
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, upgrade_adapter_1;
+    var core_1;
     var ExercisesNavComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (upgrade_adapter_1_1) {
-                upgrade_adapter_1 = upgrade_adapter_1_1;
             }],
         execute: function() {
             ExercisesNavComponent = (function () {
@@ -55,7 +52,6 @@ System.register(['@angular/core', '../upgrade-adapter'], function(exports_1, con
                 return ExercisesNavComponent;
             }());
             exports_1("ExercisesNavComponent", ExercisesNavComponent);
-            angular.module('WorkoutBuilder').directive('exerciseNav', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(ExercisesNavComponent));
         }
     }
 });

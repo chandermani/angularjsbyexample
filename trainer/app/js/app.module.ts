@@ -1,4 +1,7 @@
-angular.module('app', ['ngRoute', 'ngSanitize', '7minWorkout', 'WorkoutBuilder', 'mediaPlayer', 'ui.bootstrap', 'LocalStorageModule', 'ngAnimate', 'ngResource', 'ngMessages', 'pascalprecht.translate']);
-
-angular.module('7minWorkout', []);
-angular.module('WorkoutBuilder', []);
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import {WorkoutBuilderModule} from './workoutbuilder/workout-builder.module';
+@NgModule({
+  imports: [ BrowserModule, WorkoutBuilderModule ]
+})
+export class AppModule {}

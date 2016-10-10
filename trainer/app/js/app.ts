@@ -1,4 +1,4 @@
-import  './app.module.js';
+import  './app-ng1.module.js';
 import  './config.js';
 import  './root.js';
 import './shared/directives.js';
@@ -13,9 +13,12 @@ import './WorkoutBuilder/services.js';
 import './WorkoutBuilder/directives.js';
 import './WorkoutBuilder/exercise.js';
 import './WorkoutBuilder/workout.js';
-import './WorkoutBuilder/exercise-nav-component';
+import {ExercisesNavComponent} from './WorkoutBuilder/exercise-nav-component'
 
 import {upgradeAdapter} from './upgrade-adapter';
+
+angular.module('WorkoutBuilder').directive('exerciseNav', upgradeAdapter.downgradeNg2Component(ExercisesNavComponent) as angular.IDirectiveFactory);
+
 
 upgradeAdapter.upgradeNg1Provider('ExercisePlan');
 upgradeAdapter.upgradeNg1Provider('WorkoutPlan');
