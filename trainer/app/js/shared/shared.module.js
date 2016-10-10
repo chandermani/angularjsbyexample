@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', './pipes'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,28 +10,35 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var FinishComponent;
+    var core_1, platform_browser_1, pipes_1;
+    var SharedModule;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (platform_browser_1_1) {
+                platform_browser_1 = platform_browser_1_1;
+            },
+            function (pipes_1_1) {
+                pipes_1 = pipes_1_1;
             }],
         execute: function() {
-            FinishComponent = (function () {
-                function FinishComponent() {
+            SharedModule = (function () {
+                function SharedModule() {
                 }
-                FinishComponent = __decorate([
-                    core_1.Component({
-                        selector: 'finish',
-                        templateUrl: '/js/finish/finish-component.tpl.html'
+                SharedModule = __decorate([
+                    core_1.NgModule({
+                        imports: [platform_browser_1.BrowserModule],
+                        declarations: [pipes_1.OrderByPipe, pipes_1.SearchPipe, pipes_1.SecondsToTime],
+                        exports: [pipes_1.OrderByPipe, pipes_1.SearchPipe, pipes_1.SecondsToTime],
                     }), 
                     __metadata('design:paramtypes', [])
-                ], FinishComponent);
-                return FinishComponent;
+                ], SharedModule);
+                return SharedModule;
             }());
-            exports_1("FinishComponent", FinishComponent);
+            exports_1("SharedModule", SharedModule);
         }
     }
 });
-//# sourceMappingURL=finish-component.js.map
+//# sourceMappingURL=shared.module.js.map

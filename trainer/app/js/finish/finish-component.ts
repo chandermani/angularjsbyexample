@@ -6,4 +6,3 @@ import { upgradeAdapter } from '../upgrade-adapter';
   templateUrl:'/js/finish/finish-component.tpl.html'
 })
 export class FinishComponent { }
-angular.module('finish').directive('finish', <angular.IDirectiveFactory>upgradeAdapter.downgradeNg2Component(FinishComponent));

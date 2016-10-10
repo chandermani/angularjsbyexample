@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', './finish-component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,28 +10,34 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var FinishComponent;
+    var core_1, platform_browser_1, finish_component_1;
+    var FinishModule;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (platform_browser_1_1) {
+                platform_browser_1 = platform_browser_1_1;
+            },
+            function (finish_component_1_1) {
+                finish_component_1 = finish_component_1_1;
             }],
         execute: function() {
-            FinishComponent = (function () {
-                function FinishComponent() {
+            FinishModule = (function () {
+                function FinishModule() {
                 }
-                FinishComponent = __decorate([
-                    core_1.Component({
-                        selector: 'finish',
-                        templateUrl: '/js/finish/finish-component.tpl.html'
+                FinishModule = __decorate([
+                    core_1.NgModule({
+                        imports: [platform_browser_1.BrowserModule],
+                        declarations: [finish_component_1.FinishComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], FinishComponent);
-                return FinishComponent;
+                ], FinishModule);
+                return FinishModule;
             }());
-            exports_1("FinishComponent", FinishComponent);
+            exports_1("FinishModule", FinishModule);
         }
     }
 });
-//# sourceMappingURL=finish-component.js.map
+//# sourceMappingURL=finish.module.js.map
