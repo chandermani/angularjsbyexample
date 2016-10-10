@@ -1,4 +1,4 @@
-import  './app.module.js';
+import  './app-ng1.module.js';
 import  './config.js';
 import  './root.js';
 import './shared/directives.js';
