@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', './exercise-nav-component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,28 +10,34 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var FinishComponent;
+    var core_1, platform_browser_1, exercise_nav_component_1;
+    var WorkoutBuilderModule;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (platform_browser_1_1) {
+                platform_browser_1 = platform_browser_1_1;
+            },
+            function (exercise_nav_component_1_1) {
+                exercise_nav_component_1 = exercise_nav_component_1_1;
             }],
         execute: function() {
-            FinishComponent = (function () {
-                function FinishComponent() {
+            WorkoutBuilderModule = (function () {
+                function WorkoutBuilderModule() {
                 }
-                FinishComponent = __decorate([
-                    core_1.Component({
-                        selector: 'finish',
-                        templateUrl: '/js/finish/finish-component.tpl.html'
+                WorkoutBuilderModule = __decorate([
+                    core_1.NgModule({
+                        imports: [platform_browser_1.BrowserModule],
+                        declarations: [exercise_nav_component_1.ExercisesNavComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], FinishComponent);
-                return FinishComponent;
+                ], WorkoutBuilderModule);
+                return WorkoutBuilderModule;
             }());
-            exports_1("FinishComponent", FinishComponent);
+            exports_1("WorkoutBuilderModule", WorkoutBuilderModule);
         }
     }
 });
-//# sourceMappingURL=finish-component.js.map
+//# sourceMappingURL=workout-builder.module.js.map

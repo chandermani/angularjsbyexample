@@ -1,9 +1,6 @@
-import { provide } from '@angular/core';
+import  './app-ng1.module.js';
 import {UpgradeAdapterRef} from '@angular/upgrade';
-import {HTTP_PROVIDERS, Http} from '@angular/http';
-import {TranslateService, TranslateLoader, TranslateStaticLoader} from 'ng2-translate';
 
-import './app.module.js';
 import './config.js';
 import './root.js';
 import './shared/directives.js';
@@ -18,12 +15,18 @@ import './WorkoutBuilder/services.js';
 import './WorkoutBuilder/directives.js';
 import './WorkoutBuilder/exercise.js';
 import './WorkoutBuilder/workout.js';
-import './WorkoutBuilder/exercise-nav-component';
 
 import {upgradeAdapter} from './upgrade-adapter';
 
-import './start/start-component';
-import './finish/finish-component';
+import {TranslateService} from 'ng2-translate/ng2-translate';
+
+import {StartComponent} from './start/start-component';
+import {FinishComponent} from './finish/finish-component';
+import {ExercisesNavComponent} from './WorkoutBuilder/exercise-nav-component'
+
+angular.module('WorkoutBuilder').directive('exerciseNav', upgradeAdapter.downgradeNg2Component(ExercisesNavComponent) as angular.IDirectiveFactory);
+angular.module('start').directive('start', upgradeAdapter.downgradeNg2Component(StartComponent) as angular.IDirectiveFactory);
+angular.module('finish').directive('finish', upgradeAdapter.downgradeNg2Component(FinishComponent) as angular.IDirectiveFactory);
 
 import './shared/filters'
 
@@ -36,16 +39,8 @@ upgradeAdapter.upgradeNg1Provider('ApiKeyAppenderInterceptor');
 upgradeAdapter.upgradeNg1Provider('appEvents');
 upgradeAdapter.upgradeNg1Provider('workoutHistoryTracker');
 
-upgradeAdapter.addProvider(provide(TranslateLoader, {
-  useFactory: (http: Http) => new TranslateStaticLoader(http, 'i18n', '.json'),
-  deps: [Http]
-}));
-
-upgradeAdapter.addProvider(TranslateService);
-upgradeAdapter.addProvider(HTTP_PROVIDERS);
 
 angular.module('app').factory('ng2TranslateService', upgradeAdapter.downgradeNg2Provider(TranslateService));
-
 angular.element(document).ready(function() {
   upgradeAdapter.bootstrap(document.body, ['app'], { strictDi: true })
     .ready((updateApp: UpgradeAdapterRef) => {
