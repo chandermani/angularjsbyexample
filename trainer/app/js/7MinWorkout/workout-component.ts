@@ -1,17 +1,9 @@
 import {Component, Inject} from '@angular/core';
-import {WorkoutAudioComponent} from './workout-audio-component'
-import {VideoPanelComponent} from './video-panel-component'
-import {DescriptionPanelComponent} from './description-panel-component'
 import {Exercise, WorkoutPlan} from '../shared/model';
-import { upgradeAdapter } from '../upgrade-adapter';
-import {TranslatePipe} from 'ng2-translate';
-import {SecondsToTimePipe} from '../shared/pipes';
 
 @Component({
     selector: 'workout',
     templateUrl: `/js/7MinWorkout/workout-component.tpl.html`,
-    directives: [WorkoutAudioComponent, VideoPanelComponent, DescriptionPanelComponent],
-    pipes: [TranslatePipe, SecondsToTimePipe]
 })
 export class WorkoutComponent {
     restExercise: { details: Exercise, duration: number };
@@ -128,5 +120,3 @@ export class WorkoutComponent {
         this._location.path("/finish");
     }
 }
-
-angular.module('7minWorkout').directive('workout', <angular.IDirectiveFactory>upgradeAdapter.downgradeNg2Component(WorkoutComponent));

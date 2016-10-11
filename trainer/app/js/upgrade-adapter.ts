@@ -1,3 +1,3 @@
 import {UpgradeAdapter} from '@angular/upgrade';
-
-export const upgradeAdapter = new UpgradeAdapter();
+import {AppModule} from './app.module';
+export const upgradeAdapter = new UpgradeAdapter(AppModule);

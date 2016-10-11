@@ -64,7 +64,7 @@ System.register(['@angular/core', 'angular2-modal', 'angular2-modal/plugins/boot
                         selector: 'video-player',
                         template: "<div class=\"modal-header\">\n                <h3 class=\"modal-title\">Workout Video</h3>\n            </div>\n            <div class=\"modal-body\">\n                <iframe width=\"100%\" height=\"480\" [src]=\"videoId\" frameborder=\"0\" allowfullscreen></iframe>\n            </div>\n            <div class=\"modal-footer\">\n                <button class=\"btn btn-primary\" (click)=\"ok()\">OK</button>\n            </div>",
                     }), 
-                    __metadata('design:paramtypes', [angular2_modal_1.DialogRef, platform_browser_1.DomSanitizationService])
+                    __metadata('design:paramtypes', [angular2_modal_1.DialogRef, platform_browser_1.DomSanitizer])
                 ], VideoPlayerComponent);
                 return VideoPlayerComponent;
             }());

@@ -9,8 +9,7 @@ import {MyAudio} from './my-audio'
                 <audio #nextUp="MyAudio" src="content/nextup.mp3"></audio>
                 <audio #nextUpExercise="MyAudio" [src]="_nextupSound"></audio>
                 <audio #halfway="MyAudio" src="content/15seconds.wav"></audio>
-                <audio #aboutToComplete="MyAudio" src="content/321.wav"></audio>`,
-    directives: [MyAudio]
+                <audio #aboutToComplete="MyAudio" src="content/321.wav"></audio>`
 })
 export class WorkoutAudioComponent {
     @Input() nextExercise: any;

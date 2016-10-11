@@ -106,8 +106,7 @@ System.register(['@angular/core', './my-audio'], function(exports_1, context_1) 
                 WorkoutAudioComponent = __decorate([
                     core_1.Component({
                         selector: 'workout-audio',
-                        template: "<audio #ticks=\"MyAudio\" loop src=\"content/tick10s.mp3\"></audio>\n                <audio #nextUp=\"MyAudio\" src=\"content/nextup.mp3\"></audio>\n                <audio #nextUpExercise=\"MyAudio\" [src]=\"_nextupSound\"></audio>\n                <audio #halfway=\"MyAudio\" src=\"content/15seconds.wav\"></audio>\n                <audio #aboutToComplete=\"MyAudio\" src=\"content/321.wav\"></audio>",
-                        directives: [my_audio_1.MyAudio]
+                        template: "<audio #ticks=\"MyAudio\" loop src=\"content/tick10s.mp3\"></audio>\n                <audio #nextUp=\"MyAudio\" src=\"content/nextup.mp3\"></audio>\n                <audio #nextUpExercise=\"MyAudio\" [src]=\"_nextupSound\"></audio>\n                <audio #halfway=\"MyAudio\" src=\"content/15seconds.wav\"></audio>\n                <audio #aboutToComplete=\"MyAudio\" src=\"content/321.wav\"></audio>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], WorkoutAudioComponent);

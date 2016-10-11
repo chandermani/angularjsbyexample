@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', '../shared/pipes'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,21 +13,12 @@ System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', '../sha
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, upgrade_adapter_1, ng2_translate_1, pipes_1;
+    var core_1;
     var StartComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (upgrade_adapter_1_1) {
-                upgrade_adapter_1 = upgrade_adapter_1_1;
-            },
-            function (ng2_translate_1_1) {
-                ng2_translate_1 = ng2_translate_1_1;
-            },
-            function (pipes_1_1) {
-                pipes_1 = pipes_1_1;
             }],
         execute: function() {
             StartComponent = (function () {
@@ -44,7 +35,6 @@ System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', '../sha
                     core_1.Component({
                         selector: 'start',
                         templateUrl: '/js/start/start-component.tpl.html',
-                        pipes: [ng2_translate_1.TranslatePipe, pipes_1.OrderByPipe, pipes_1.SearchPipe, pipes_1.SecondsToTimePipe]
                     }),
                     __param(0, core_1.Inject('WorkoutService')), 
                     __metadata('design:paramtypes', [Object])
@@ -52,7 +42,6 @@ System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', '../sha
                 return StartComponent;
             }());
             exports_1("StartComponent", StartComponent);
-            angular.module('start').directive('start', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(StartComponent));
         }
     }
 });

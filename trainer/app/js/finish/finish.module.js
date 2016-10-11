@@ -1,4 +1,4 @@
-System.register(['@angular/core', 'angular2-modal'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', './finish-component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,34 @@ System.register(['@angular/core', 'angular2-modal'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angular2_modal_1;
-    var Ng2RootComponent;
+    var core_1, platform_browser_1, finish_component_1;
+    var FinishModule;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (angular2_modal_1_1) {
-                angular2_modal_1 = angular2_modal_1_1;
+            function (platform_browser_1_1) {
+                platform_browser_1 = platform_browser_1_1;
+            },
+            function (finish_component_1_1) {
+                finish_component_1 = finish_component_1_1;
             }],
         execute: function() {
-            Ng2RootComponent = (function () {
-                function Ng2RootComponent(overlay, viewContainer) {
-                    overlay.defaultViewContainer = viewContainer;
+            FinishModule = (function () {
+                function FinishModule() {
                 }
-                Ng2RootComponent = __decorate([
-                    core_1.Component({
-                        selector: 'ng2-root',
-                        template: "<ng-content></ng-content>",
+                FinishModule = __decorate([
+                    core_1.NgModule({
+                        imports: [platform_browser_1.BrowserModule],
+                        declarations: [finish_component_1.FinishComponent]
                     }), 
-                    __metadata('design:paramtypes', [angular2_modal_1.Overlay, core_1.ViewContainerRef])
-                ], Ng2RootComponent);
-                return Ng2RootComponent;
+                    __metadata('design:paramtypes', [])
+                ], FinishModule);
+                return FinishModule;
             }());
-            exports_1("Ng2RootComponent", Ng2RootComponent);
+            exports_1("FinishModule", FinishModule);
         }
     }
 });
-//# sourceMappingURL=ng2-root-component.js.map
+//# sourceMappingURL=finish.module.js.map
