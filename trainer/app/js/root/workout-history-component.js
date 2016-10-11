@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../shared/pipes', 'angular2-modal'], function(exports_1, context_1) {
+System.register(['@angular/core', 'angular2-modal'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,15 +13,12 @@ System.register(['@angular/core', '../shared/pipes', 'angular2-modal'], function
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, pipes_1, angular2_modal_1;
+    var core_1, angular2_modal_1;
     var WorkoutHistoryComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (pipes_1_1) {
-                pipes_1 = pipes_1_1;
             },
             function (angular2_modal_1_1) {
                 angular2_modal_1 = angular2_modal_1_1;
@@ -53,7 +50,6 @@ System.register(['@angular/core', '../shared/pipes', 'angular2-modal'], function
                     core_1.Component({
                         selector: 'workout-history',
                         templateUrl: "/js/root/workout-history-component.tpl.html",
-                        pipes: [pipes_1.OrderByPipe, pipes_1.SearchPipe]
                     }),
                     __param(0, core_1.Inject('workoutHistoryTracker')), 
                     __metadata('design:paramtypes', [Object, angular2_modal_1.DialogRef])

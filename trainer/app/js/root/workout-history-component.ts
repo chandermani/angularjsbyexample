@@ -1,11 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {OrderByPipe, SearchPipe} from '../shared/pipes';
 import {DialogRef, ModalComponent} from 'angular2-modal';
 
 @Component({
   selector: 'workout-history',
   templateUrl: `/js/root/workout-history-component.tpl.html`,
-  pipes: [OrderByPipe, SearchPipe]
 })
 export class WorkoutHistoryComponent implements ModalComponent<any>, OnInit{
   history: Array<any> = [];

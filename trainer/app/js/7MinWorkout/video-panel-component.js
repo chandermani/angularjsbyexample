@@ -1,4 +1,4 @@
-System.register(['@angular/core', './video-player-component', 'angular2-modal/plugins/bootstrap', '../upgrade-adapter', 'ng2-translate'], function(exports_1, context_1) {
+System.register(['@angular/core', './video-player-component', 'angular2-modal/plugins/bootstrap', 'angular2-modal'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './video-player-component', 'angular2-modal/pl
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, video_player_component_1, bootstrap_1, upgrade_adapter_1, ng2_translate_1;
+    var core_1, video_player_component_1, bootstrap_1, angular2_modal_1;
     var VideoPanelComponent;
     return {
         setters:[
@@ -23,11 +23,8 @@ System.register(['@angular/core', './video-player-component', 'angular2-modal/pl
             function (bootstrap_1_1) {
                 bootstrap_1 = bootstrap_1_1;
             },
-            function (upgrade_adapter_1_1) {
-                upgrade_adapter_1 = upgrade_adapter_1_1;
-            },
-            function (ng2_translate_1_1) {
-                ng2_translate_1 = ng2_translate_1_1;
+            function (angular2_modal_1_1) {
+                angular2_modal_1 = angular2_modal_1_1;
             }],
         execute: function() {
             VideoPanelComponent = (function () {
@@ -39,7 +36,7 @@ System.register(['@angular/core', './video-player-component', 'angular2-modal/pl
                 VideoPanelComponent.prototype.playVideo = function (videoId) {
                     var _this = this;
                     this.playbackStarted.emit(null);
-                    var dialog = this.modal.open(video_player_component_1.VideoPlayerComponent, new video_player_component_1.VideoDialogContext(videoId));
+                    var dialog = this.modal.open(video_player_component_1.VideoPlayerComponent, angular2_modal_1.overlayConfigFactory(new video_player_component_1.VideoDialogContext(videoId)));
                     dialog
                         .then(function (d) { return d.result; })
                         .then(function () { _this.playbackEnded.emit(null); }, function (error) { _this.playbackEnded.emit(null); });
@@ -61,15 +58,12 @@ System.register(['@angular/core', './video-player-component', 'angular2-modal/pl
                     core_1.Component({
                         selector: 'video-panel',
                         templateUrl: "/js/7MinWorkout/video-panel-component.tpl.html",
-                        directives: [video_player_component_1.VideoPlayerComponent],
-                        pipes: [ng2_translate_1.TranslatePipe]
                     }), 
                     __metadata('design:paramtypes', [bootstrap_1.Modal])
                 ], VideoPanelComponent);
                 return VideoPanelComponent;
             }());
             exports_1("VideoPanelComponent", VideoPanelComponent);
-            angular.module('7minWorkout').directive('videoPanel', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(VideoPanelComponent));
         }
     }
 });

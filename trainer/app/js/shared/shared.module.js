@@ -1,4 +1,4 @@
-System.register(['@angular/core', 'angular2-modal'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', './pipes'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,35 @@ System.register(['@angular/core', 'angular2-modal'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, angular2_modal_1;
-    var Ng2RootComponent;
+    var core_1, platform_browser_1, pipes_1;
+    var SharedModule;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (angular2_modal_1_1) {
-                angular2_modal_1 = angular2_modal_1_1;
+            function (platform_browser_1_1) {
+                platform_browser_1 = platform_browser_1_1;
+            },
+            function (pipes_1_1) {
+                pipes_1 = pipes_1_1;
             }],
         execute: function() {
-            Ng2RootComponent = (function () {
-                function Ng2RootComponent(overlay, viewContainer) {
-                    overlay.defaultViewContainer = viewContainer;
+            SharedModule = (function () {
+                function SharedModule() {
                 }
-                Ng2RootComponent = __decorate([
-                    core_1.Component({
-                        selector: 'ng2-root',
-                        template: "<ng-content></ng-content>",
+                SharedModule = __decorate([
+                    core_1.NgModule({
+                        imports: [platform_browser_1.BrowserModule],
+                        declarations: [pipes_1.OrderByPipe, pipes_1.SearchPipe, pipes_1.SecondsToTime],
+                        exports: [pipes_1.OrderByPipe, pipes_1.SearchPipe, pipes_1.SecondsToTime],
                     }), 
-                    __metadata('design:paramtypes', [angular2_modal_1.Overlay, core_1.ViewContainerRef])
-                ], Ng2RootComponent);
-                return Ng2RootComponent;
+                    __metadata('design:paramtypes', [])
+                ], SharedModule);
+                return SharedModule;
             }());
-            exports_1("Ng2RootComponent", Ng2RootComponent);
+            exports_1("SharedModule", SharedModule);
         }
     }
 });
-//# sourceMappingURL=ng2-root-component.js.map
+//# sourceMappingURL=shared.module.js.map
