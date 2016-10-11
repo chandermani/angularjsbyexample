@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../upgrade-adapter', './my-audio'], function(exports_1, context_1) {
+System.register(['@angular/core', './my-audio'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', '../upgrade-adapter', './my-audio'], function(
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, upgrade_adapter_1, my_audio_1;
+    var core_1, my_audio_1;
     var WorkoutAudioComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (upgrade_adapter_1_1) {
-                upgrade_adapter_1 = upgrade_adapter_1_1;
             },
             function (my_audio_1_1) {
                 my_audio_1 = my_audio_1_1;
@@ -109,15 +106,13 @@ System.register(['@angular/core', '../upgrade-adapter', './my-audio'], function(
                 WorkoutAudioComponent = __decorate([
                     core_1.Component({
                         selector: 'workout-audio',
-                        template: "<audio #ticks=\"MyAudio\" loop src=\"content/tick10s.mp3\"></audio>\n                <audio #nextUp=\"MyAudio\" src=\"content/nextup.mp3\"></audio>\n                <audio #nextUpExercise=\"MyAudio\" [src]=\"_nextupSound\"></audio>\n                <audio #halfway=\"MyAudio\" src=\"content/15seconds.wav\"></audio>\n                <audio #aboutToComplete=\"MyAudio\" src=\"content/321.wav\"></audio>",
-                        directives: [my_audio_1.MyAudio]
+                        template: "<audio #ticks=\"MyAudio\" loop src=\"content/tick10s.mp3\"></audio>\n                <audio #nextUp=\"MyAudio\" src=\"content/nextup.mp3\"></audio>\n                <audio #nextUpExercise=\"MyAudio\" [src]=\"_nextupSound\"></audio>\n                <audio #halfway=\"MyAudio\" src=\"content/15seconds.wav\"></audio>\n                <audio #aboutToComplete=\"MyAudio\" src=\"content/321.wav\"></audio>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], WorkoutAudioComponent);
                 return WorkoutAudioComponent;
             }());
             exports_1("WorkoutAudioComponent", WorkoutAudioComponent);
-            angular.module('7minWorkout').directive('workoutAudio', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(WorkoutAudioComponent));
         }
     }
 });

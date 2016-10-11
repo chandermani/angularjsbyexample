@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../upgrade-adapter', 'angular2-modal', 'angular2-modal/plugins/bootstrap', '@angular/platform-browser'], function(exports_1, context_1) {
+System.register(['@angular/core', 'angular2-modal', 'angular2-modal/plugins/bootstrap', '@angular/platform-browser'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -15,15 +15,12 @@ System.register(['@angular/core', '../upgrade-adapter', 'angular2-modal', 'angul
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, upgrade_adapter_1, angular2_modal_1, bootstrap_1, platform_browser_1;
+    var core_1, angular2_modal_1, bootstrap_1, platform_browser_1;
     var VideoDialogContext, VideoPlayerComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (upgrade_adapter_1_1) {
-                upgrade_adapter_1 = upgrade_adapter_1_1;
             },
             function (angular2_modal_1_1) {
                 angular2_modal_1 = angular2_modal_1_1;
@@ -67,12 +64,11 @@ System.register(['@angular/core', '../upgrade-adapter', 'angular2-modal', 'angul
                         selector: 'video-player',
                         template: "<div class=\"modal-header\">\n                <h3 class=\"modal-title\">Workout Video</h3>\n            </div>\n            <div class=\"modal-body\">\n                <iframe width=\"100%\" height=\"480\" [src]=\"videoId\" frameborder=\"0\" allowfullscreen></iframe>\n            </div>\n            <div class=\"modal-footer\">\n                <button class=\"btn btn-primary\" (click)=\"ok()\">OK</button>\n            </div>",
                     }), 
-                    __metadata('design:paramtypes', [angular2_modal_1.DialogRef, platform_browser_1.DomSanitizationService])
+                    __metadata('design:paramtypes', [angular2_modal_1.DialogRef, platform_browser_1.DomSanitizer])
                 ], VideoPlayerComponent);
                 return VideoPlayerComponent;
             }());
             exports_1("VideoPlayerComponent", VideoPlayerComponent);
-            angular.module('7minWorkout').directive('videoPlayer', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(VideoPlayerComponent));
         }
     }
 });

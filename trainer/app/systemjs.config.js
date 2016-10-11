@@ -3,15 +3,16 @@
         'app': 'js',
         '@angular': '/node_modules/@angular',
         'rxjs': '/node_modules/rxjs',
-        'ng2-translate': 'node_modules/ng2-translate',
+        'ng2-translate': '/node_modules/ng2-translate/bundles',
         'angular2-modal': 'node_modules/angular2-modal',
         'angular2-modal/platform-browser': 'node_modules/angular2-modal/platform-browser',
         'angular2-modal/plugins/bootstrap': 'node_modules/angular2-modal/plugins/bootstrap'
     };
+
     var packages = {
         'app': { main: 'app.js', defaultExtension: 'js' },
         'rxjs': { defaultExtension: 'js' },
-        'ng2-translate': { main: 'ng2-translate.js', defaultExtension: 'js' },
+        'ng2-translate': { defaultExtension: 'js' },
         'angular2-modal': { main: 'index.js', defaultExtension: 'js' },
         'angular2-modal/platform-browser': { main: 'index.js', defaultExtension: 'js' },
         'angular2-modal/plugins/bootstrap': { main: 'index.js', defaultExtension: 'js' }

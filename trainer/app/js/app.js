@@ -1,24 +1,9 @@
-System.register(['@angular/core', '@angular/http', 'ng2-translate', 'angular2-modal/platform-browser', 'angular2-modal/plugins/bootstrap', './app.module.js', './config.js', './root.js', './shared/directives.js', './shared/model.js', './shared/services.js', './7MinWorkout/services.js', './7MinWorkout/directives.js', './7MinWorkout/filters.js', './7MinWorkout/workout.js', './WorkoutBuilder/services.js', './WorkoutBuilder/directives.js', './WorkoutBuilder/exercise.js', './WorkoutBuilder/workout.js', './WorkoutBuilder/exercise-nav-component', './upgrade-adapter', './start/start-component', './finish/finish-component', './ng1-root-component', './ng2-root-component', './root/workout-history-component', './root/top-nav-component', './7MinWorkout/video-panel-component', './7MinWorkout/description-panel-component', './7MinWorkout/workout-audio-component', './shared/filters'], function(exports_1, context_1) {
+System.register(['./app-ng1.module.js', './config.js', './root.js', './shared/directives.js', './shared/model.js', './shared/services.js', './7MinWorkout/services.js', './7MinWorkout/filters.js', './7MinWorkout/workout.js', './WorkoutBuilder/services.js', './WorkoutBuilder/directives.js', './WorkoutBuilder/exercise.js', './WorkoutBuilder/workout.js', './ng1-root-component', './shared/filters', './upgrade-adapter', 'ng2-translate/ng2-translate', './7MinWorkout/description-panel-component', './start/start-component', './finish/finish-component', './WorkoutBuilder/exercise-nav-component', './7minworkout/video-panel-component', './ng2-root-component', './root/top-nav-component', './7minworkout/description-panel-component', './7minworkout/workout-audio-component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var core_1, http_1, ng2_translate_1, platform_browser_1, bootstrap_1, upgrade_adapter_1;
+    var upgrade_adapter_1, ng2_translate_1, start_component_1, finish_component_1, exercise_nav_component_1, video_panel_component_1, ng2_root_component_1, top_nav_component_1, description_panel_component_1, workout_audio_component_1;
     return {
         setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (http_1_1) {
-                http_1 = http_1_1;
-            },
-            function (ng2_translate_1_1) {
-                ng2_translate_1 = ng2_translate_1_1;
-            },
-            function (platform_browser_1_1) {
-                platform_browser_1 = platform_browser_1_1;
-            },
-            function (bootstrap_1_1) {
-                bootstrap_1 = bootstrap_1_1;
-            },
             function (_1) {},
             function (_2) {},
             function (_3) {},
@@ -37,17 +22,43 @@ System.register(['@angular/core', '@angular/http', 'ng2-translate', 'angular2-mo
             function (upgrade_adapter_1_1) {
                 upgrade_adapter_1 = upgrade_adapter_1_1;
             },
+            function (ng2_translate_1_1) {
+                ng2_translate_1 = ng2_translate_1_1;
+            },
             function (_16) {},
-            function (_17) {},
-            function (_18) {},
-            function (_19) {},
-            function (_20) {},
-            function (_21) {},
-            function (_22) {},
-            function (_23) {},
-            function (_24) {},
-            function (_25) {}],
+            function (start_component_1_1) {
+                start_component_1 = start_component_1_1;
+            },
+            function (finish_component_1_1) {
+                finish_component_1 = finish_component_1_1;
+            },
+            function (exercise_nav_component_1_1) {
+                exercise_nav_component_1 = exercise_nav_component_1_1;
+            },
+            function (video_panel_component_1_1) {
+                video_panel_component_1 = video_panel_component_1_1;
+            },
+            function (ng2_root_component_1_1) {
+                ng2_root_component_1 = ng2_root_component_1_1;
+            },
+            function (top_nav_component_1_1) {
+                top_nav_component_1 = top_nav_component_1_1;
+            },
+            function (description_panel_component_1_1) {
+                description_panel_component_1 = description_panel_component_1_1;
+            },
+            function (workout_audio_component_1_1) {
+                workout_audio_component_1 = workout_audio_component_1_1;
+            }],
         execute: function() {
+            angular.module('WorkoutBuilder').directive('exerciseNav', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(exercise_nav_component_1.ExercisesNavComponent));
+            angular.module('start').directive('start', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(start_component_1.StartComponent));
+            angular.module('finish').directive('finish', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(finish_component_1.FinishComponent));
+            angular.module('7minWorkout').directive('videoPanel', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(video_panel_component_1.VideoPanelComponent));
+            angular.module('app').directive('ng2Root', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(ng2_root_component_1.Ng2RootComponent));
+            angular.module('app').directive('topNav', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(top_nav_component_1.TopNavComponent));
+            angular.module('7minWorkout').directive('descriptionPanel', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(description_panel_component_1.DescriptionPanelComponent));
+            angular.module('7minWorkout').directive('workoutAudio', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(workout_audio_component_1.WorkoutAudioComponent));
             upgrade_adapter_1.upgradeAdapter.upgradeNg1Provider('ExercisePlan');
             upgrade_adapter_1.upgradeAdapter.upgradeNg1Provider('WorkoutPlan');
             upgrade_adapter_1.upgradeAdapter.upgradeNg1Provider('WorkoutService');
@@ -56,14 +67,6 @@ System.register(['@angular/core', '@angular/http', 'ng2-translate', 'angular2-mo
             upgrade_adapter_1.upgradeAdapter.upgradeNg1Provider('ApiKeyAppenderInterceptor');
             upgrade_adapter_1.upgradeAdapter.upgradeNg1Provider('appEvents');
             upgrade_adapter_1.upgradeAdapter.upgradeNg1Provider('workoutHistoryTracker');
-            upgrade_adapter_1.upgradeAdapter.addProvider(core_1.provide(ng2_translate_1.TranslateLoader, {
-                useFactory: function (http) { return new ng2_translate_1.TranslateStaticLoader(http, 'i18n', '.json'); },
-                deps: [http_1.Http]
-            }));
-            upgrade_adapter_1.upgradeAdapter.addProvider(ng2_translate_1.TranslateService);
-            upgrade_adapter_1.upgradeAdapter.addProvider(http_1.HTTP_PROVIDERS);
-            upgrade_adapter_1.upgradeAdapter.addProvider(platform_browser_1.MODAL_BROWSER_PROVIDERS);
-            upgrade_adapter_1.upgradeAdapter.addProvider(bootstrap_1.BS_MODAL_PROVIDERS);
             angular.module('app').factory('ng2TranslateService', upgrade_adapter_1.upgradeAdapter.downgradeNg2Provider(ng2_translate_1.TranslateService));
             angular.element(document).ready(function () {
                 upgrade_adapter_1.upgradeAdapter.bootstrap(document.body, ['app'], { strictDi: true })

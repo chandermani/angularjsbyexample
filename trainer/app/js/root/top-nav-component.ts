@@ -1,15 +1,16 @@
-import { Component, ElementRef} from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { upgradeAdapter } from '../upgrade-adapter';
-import {TranslateService, TranslatePipe} from 'ng2-translate';
-import {Modal} from 'angular2-modal/plugins/bootstrap';
-import {WorkoutHistoryComponent} from './workout-history-component';
-import {BSModalContext} from 'angular2-modal/plugins/bootstrap'
+
+import { TranslateService } from 'ng2-translate/ng2-translate';
+import { Modal } from 'angular2-modal/plugins/bootstrap';
+import { BSModalContext } from 'angular2-modal/plugins/bootstrap'
+import { overlayConfigFactory } from 'angular2-modal'
+
+import { WorkoutHistoryComponent } from './workout-history-component';
 
 @Component({
   selector: 'top-nav',
   templateUrl: `/js/root/top-nav-component.tpl.html`,
-  pipes: [TranslatePipe],
-  directives: [WorkoutHistoryComponent]
 })
 export class TopNavComponent {
   language: string;
@@ -22,11 +23,10 @@ export class TopNavComponent {
   showWorkoutHistory() {
     let modalOptions = new BSModalContext();
     modalOptions.size = "lg";
-    this.modal.open(WorkoutHistoryComponent, modalOptions);
+    this.modal.open(WorkoutHistoryComponent, overlayConfigFactory(modalOptions));
   }
 
   setLanguage(languageKey: string) {
     this._translate.use(languageKey);
   }
 }
-angular.module('app').directive('topNav', <angular.IDirectiveFactory>upgradeAdapter.downgradeNg2Component(TopNavComponent));

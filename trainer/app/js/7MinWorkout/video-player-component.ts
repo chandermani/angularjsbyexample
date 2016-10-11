@@ -1,10 +1,9 @@
 import { Component, Inject, OnInit} from '@angular/core';
 import { upgradeAdapter } from '../upgrade-adapter';
-import {TranslateService, TranslatePipe} from 'ng2-translate';
 import {DialogRef, ModalComponent} from 'angular2-modal';
 import {BSModalContext} from 'angular2-modal/plugins/bootstrap'
 import {Ng2RootComponent} from '../ng2-root-component';
-import {DomSanitizationService, SafeResourceUrl} from '@angular/platform-browser';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 export class VideoDialogContext extends BSModalContext {
   constructor(public videoId: string) {
@@ -29,7 +28,7 @@ export class VideoPlayerComponent implements ModalComponent<VideoDialogContext>,
   videoId: SafeResourceUrl;
   private youtubeUrlPrefix = '//www.youtube.com/embed/';
 
-  constructor(public dialog: DialogRef<VideoDialogContext>, private sanitizer: DomSanitizationService) { }
+  constructor(public dialog: DialogRef<VideoDialogContext>, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.videoId = this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeUrlPrefix + this.dialog.context.videoId);
@@ -47,4 +46,3 @@ export class VideoPlayerComponent implements ModalComponent<VideoDialogContext>,
     return false;
   }
 }
-angular.module('7minWorkout').directive('videoPlayer', <angular.IDirectiveFactory>upgradeAdapter.downgradeNg2Component(VideoPlayerComponent));

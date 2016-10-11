@@ -29,5 +29,3 @@ export class ExercisesNavComponent {
     this.workoutBuilderService.addExercise(exercise);
   }
 }
-
-angular.module('WorkoutBuilder').directive('exerciseNav', <angular.IDirectiveFactory>upgradeAdapter.downgradeNg2Component(ExercisesNavComponent));

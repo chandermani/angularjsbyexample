@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', 'angular2-modal/plugins/bootstrap', './workout-history-component'], function(exports_1, context_1) {
+System.register(['@angular/core', 'ng2-translate/ng2-translate', 'angular2-modal/plugins/bootstrap', 'angular2-modal', './workout-history-component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', 'angula
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, upgrade_adapter_1, ng2_translate_1, bootstrap_1, workout_history_component_1, bootstrap_2;
+    var core_1, ng2_translate_1, bootstrap_1, bootstrap_2, angular2_modal_1, workout_history_component_1;
     var TopNavComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (upgrade_adapter_1_1) {
-                upgrade_adapter_1 = upgrade_adapter_1_1;
             },
             function (ng2_translate_1_1) {
                 ng2_translate_1 = ng2_translate_1_1;
@@ -26,6 +23,9 @@ System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', 'angula
             function (bootstrap_1_1) {
                 bootstrap_1 = bootstrap_1_1;
                 bootstrap_2 = bootstrap_1_1;
+            },
+            function (angular2_modal_1_1) {
+                angular2_modal_1 = angular2_modal_1_1;
             },
             function (workout_history_component_1_1) {
                 workout_history_component_1 = workout_history_component_1_1;
@@ -43,7 +43,7 @@ System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', 'angula
                 TopNavComponent.prototype.showWorkoutHistory = function () {
                     var modalOptions = new bootstrap_2.BSModalContext();
                     modalOptions.size = "lg";
-                    this.modal.open(workout_history_component_1.WorkoutHistoryComponent, modalOptions);
+                    this.modal.open(workout_history_component_1.WorkoutHistoryComponent, angular2_modal_1.overlayConfigFactory(modalOptions));
                 };
                 TopNavComponent.prototype.setLanguage = function (languageKey) {
                     this._translate.use(languageKey);
@@ -52,15 +52,12 @@ System.register(['@angular/core', '../upgrade-adapter', 'ng2-translate', 'angula
                     core_1.Component({
                         selector: 'top-nav',
                         templateUrl: "/js/root/top-nav-component.tpl.html",
-                        pipes: [ng2_translate_1.TranslatePipe],
-                        directives: [workout_history_component_1.WorkoutHistoryComponent]
                     }), 
                     __metadata('design:paramtypes', [bootstrap_1.Modal, ng2_translate_1.TranslateService])
                 ], TopNavComponent);
                 return TopNavComponent;
             }());
             exports_1("TopNavComponent", TopNavComponent);
-            angular.module('app').directive('topNav', upgrade_adapter_1.upgradeAdapter.downgradeNg2Component(TopNavComponent));
         }
     }
 });
