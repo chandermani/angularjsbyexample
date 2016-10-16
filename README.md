@@ -10,4 +10,3 @@ Source code repository for the book [AngularJS by Example](https://www.packtpub.
 
 The following features have been added to this branch:
 * Enabling TypeScript
-* Enable Angular2 
