@@ -4,7 +4,7 @@
 
 Source code repository for the book [AngularJS by Example](https://www.packtpub.com/web-development/angularjs-example)
 
-> This branch is part of a set of branches, where we *migrate* the **7 Minute Workout** (**Workout Runner**) and **Work Builder** to *Angular2*.
+> This branch is part of a set of branches, where we *migrate* the **7 Minute Workout** (**Workout Runner**) and **Work Builder** to *Angular2*. The folder `trainer` contains the app being migrated. 
 
 ## Branch Details
 
