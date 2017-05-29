@@ -1,0 +1,30 @@
+{
+  "name": "angularjsbyexample",
+  "version": "1.0.0",
+  "description": "Companion code for book AngularJS By Example",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandermani/angularjsbyexample.git"
+  },
+  "keywords": [
+    "AngularJS",
+    "Example",
+    "Personal",
+    "Trainer",
+    "Book"
+  ],
+  "author": "Chandermani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chandermani/angularjsbyexample/issues"
+  },
+  "homepage": "https://github.com/chandermani/angularjsbyexample#readme",
+  "dependencies": {
+    "angular":"1.6.4",
+    "angular-route":"1.6.4",
+    "bootstrap":"3.3.7"
+  }
+}
