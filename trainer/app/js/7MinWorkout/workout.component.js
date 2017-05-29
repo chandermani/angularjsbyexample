@@ -272,7 +272,6 @@ function WorkoutRunnerController($interval, $location) {
     }
 }
 
-/* Controllers */
 angular.module('7minWorkout')
     .component('workoutRunner', {
         templateUrl: 'js/7minworkout/workout.html',

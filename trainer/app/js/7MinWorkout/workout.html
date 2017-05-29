@@ -1,5 +1,6 @@
 <div class="row workout-app-container">
-    <div id="description-panel" class="col-sm-2" ng-include="'partials/description-panel.html'">
+    <div id="description-panel" class="col-sm-2">
+        <workout-description description="$ctrl.currentExercise.details.description" procedure="$ctrl.currentExercise.details.procedure"></workout-description>
     </div>
     <div id="exercise-pane" class="col-sm-7">
         <div class="row workout-display-div">
@@ -16,19 +17,7 @@
             </div>
         </div>
     </div>
-    <div id="video-panel" class="col-sm-3" ng-include="'video-panel.html'">
-
+    <div id="video-panel" class="col-sm-3">
+        <video-player videos="$ctrl.currentExercise.details.related.videos"></video-player>
     </div>
-    <script type="text/ng-template" id="video-panel.html">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">Videos</h3>
-            </div>
-            <div class="panel-body">
-                <div ng-repeat="video in $ctrl.currentExercise.details.related.videos">
-                    <iframe width="100%" height="220" src="{{$ctrl.video}}" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </script>
 </div>
