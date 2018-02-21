@@ -8,3 +8,7 @@ tmp
 
 *.map
 typings/
+
+/app/js/app.js
+/app/js/app.module.js
+/app/js/main.js
