@@ -3,7 +3,7 @@ config(['$routeProvider', '$sceDelegateProvider', 'WorkoutServiceProvider', '$ht
 
 
     // IMPORTANT: Set the database name and API Key here before running the application
-    ApiKeyAppenderInterceptorProvider.setApiKey("E16WgslFduXHiMAdAg6qcG1KKYx7WNWg");
+    ApiKeyAppenderInterceptorProvider.setApiKey("pyQBauy-jEyCBM_INhk_XvnuMgQKq_2w");
 
     $httpProvider.interceptors.push('ApiKeyAppenderInterceptor');
 
