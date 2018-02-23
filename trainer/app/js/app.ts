@@ -16,7 +16,15 @@ import './WorkoutBuilder/workout.js';
 
 import { downgradeComponent } from '@angular/upgrade/static';
 import { ExercisesNavComponent } from './WorkoutBuilder/exercise-nav.component';
+import { StartComponent } from './start/start.component';
+import { FinishComponent } from './finish/finish.component';
 
 
 angular.module('WorkoutBuilder')
     .directive('exerciseNav', downgradeComponent({ component: ExercisesNavComponent }) as angular.IDirectiveFactory);
+
+angular.module('app')
+    .directive('start', downgradeComponent({ component: StartComponent }) as angular.IDirectiveFactory);
+
+angular.module('app')
+    .directive('finish', downgradeComponent({ component: FinishComponent }) as angular.IDirectiveFactory);

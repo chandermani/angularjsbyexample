@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-sm-6">
+      <h1 class="text-center">{{'START.HEADER'|translate}}</h1>
+      <br />
+      <img src="img/start.png" style="width:70%" class="center-block" />
+      <br />
+      <div id="start" class="row action">
+        <a>
+          <span>{{'START.SELECT'|translate}}</span>
+          <span class="glyphicon glyphicon-play"></span>
+        </a>
+      </div>
+      <div id="build" class="row action">
+        <a href="#/builder">
+          <span>Create a Workout</span>
+          <span class="glyphicon glyphicon-plus"></span>
+        </a>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h2>{{'START.WORKOUTS'|translate}}</h2>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="searchContent" class="form-control" name="search" placeholder="{{'START.SEARCH'|translate}}" />
+      </div>
+      <a *ngFor="let workout of workouts|search:'name':searchContent|orderBy:'name'" href="#/workout/{{workout.name}}">
+        <div class="workout tile">
+          <div class="title">{{workout.title}}</div>
+          <div class="stats">
+            <span class="duration" title="Duration"><span class="glyphicon glyphicon-time"></span> - {{workout.totalWorkoutDuration()|secondsToTime}}</span>
+            <span class="length pull-right" title="Exercise Count"><span class="glyphicon glyphicon-th-list"></span> - {{workout.exercises.length}}</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  

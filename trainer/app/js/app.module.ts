@@ -3,11 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import { WorkoutBuilderModule } from './WorkoutBuilder/workout-builder.module';
 import { UpgradeHelperService } from './upgrade-helper.services';
+import { StartComponent } from './start/start.component';
+import { FinishComponent } from './finish/finish.component';
 
 @NgModule({
     imports: [BrowserModule,
         UpgradeModule,
         WorkoutBuilderModule],
+    declarations: [StartComponent,
+        FinishComponent],
     providers: [
         UpgradeHelperService.upgradeService('ExercisePlan'),
         UpgradeHelperService.upgradeService('WorkoutPlan'),
