@@ -1,0 +1,22 @@
+{
+	"TOPNAV":{
+		"HISTORY":"Geschichte",
+		"HISTORYTITLE":"Workout Geschichte",
+		"ENGLISH":"Englisch",
+		"GERMAN":"Deutsch"
+	},
+    "START": {
+        "HEADER":"Bereit fï¿½r ein Workout?",
+        "SELECT":"Wï¿½hlen Workout",
+        "WORKOUTS":"Workouts",
+        "SEARCH":"Suchen Sie nach dem Training"
+    },
+	"RUNNER" : {
+		"DESC":"Beschreibung",
+		"STEPS":"Anleitung",
+		"VIDEOS":"Videos",
+		"WORKOUTTIMEREMAINING":"ï¿½brig Workout",
+		"TIMEREMAINING":"verbleibende Zeit",
+		"NEXTUP":"Als nï¿½chstes"
+	}
+}

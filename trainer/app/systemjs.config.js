@@ -24,7 +24,8 @@
         '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
         '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
         'tslib':'npm:tslib/tslib.js',
-  
+        '@ngx-translate/core': 'npm:@ngx-translate/core/bundles/core.umd.js',
+        '@ngx-translate/http-loader': 'npm:@ngx-translate/http-loader/bundles/http-loader.umd.js',
         // other libraries
         'rxjs':                      'npm:rxjs',
       },
