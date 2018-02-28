@@ -4,6 +4,7 @@ import './root.js';
 import './shared/directives.js';
 import './shared/model.js';
 import './shared/services.js';
+import './shared/ngx-translate.filter';
 import './7MinWorkout/services.js';
 import './7MinWorkout/directives.js';
 import './7MinWorkout/filters.js';
@@ -14,10 +15,11 @@ import './WorkoutBuilder/directives.js';
 import './WorkoutBuilder/exercise.js';
 import './WorkoutBuilder/workout.js';
 
-import { downgradeComponent } from '@angular/upgrade/static';
+import { downgradeComponent, downgradeInjectable } from '@angular/upgrade/static';
 import { ExercisesNavComponent } from './WorkoutBuilder/exercise-nav.component';
 import { StartComponent } from './start/start.component';
 import { FinishComponent } from './finish/finish.component';
+import { TranslateService } from '@ngx-translate/core';
 
 
 angular.module('WorkoutBuilder')
@@ -28,3 +30,6 @@ angular.module('app')
 
 angular.module('app')
     .directive('finish', downgradeComponent({ component: FinishComponent }) as angular.IDirectiveFactory);
+
+angular.module('app')
+    .factory('TranslateService', downgradeInjectable(TranslateService));

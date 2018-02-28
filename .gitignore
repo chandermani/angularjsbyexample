@@ -10,3 +10,4 @@
 /trainer/app/js/shared/search.pipe.js
 /trainer/app/js/shared/seconds-to-time.pipe.js
 /trainer/app/js/shared/shared.module.js
+/trainer/app/js/shared/ngx-translate.filter.js

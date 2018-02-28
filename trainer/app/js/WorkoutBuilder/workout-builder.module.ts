@@ -4,6 +4,7 @@ import { ExercisesNavComponent } from './exercise-nav.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ExercisesNavComponent]
+  declarations: [ExercisesNavComponent],
+  entryComponents: [ExercisesNavComponent]
 })
 export class WorkoutBuilderModule { }

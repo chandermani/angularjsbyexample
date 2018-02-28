@@ -1,5 +1,5 @@
 angular.module('app').
-config(['$routeProvider', '$sceDelegateProvider', 'WorkoutServiceProvider', '$httpProvider', 'ApiKeyAppenderInterceptorProvider', '$translateProvider', '$translatePartialLoaderProvider', function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider, $httpProvider, ApiKeyAppenderInterceptorProvider, $translateProvider, $translatePartialLoaderProvider) {
+config(['$routeProvider', '$sceDelegateProvider', 'WorkoutServiceProvider', '$httpProvider', 'ApiKeyAppenderInterceptorProvider', function ($routeProvider, $sceDelegateProvider, WorkoutServiceProvider, $httpProvider, ApiKeyAppenderInterceptorProvider) {
 
 
     // IMPORTANT: Set the database name and API Key here before running the application
@@ -71,12 +71,4 @@ config(['$routeProvider', '$sceDelegateProvider', 'WorkoutServiceProvider', '$ht
       'self',
       // Allow loading from our assets domain.  Notice the difference between * and **.
       'http://*.youtube.com/**']);
-
-    $translatePartialLoaderProvider.addPart('workoutrunner');
-    $translatePartialLoaderProvider.addPart('workoutbuilder');
-    $translateProvider.useLoader('$translatePartialLoader', {
-        urlTemplate: '/i18n/{lang}/{part}.json'
-    });
-
-    $translateProvider.preferredLanguage('en');
 }]);
