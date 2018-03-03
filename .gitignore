@@ -11,3 +11,9 @@
 /trainer/app/js/shared/seconds-to-time.pipe.js
 /trainer/app/js/shared/shared.module.js
 /trainer/app/js/shared/ngx-translate.filter.js
+/trainer/app/js/7MinWorkout/video-player/video-dialog/video-dialog.component.js
+/trainer/app/js/7MinWorkout/video-player/video-player.component.js
+/trainer/app/js/7MinWorkout/workout-runner.module.js
+/trainer/app/js/core/core.module.js
+/trainer/app/js/core/workout-history/workout-history.component.js
+/trainer/app/js/core/header/header.component.js

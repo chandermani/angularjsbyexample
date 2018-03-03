@@ -32,6 +32,7 @@
             </div>
         </div>
     </div>
-    <div id="video-panel" class="col-sm-3" ng-include="'partials/workout/video-panel.html'">
-    </div>
+    <div id="video-panel" class="col-sm-3">
+        <video-player [videos]="currentExercise.details.related.videos" (playback-started)="pauseWorkout()" (playback-ended)="resumeWorkout()"></video-player>
+      </div>
 </div>

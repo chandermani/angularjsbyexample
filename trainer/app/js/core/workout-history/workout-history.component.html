@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row"><h3>Workout History</h3></div>
+    <div class="row">
+        <label>Workouts</label>
+        <label>Filter Workouts: </label>
+        <div class="btn-group">
+            <label><input type="radio" name="searchFilter" value="" (change)="completed = null" checked="">All </label>
+            <label><input type="radio" name="searchFilter" value="true" (change)="completed = $event.target.value=='true'">Completed </label>
+            <label><input type="radio" name="searchFilter" value="false" (change)="completed = $event.target.value=='true'">Incomplete </label>
+        </div>
+    </div>
+    <div class="row table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Started</th>
+                    <th>Ended</th>
+                    <th>Last Exercise</th>
+                    <th>Exercises Done</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr *ngFor="let historyItem of history|search:'completed':completed|orderBy:'-startedOn'; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{historyItem.startedOn | date:'short'}}</td>
+                    <td>{{historyItem.endedOn | date:'short'}}</td>
+                    <td>{{historyItem.lastExercise}}</td>
+                    <td>{{historyItem.exercisesDone}}</td>
+                    <td>{{historyItem.completed ? "Yes" : "No"}}</td>
+                </tr>
+                <tr *ngIf="history.length==0" class="warning">
+                    <td colspan="6">No Workout History Found.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary pull-right" (click)="goBack()">Back</button>
+    </div>
+</div>

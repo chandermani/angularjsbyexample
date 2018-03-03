@@ -26,6 +26,8 @@
         'tslib':'npm:tslib/tslib.js',
         '@ngx-translate/core': 'npm:@ngx-translate/core/bundles/core.umd.js',
         '@ngx-translate/http-loader': 'npm:@ngx-translate/http-loader/bundles/http-loader.umd.js',
+        'ngx-modialog': 'npm:ngx-modialog/bundle/ngx-modialog.umd.js',
+        'ngx-modialog/plugins/bootstrap': 'npm:ngx-modialog/plugins/bootstrap/bundle/ngx-modialog-bootstrap.umd.js',
         // other libraries
         'rxjs':                      'npm:rxjs',
       },

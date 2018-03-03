@@ -12,8 +12,13 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedModule } from './shared/shared.module';
 
+import { ModalModule } from 'ngx-modialog';
+import { BootstrapModalModule } from 'ngx-modialog/plugins/bootstrap';
+import { WorkoutRunnerModule } from './7MinWorkout/workout-runner.module';
+import { CoreModule } from './core/core.module';
+
 export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http,'/i18n/');
+    return new TranslateHttpLoader(http, '/i18n/');
 }
 
 @NgModule({
@@ -29,7 +34,11 @@ export function HttpLoaderFactory(http: HttpClient) {
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        ModalModule.forRoot(),
+        BootstrapModalModule,
+        WorkoutRunnerModule,
+        CoreModule
     ],
     declarations: [StartComponent,
         FinishComponent],

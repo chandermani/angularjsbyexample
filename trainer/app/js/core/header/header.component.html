@@ -1,0 +1,26 @@
+<div class="navbar navbar-default navbar-fixed-top top-navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand">Personal Trainer</div>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a (click)="setLanguage('en')" title="{{'TOPNAV.ENGLISH'|translate}}" [ngClass]="{'btn-primary':language==='en'}">
+          <img src="img/flag-usa.gif" alt="English" />
+        </a>
+      </li>
+      <li>
+        <a (click)="setLanguage('de')" title="{{'TOPNAV.GERMAN'|translate}}" [ngClass]="{'btn-primary':language==='de'}">
+          <img src="img/flag-germany.gif" alt="German" />
+        </a>
+      </li>
+      <li>
+        <a (click)="showWorkoutHistory()" title="{{'TOPNAV.HISTORYTITLE'|translate}}">{{'TOPNAV.HISTORY'|translate}}</a>
+      </li>
+    </ul>
+  </div>
+  <div id="top-nav-container" class="second-top-nav">
+    <div id="top-nav" ng-include="currentRoute.topNav">
+    </div>
+  </div>
+</div>
