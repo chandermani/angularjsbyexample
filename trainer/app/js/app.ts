@@ -6,7 +6,6 @@ import './shared/model.js';
 import './shared/services.js';
 import './shared/ngx-translate.filter';
 import './7MinWorkout/services.js';
-import './7MinWorkout/directives.js';
 import './7MinWorkout/filters.js';
 import './7MinWorkout/workout.js';
 import './WorkoutBuilder/services.js';
@@ -21,6 +20,8 @@ import { FinishComponent } from './finish/finish.component';
 import { TranslateService } from '@ngx-translate/core';
 import { HeaderComponent } from './core/header/header.component.js';
 import { VideoPlayerComponent } from './7MinWorkout/video-player/video-player.component.js';
+import { DescriptionPanelComponent } from './7MinWorkout/description-panel/description-panel.component.js';
+import { WorkoutAudioComponent } from './7MinWorkout/workout-audio/workout-audio.component.js';
 
 
 angular.module('WorkoutBuilder')
@@ -35,8 +36,14 @@ angular.module('app')
 angular.module('app')
     .directive('header', downgradeComponent({ component: HeaderComponent }) as angular.IDirectiveFactory);
 
-angular.module('app')
+angular.module('7minWorkout')
     .directive('videoPlayer', downgradeComponent({ component: VideoPlayerComponent }) as angular.IDirectiveFactory);
+
+angular.module('7minWorkout')
+    .directive('descriptionPanel', downgradeComponent({ component: DescriptionPanelComponent }) as angular.IDirectiveFactory);
+
+angular.module('7minWorkout')
+    .directive('workoutAudio', downgradeComponent({ component: WorkoutAudioComponent }) as angular.IDirectiveFactory);
 
 angular.module('app')
     .factory('TranslateService', downgradeInjectable(TranslateService));

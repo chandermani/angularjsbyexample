@@ -6,6 +6,8 @@ import { SharedModule } from '../shared/shared.module'
 
 import { VideoPlayerComponent } from './video-player/video-player.component';
 import { VideoDialogComponent } from './video-player/video-dialog/video-dialog.component';
+import { DescriptionPanelComponent } from './description-panel/description-panel.component';
+import { WorkoutAudioComponent } from './workout-audio/workout-audio.component';
 
 @NgModule({
     imports: [
@@ -14,11 +16,15 @@ import { VideoDialogComponent } from './video-player/video-dialog/video-dialog.c
         SharedModule],
     declarations: [
         VideoPlayerComponent,
-        VideoDialogComponent
+        VideoDialogComponent,   
+        DescriptionPanelComponent,
+        WorkoutAudioComponent
     ],
     entryComponents: [
         VideoPlayerComponent,
-        VideoDialogComponent
+        VideoDialogComponent,
+        DescriptionPanelComponent,
+        WorkoutAudioComponent
     ]
 })
 export class WorkoutRunnerModule { }
