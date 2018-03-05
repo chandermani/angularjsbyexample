@@ -18,8 +18,8 @@ angular.module('7minWorkout')
             localStorageService.add(storageKey, workoutHistory);
         };
 
-        $rootScope.$on(appEvents.workout.exerciseStarted, function (e, args) {
-            currentWorkoutLog.lastExercise = args.title;
+        ervice.exerciseComplete=function(exercise) {
+            currentWorkoutLog.lastExercise = exercise.title;
             ++currentWorkoutLog.exercisesDone;
             localStorageService.add(storageKey, workoutHistory);
         });

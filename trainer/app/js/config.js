@@ -10,7 +10,7 @@ config(['$routeProvider', '$sceDelegateProvider', 'WorkoutServiceProvider', '$ht
     WorkoutServiceProvider.configure("angularjsbyexample");
 
     $routeProvider.when('/start', { template: '<start></start>'});
-    $routeProvider.when('/workout/:id', { templateUrl: 'partials/workout/workout.html', controller: 'WorkoutController' });
+    $routeProvider.when('/workout/:id', { template: '<workout-runner></workout-runner>' });
     $routeProvider.when('/finish', { template: '<finish></finish>' });
 
     $routeProvider.when('/builder', {

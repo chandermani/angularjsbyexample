@@ -8,6 +8,7 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
 import { VideoDialogComponent } from './video-player/video-dialog/video-dialog.component';
 import { DescriptionPanelComponent } from './description-panel/description-panel.component';
 import { WorkoutAudioComponent } from './workout-audio/workout-audio.component';
+import { WorkoutRunnerComponent } from './workout-runner.component';
 
 @NgModule({
     imports: [
@@ -18,13 +19,15 @@ import { WorkoutAudioComponent } from './workout-audio/workout-audio.component';
         VideoPlayerComponent,
         VideoDialogComponent,   
         DescriptionPanelComponent,
-        WorkoutAudioComponent
+        WorkoutAudioComponent,
+        WorkoutRunnerComponent
     ],
     entryComponents: [
         VideoPlayerComponent,
         VideoDialogComponent,
         DescriptionPanelComponent,
-        WorkoutAudioComponent
+        WorkoutAudioComponent,
+        WorkoutRunnerComponent
     ]
 })
 export class WorkoutRunnerModule { }
