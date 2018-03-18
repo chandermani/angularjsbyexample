@@ -1,6 +1,3 @@
-'use strict';
-
-/* Services */
 angular.module('7minWorkout')
     .factory('workoutHistoryTracker', ['$rootScope', 'appEvents', 'localStorageService', function ($rootScope, appEvents, localStorageService) {
         var maxHistoryItems = 20   //We only track for last 20 exercise
@@ -18,11 +15,11 @@ angular.module('7minWorkout')
             localStorageService.add(storageKey, workoutHistory);
         };
 
-        ervice.exerciseComplete=function(exercise) {
+        service.exerciseComplete=function(exercise) {
             currentWorkoutLog.lastExercise = exercise.title;
             ++currentWorkoutLog.exercisesDone;
             localStorageService.add(storageKey, workoutHistory);
-        });
+        };
 
         $rootScope.$on("$routeChangeSuccess", function (e, args) {
             if (currentWorkoutLog) {

@@ -30,6 +30,6 @@
         </div>
     </div>
     <div id="video-panel" class="col-sm-3">
-      <video-panel [videos]="currentExercise.details.related.videos" (playbackStarted)="pauseWorkout()" (playbackEnded)="resumeWorkout()"></video-panel>
+        <video-player [videos]="currentExercise.details.related.videos" (playback-started)="pauseWorkout()" (playback-ended)="resumeWorkout()"></video-player>
     </div>
 </div>

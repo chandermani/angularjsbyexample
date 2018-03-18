@@ -4,6 +4,7 @@ import './root.js';
 import './shared/directives.js';
 import './shared/model.js';
 import './shared/services.js';
+import './7MinWorkout/services.js';
 import './shared/ngx-translate.filter';
 import './7MinWorkout/filters.js';
 import './WorkoutBuilder/services.js';

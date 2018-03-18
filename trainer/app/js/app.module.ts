@@ -52,7 +52,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         UpgradeHelperService.upgradeService('ExerciseBuilderService'),
         UpgradeHelperService.upgradeService('ApiKeyAppenderInterceptor'),
         UpgradeHelperService.upgradeService('appEvents'),
-        UpgradeHelperService.upgradeService('workoutHistoryTracker')
+        UpgradeHelperService.upgradeService('workoutHistoryTracker'),
+        UpgradeHelperService.upgradeService('$routeParams'),
+        UpgradeHelperService.upgradeService('$location')
     ]
 })
 export class AppModule {

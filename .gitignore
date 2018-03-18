@@ -17,3 +17,5 @@
 /trainer/app/js/core/core.module.js
 /trainer/app/js/core/workout-history/workout-history.component.js
 /trainer/app/js/core/header/header.component.js
+/trainer/app/js/7MinWorkout/workout-runner.component.js
+/trainer/app/js/shared/model.js
