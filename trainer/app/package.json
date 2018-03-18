@@ -19,8 +19,7 @@
     "http-server": "0.9.0",
     "jquery": "1.11.1",
     "systemjs": "0.19.47",
-    "traceur": "0.0.104"
-
+    "traceur": "0.0.104",
     "@angular/animations": "~5.0.0",
     "@angular/common": "~5.0.0",
     "@angular/compiler": "~5.0.0",
